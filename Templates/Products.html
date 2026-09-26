@@ -1,0 +1,2010 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- =====================================================
+             PAGE HEADER
+        ====================================================== -->
+
+        <div class="product-heading">
+
+            <div>
+                <span class="product-eyebrow">MENU MANAGEMENT</span>
+
+                <h1 class="product-title">
+                    Products
+                </h1>
+
+                <p class="product-subtitle">
+                    Manage your restaurant menu, prices and product availability.
+                </p>
+            </div>
+
+            <div class="product-actions">
+
+                <a href="/add-products" class="product-add-btn">
+                    <i class="bi bi-plus-lg"></i>
+                    Add Product
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCT STATS
+        ====================================================== -->
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="product-stat-card">
+
+                    <div>
+                        <div class="product-stat-label">
+                            Total Products
+                        </div>
+
+                        <div class="product-stat-number">
+                            24
+                        </div>
+
+                        <div class="product-stat-info">
+                            <i class="bi bi-arrow-up"></i>
+                            3 added this month
+                        </div>
+                    </div>
+
+                    <div class="product-stat-icon">
+                        <i class="bi bi-grid"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="product-stat-card">
+
+                    <div>
+                        <div class="product-stat-label">
+                            Available
+                        </div>
+
+                        <div class="product-stat-number">
+                            21
+                        </div>
+
+                        <div class="product-stat-info success">
+                            <i class="bi bi-check-circle"></i>
+                            Currently available
+                        </div>
+                    </div>
+
+                    <div class="product-stat-icon green">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="product-stat-card">
+
+                    <div>
+                        <div class="product-stat-label">
+                            Low Stock
+                        </div>
+
+                        <div class="product-stat-number">
+                            3
+                        </div>
+
+                        <div class="product-stat-info warning">
+                            <i class="bi bi-exclamation-circle"></i>
+                            Needs attention
+                        </div>
+                    </div>
+
+                    <div class="product-stat-icon warning">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="product-stat-card">
+
+                    <div>
+                        <div class="product-stat-label">
+                            Categories
+                        </div>
+
+                        <div class="product-stat-number">
+                            7
+                        </div>
+
+                        <div class="product-stat-info">
+                            <i class="bi bi-tags"></i>
+                            Menu categories
+                        </div>
+                    </div>
+
+                    <div class="product-stat-icon">
+                        <i class="bi bi-tags"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             FILTERS
+        ====================================================== -->
+
+        <div class="product-filter-card">
+
+            <div class="product-filter-row">
+
+                <div class="product-search">
+
+                    <label>
+                        Search Products
+                    </label>
+
+                    <div class="product-input-group">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            id="productSearch"
+                            placeholder="Search product name..."
+                            onkeyup="filterProducts()"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-filter">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select id="categoryFilter" onchange="filterProducts()">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="biryani">
+                            Biryani
+                        </option>
+
+                        <option value="burgers">
+                            Burgers
+                        </option>
+
+                        <option value="karahi">
+                            Karahi
+                        </option>
+
+                        <option value="bbq">
+                            BBQ
+                        </option>
+
+                        <option value="pasta">
+                            Pasta
+                        </option>
+
+                        <option value="sides">
+                            Sides
+                        </option>
+
+                        <option value="beverages">
+                            Beverages
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="product-filter">
+
+                    <label>
+                        Availability
+                    </label>
+
+                    <select id="availabilityFilter" onchange="filterProducts()">
+
+                        <option value="all">
+                            All Products
+                        </option>
+
+                        <option value="available">
+                            Available
+                        </option>
+
+                        <option value="unavailable">
+                            Unavailable
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="product-reset-btn"
+                    onclick="resetProductFilters()"
+                >
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Reset
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCTS HEADER
+        ====================================================== -->
+
+        <div class="products-list-header">
+
+            <div>
+                <h5>
+                    Restaurant Menu
+                </h5>
+
+                <p>
+                    24 products available in your menu
+                </p>
+            </div>
+
+            <div class="product-view-buttons">
+
+                <button
+                    class="product-view-btn active"
+                    onclick="changeProductView('grid', this)"
+                >
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </button>
+
+                <button
+                    class="product-view-btn"
+                    onclick="changeProductView('list', this)"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCT GRID
+        ====================================================== -->
+
+        <div class="row g-4" id="productsGrid">
+
+
+            <!-- Chicken Biryani -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="chicken biryani"
+                data-category="biryani"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="{{ url_for('static', filename='images/FOOD/Biryani.jfif') }}"
+                            alt="Chicken Biryani"
+                        >
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Chicken Biryani')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Chicken Biryani')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Biryani
+                        </div>
+
+                        <h5>
+                            Chicken Biryani
+                        </h5>
+
+                        <p>
+                            Fragrant basmati rice with tender chicken,
+                            spices and traditional biryani masala.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 450
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                42 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Classic Burger -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="classic burger"
+                data-category="burgers"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="{{ url_for('static', filename='images/FOOD/Burger.jfif') }}"
+                            alt="Classic Burger"
+                        >
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Classic Burger')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Classic Burger')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Burgers
+                        </div>
+
+                        <h5>
+                            Classic Burger
+                        </h5>
+
+                        <p>
+                            Juicy beef patty with lettuce, tomato,
+                            cheese and house burger sauce.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 550
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                31 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Creamy Pasta -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="creamy pasta"
+                data-category="pasta"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="{{ url_for('static', filename='images/FOOD/Pasta.jfif') }}"
+                            alt="Creamy Pasta"
+                        >
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Creamy Pasta')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Creamy Pasta')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Pasta
+                        </div>
+
+                        <h5>
+                            Creamy Pasta
+                        </h5>
+
+                        <p>
+                            Creamy white sauce pasta with herbs,
+                            parmesan and grilled chicken.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 620
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                24 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chicken Karahi -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="chicken karahi"
+                data-category="karahi"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper product-placeholder-image">
+
+                        <div>
+                            <i class="bi bi-egg-fried"></i>
+                            <span>Chicken Karahi</span>
+                        </div>
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Chicken Karahi')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Chicken Karahi')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Karahi
+                        </div>
+
+                        <h5>
+                            Chicken Karahi
+                        </h5>
+
+                        <p>
+                            Traditional wok-cooked chicken with tomatoes,
+                            green chillies and fresh ginger.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 1,200
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                19 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chicken Tikka -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="chicken tikka"
+                data-category="bbq"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper product-placeholder-image">
+
+                        <div>
+                            <i class="bi bi-fire"></i>
+                            <span>Chicken Tikka</span>
+                        </div>
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Chicken Tikka')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Chicken Tikka')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            BBQ
+                        </div>
+
+                        <h5>
+                            Chicken Tikka
+                        </h5>
+
+                        <p>
+                            Charcoal grilled chicken marinated in
+                            traditional tikka spices.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 650
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                17 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- French Fries -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="french fries"
+                data-category="sides"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper product-placeholder-image">
+
+                        <div>
+                            <i class="bi bi-box"></i>
+                            <span>French Fries</span>
+                        </div>
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('French Fries')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('French Fries')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Sides
+                        </div>
+
+                        <h5>
+                            French Fries
+                        </h5>
+
+                        <p>
+                            Crispy golden fries served with
+                            our signature house dip.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 300
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                15 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pizza -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="chicken pizza"
+                data-category="burgers"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper product-placeholder-image">
+
+                        <div>
+                            <i class="bi bi-pie-chart"></i>
+                            <span>Chicken Pizza</span>
+                        </div>
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Chicken Pizza')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Chicken Pizza')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Pizza
+                        </div>
+
+                        <h5>
+                            Chicken Pizza
+                        </h5>
+
+                        <p>
+                            Hand-stretched pizza topped with chicken,
+                            mozzarella and special house sauce.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 950
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                13 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cold Drink -->
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 product-item"
+                data-name="cold drink"
+                data-category="beverages"
+                data-availability="available"
+            >
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper product-placeholder-image">
+
+                        <div>
+                            <i class="bi bi-cup-straw"></i>
+                            <span>Cold Drink</span>
+                        </div>
+
+                        <span class="product-available">
+                            Available
+                        </span>
+
+                        <div class="product-card-menu">
+
+                            <button onclick="editProduct('Cold Drink')">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button onclick="deleteProduct('Cold Drink')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-card-body">
+
+                        <div class="product-category">
+                            Beverages
+                        </div>
+
+                        <h5>
+                            Cold Drink
+                        </h5>
+
+                        <p>
+                            Chilled soft drink served with ice.
+                        </p>
+
+                        <div class="product-card-bottom">
+
+                            <strong>
+                                Rs. 150
+                            </strong>
+
+                            <span>
+                                <i class="bi bi-bag"></i>
+                                11 orders
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- No Results -->
+
+        <div id="noProducts" class="no-products d-none">
+
+            <i class="bi bi-search"></i>
+
+            <h5>
+                No products found
+            </h5>
+
+            <p>
+                Try changing your search or filters.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   ADMIN ZQ — PREMIUM PRODUCTS PAGE
+   Content styling only
+========================================================= */
+
+.product-heading,
+.product-stat-card,
+.product-filter-card,
+.products-list-header,
+.product-card,
+.no-products {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.product-heading {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+    padding: 4px 2px 0;
+}
+
+.product-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 64px;
+    height: 3px;
+    border-radius: 99px;
+    background: linear-gradient(
+        90deg,
+        #b87922,
+        #d8a052,
+        transparent
+    );
+}
+
+.product-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ad711f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.product-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: #c4872f;
+}
+
+.product-title {
+    color: #24211d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 3vw, 42px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    margin: 0;
+}
+
+.product-subtitle {
+    color: #777168;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 8px 0 0;
+    max-width: 600px;
+}
+
+.product-actions {
+    flex-shrink: 0;
+}
+
+.product-add-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 45px;
+    padding: 0 19px;
+    border: 1px solid #aa6d1d;
+    border-radius: 11px;
+    background: linear-gradient(
+        135deg,
+        #c98b35 0%,
+        #b87922 55%,
+        #9c641b 100%
+    );
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 750;
+    letter-spacing: .1px;
+    box-shadow:
+        0 9px 22px rgba(166, 108, 30, .18),
+        inset 0 1px 0 rgba(255,255,255,.22);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+.product-add-btn i {
+    font-size: 15px;
+}
+
+.product-add-btn:hover {
+    color: #fff !important;
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+        0 13px 28px rgba(166, 108, 30, .25),
+        inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+.product-add-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PRODUCT STAT CARDS
+========================================================= */
+
+.product-stat-card {
+    position: relative;
+    min-height: 132px;
+    padding: 21px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(250,247,242,.96)
+        );
+
+    border: 1px solid #e7e0d6;
+    border-radius: 17px;
+
+    box-shadow:
+        0 7px 25px rgba(49, 42, 32, .055),
+        0 1px 2px rgba(49, 42, 32, .035);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.product-stat-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -38px;
+    top: -42px;
+    border-radius: 50%;
+    background: rgba(196, 135, 47, .055);
+    pointer-events: none;
+}
+
+.product-stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #dcc8a9;
+    box-shadow:
+        0 15px 35px rgba(49, 42, 32, .09),
+        0 2px 4px rgba(49, 42, 32, .035);
+}
+
+.product-stat-label {
+    color: #81796f;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.product-stat-number {
+    color: #25221e;
+    font-size: 29px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.product-stat-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #8b8378;
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+.product-stat-info i {
+    color: #b87922;
+    font-size: 11px;
+}
+
+.product-stat-info.success,
+.product-stat-info.success i {
+    color: #3f8a61;
+}
+
+.product-stat-info.warning,
+.product-stat-info.warning i {
+    color: #bd7c24;
+}
+
+.product-stat-icon {
+    position: relative;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #b87922;
+    background: linear-gradient(
+        145deg,
+        #fff8eb,
+        #f9edd9
+    );
+
+    border: 1px solid #ecd9ba;
+    border-radius: 14px;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 7px 15px rgba(164, 108, 29, .08),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.product-stat-icon.green {
+    color: #3e8b60;
+    background: linear-gradient(
+        145deg,
+        #eef9f2,
+        #e2f2e8
+    );
+    border-color: #d1e8d9;
+}
+
+.product-stat-icon.warning {
+    color: #bb7923;
+    background: linear-gradient(
+        145deg,
+        #fff5e5,
+        #f9ead1
+    );
+    border-color: #ead7b8;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.product-filter-card {
+    position: relative;
+    padding: 21px;
+    margin-bottom: 30px;
+
+    background: rgba(255,255,255,.88);
+    border: 1px solid #e6dfd5;
+    border-radius: 17px;
+
+    box-shadow:
+        0 8px 28px rgba(48, 42, 34, .055),
+        0 1px 2px rgba(48, 42, 34, .03);
+}
+
+.product-filter-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.product-search {
+    flex: 1;
+    min-width: 180px;
+}
+
+.product-filter {
+    width: 190px;
+    flex-shrink: 0;
+}
+
+.product-filter label,
+.product-search label {
+    display: block;
+    color: #4f4942;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .45px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.product-input-group {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 13px;
+
+    background: #fbfaf8;
+    border: 1px solid #ddd6cc;
+    border-radius: 11px;
+
+    box-shadow:
+        inset 0 1px 2px rgba(50,40,30,.025);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.product-input-group:focus-within {
+    background: #fff;
+    border-color: #c4872f;
+    box-shadow:
+        0 0 0 4px rgba(196,135,47,.10);
+}
+
+.product-input-group i {
+    color: #b87922;
+    font-size: 14px;
+}
+
+.product-input-group input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #292620;
+    font-size: 12px;
+}
+
+.product-input-group input::placeholder {
+    color: #a39b91;
+}
+
+.product-filter select {
+    width: 100%;
+    height: 44px;
+
+    appearance: auto;
+
+    background-color: #fbfaf8;
+    color: #514b44;
+
+    border: 1px solid #ddd6cc;
+    border-radius: 11px;
+
+    padding: 0 12px;
+    outline: none;
+
+    font-size: 12px;
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.product-filter select:hover {
+    border-color: #cfc4b5;
+    background-color: #fff;
+}
+
+.product-filter select:focus {
+    border-color: #c4872f;
+    background-color: #fff;
+    box-shadow:
+        0 0 0 4px rgba(196,135,47,.10);
+}
+
+.product-filter select option {
+    background: #fff;
+    color: #292620;
+}
+
+.product-reset-btn {
+    height: 44px;
+    padding: 0 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: #fff;
+    color: #746d64;
+
+    border: 1px solid #dcd4ca;
+    border-radius: 11px;
+
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.product-reset-btn i {
+    font-size: 13px;
+}
+
+.product-reset-btn:hover {
+    color: #8f5e18;
+    background: #fff8eb;
+    border-color: #d5b27d;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PRODUCTS LIST HEADER
+========================================================= */
+
+.products-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    padding: 0 2px;
+}
+
+.products-list-header h5 {
+    position: relative;
+    color: #25221e;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -.2px;
+    margin: 0;
+}
+
+.products-list-header p {
+    color: #8a8278;
+    font-size: 11px;
+    margin: 5px 0 0;
+}
+
+.product-view-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px;
+
+    background: #fff;
+    border: 1px solid #e2dbd1;
+    border-radius: 11px;
+
+    box-shadow: 0 3px 10px rgba(45,38,30,.04);
+}
+
+.product-view-btn {
+    width: 34px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    color: #989087;
+
+    border: 0;
+    border-radius: 7px;
+
+    font-size: 14px;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.product-view-btn:hover {
+    color: #a96e1e;
+    background: #fff7e9;
+}
+
+.product-view-btn.active {
+    color: #9b641b;
+    background: #fff2d9;
+    box-shadow: inset 0 0 0 1px #eed9b6;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    background: #fff;
+    border: 1px solid #e5ded4;
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 24px rgba(45, 38, 30, .055),
+        0 1px 2px rgba(45, 38, 30, .035);
+
+    transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #d9c4a3;
+
+    box-shadow:
+        0 18px 38px rgba(45, 38, 30, .11),
+        0 4px 8px rgba(45, 38, 30, .035);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image-wrapper {
+    position: relative;
+    height: 205px;
+    overflow: hidden;
+    background: #eee8df;
+}
+
+.product-image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02) 0%,
+            transparent 55%,
+            rgba(0,0,0,.16) 100%
+        );
+
+    pointer-events: none;
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        filter .35s ease;
+}
+
+.product-card:hover .product-image-wrapper img {
+    transform: scale(1.07);
+    filter: saturate(1.04);
+}
+
+
+/* =========================================================
+   AVAILABILITY BADGE
+========================================================= */
+
+.product-available {
+    position: absolute;
+    z-index: 3;
+    top: 12px;
+    left: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 6px 10px;
+
+    background: rgba(255,255,255,.92);
+    color: #347651;
+
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 99px;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.10),
+        0 1px 2px rgba(0,0,0,.06);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.product-available::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #43a66b;
+    box-shadow: 0 0 0 3px rgba(67,166,107,.12);
+}
+
+
+/* =========================================================
+   CARD ACTION BUTTONS
+========================================================= */
+
+.product-card-menu {
+    position: absolute;
+    z-index: 4;
+    right: 11px;
+    top: 11px;
+
+    display: flex;
+    gap: 6px;
+}
+
+.product-card-menu button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(30,27,23,.78);
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 9px;
+
+    backdrop-filter: blur(8px);
+
+    font-size: 12px;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.12);
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.product-card-menu button:hover {
+    color: #fff;
+    background: #b87922;
+    border-color: #c98a38;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PRODUCT BODY
+========================================================= */
+
+.product-card-body {
+    padding: 18px 18px 17px;
+}
+
+.product-category {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 23px;
+    padding: 0 9px;
+
+    color: #9a641c;
+    background: #fff5e3;
+
+    border: 1px solid #f0dfc2;
+    border-radius: 99px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+}
+
+.product-card-body h5 {
+    color: #28241f;
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -.25px;
+    margin: 0 0 7px;
+}
+
+.product-card-body p {
+    height: 40px;
+    overflow: hidden;
+
+    color: #817970;
+    font-size: 11px;
+    line-height: 1.7;
+
+    margin: 0 0 16px;
+}
+
+
+/* =========================================================
+   PRICE / ORDERS
+========================================================= */
+
+.product-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding-top: 13px;
+    border-top: 1px solid #eee8e0;
+}
+
+.product-card-bottom strong {
+    color: #a96c1c;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 850;
+    letter-spacing: -.25px;
+}
+
+.product-card-bottom span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    color: #8b8379;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.product-card-bottom span i {
+    color: #aa9b8a;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PLACEHOLDER PRODUCT IMAGE
+========================================================= */
+
+.product-placeholder-image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(196,135,47,.18),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            #eee4d4,
+            #e5d8c5
+        );
+}
+
+.product-placeholder-image::before {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    border: 1px solid rgba(184,121,34,.13);
+    border-radius: 50%;
+}
+
+.product-placeholder-image::after {
+    background:
+        linear-gradient(
+            180deg,
+            transparent 35%,
+            rgba(55,42,27,.12) 100%
+        );
+}
+
+.product-placeholder-image > div {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    color: #8a7965;
+}
+
+.product-placeholder-image i {
+    color: #b87922;
+    font-size: 38px;
+
+    filter:
+        drop-shadow(0 7px 9px rgba(125,81,22,.12));
+}
+
+.product-placeholder-image span {
+    color: #766957;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NO PRODUCTS
+========================================================= */
+
+.no-products {
+    padding: 75px 20px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #faf7f2
+        );
+
+    border: 1px dashed #d9d0c5;
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(45,38,30,.035);
+}
+
+.no-products i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    color: #b87922;
+    background: #fff5e4;
+
+    border: 1px solid #eddabd;
+    border-radius: 18px;
+
+    font-size: 25px;
+}
+
+.no-products h5 {
+    color: #2a2621;
+    font-size: 17px;
+    font-weight: 800;
+    margin: 14px 0 5px;
+}
+
+.no-products p {
+    color: #898178;
+    font-size: 12px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   BOOTSTRAP ROW POLISH
+========================================================= */
+
+#productsGrid > .product-item {
+    display: flex;
+}
+
+#productsGrid > .product-item .product-card {
+    width: 100%;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.product-add-btn:focus-visible,
+.product-reset-btn:focus-visible,
+.product-view-btn:focus-visible,
+.product-card-menu button:focus-visible,
+.product-filter select:focus-visible,
+.product-input-group input:focus-visible {
+    outline: 3px solid rgba(196,135,47,.20);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .product-filter-row {
+        flex-wrap: wrap;
+    }
+
+    .product-search {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .product-filter {
+        flex: 1 1 0;
+        width: auto;
+    }
+
+    .product-reset-btn {
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .product-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .product-actions {
+        width: 100%;
+    }
+
+    .product-add-btn {
+        width: 100%;
+    }
+
+    .product-title {
+        font-size: 32px;
+    }
+
+    .product-subtitle {
+        font-size: 12px;
+    }
+
+    .product-filter-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .product-search,
+    .product-filter {
+        width: 100%;
+        flex: none;
+    }
+
+    .product-reset-btn {
+        width: 100%;
+    }
+
+    .products-list-header {
+        align-items: flex-end;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .product-heading {
+        margin-bottom: 25px;
+    }
+
+    .product-title {
+        font-size: 29px;
+    }
+
+    .product-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .product-stat-card {
+        min-height: 118px;
+        padding: 17px;
+        border-radius: 15px;
+    }
+
+    .product-stat-number {
+        font-size: 25px;
+    }
+
+    .product-stat-icon {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .product-filter-card {
+        padding: 16px;
+        border-radius: 15px;
+    }
+
+    .products-list-header {
+        align-items: flex-start;
+    }
+
+    .products-list-header h5 {
+        font-size: 16px;
+    }
+
+    .products-list-header p {
+        font-size: 10px;
+    }
+
+    .product-view-buttons {
+        flex-shrink: 0;
+    }
+
+    .product-image-wrapper {
+        height: 195px;
+    }
+
+    .product-card-body {
+        padding: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .product-card,
+    .product-stat-card,
+    .product-add-btn,
+    .product-card img,
+    .product-card-menu button,
+    .product-reset-btn,
+    .product-view-btn {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}

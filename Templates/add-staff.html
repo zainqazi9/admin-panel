@@ -1,0 +1,1651 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- PAGE HEADER -->
+
+        <div class="add-staff-heading">
+
+            <div>
+
+                <span class="add-staff-eyebrow">
+                    STAFF MANAGEMENT
+                </span>
+
+                <h1 class="add-staff-title">
+                    Add Staff
+                </h1>
+
+                <p class="add-staff-subtitle">
+                    Create a staff profile and assign their restaurant role.
+                </p>
+
+            </div>
+
+            <a
+                href="/staff"
+                class="back-staff-btn"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Back to Staff
+            </a>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="/add-staff"
+            id="staffForm"
+        >
+
+            <div class="row g-4">
+
+
+                <!-- LEFT CONTENT -->
+
+                <div class="col-xl-8">
+
+
+                    <!-- PERSONAL INFORMATION -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Personal Information
+                                </h5>
+
+                                <p>
+                                    Enter the staff member's basic information.
+                                </p>
+
+                            </div>
+
+                            <div class="staff-section-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    First Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="first_name"
+                                    id="staffFirstName"
+                                    class="staff-input"
+                                    placeholder="e.g. Ahmed"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Last Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="last_name"
+                                    id="staffLastName"
+                                    class="staff-input"
+                                    placeholder="e.g. Raza"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Phone Number
+                                    <span>*</span>
+                                </label>
+
+                                <div class="staff-phone-group">
+
+                                    <span>
+                                        +92
+                                    </span>
+
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        id="staffPhone"
+                                        placeholder="3001234567"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Email Address
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="staff-input"
+                                    placeholder="staff@adminzq.com"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    CNIC
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="cnic"
+                                    class="staff-input"
+                                    placeholder="42101-1234567-1"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Date of Birth
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="date_of_birth"
+                                    class="staff-input"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- JOB INFORMATION -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Job Information
+                                </h5>
+
+                                <p>
+                                    Assign the staff member's role and working schedule.
+                                </p>
+
+                            </div>
+
+                            <div class="staff-section-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Staff Role
+                                    <span>*</span>
+                                </label>
+
+                                <select
+                                    name="role"
+                                    id="staffRoleSelect"
+                                    class="staff-input"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select role
+                                    </option>
+
+                                    <option value="manager">
+                                        Manager
+                                    </option>
+
+                                    <option value="chef">
+                                        Chef
+                                    </option>
+
+                                    <option value="cashier">
+                                        Cashier
+                                    </option>
+
+                                    <option value="waiter">
+                                        Waiter
+                                    </option>
+
+                                    <option value="delivery">
+                                        Delivery Rider
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Department
+                                </label>
+
+                                <select
+                                    name="department"
+                                    class="staff-input"
+                                >
+
+                                    <option value="">
+                                        Select department
+                                    </option>
+
+                                    <option value="management">
+                                        Management
+                                    </option>
+
+                                    <option value="kitchen">
+                                        Kitchen
+                                    </option>
+
+                                    <option value="front_desk">
+                                        Front Desk
+                                    </option>
+
+                                    <option value="service">
+                                        Service
+                                    </option>
+
+                                    <option value="delivery">
+                                        Delivery
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Joining Date
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="joining_date"
+                                    class="staff-input"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Employment Type
+                                </label>
+
+                                <select
+                                    name="employment_type"
+                                    class="staff-input"
+                                >
+
+                                    <option value="full_time">
+                                        Full Time
+                                    </option>
+
+                                    <option value="part_time">
+                                        Part Time
+                                    </option>
+
+                                    <option value="contract">
+                                        Contract
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHIFT -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Shift Schedule
+                                </h5>
+
+                                <p>
+                                    Set the regular working hours for this staff member.
+                                </p>
+
+                            </div>
+
+                            <div class="staff-section-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Shift Start
+                                </label>
+
+                                <input
+                                    type="time"
+                                    name="shift_start"
+                                    class="staff-input"
+                                    value="10:00"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="staff-label">
+                                    Shift End
+                                </label>
+
+                                <input
+                                    type="time"
+                                    name="shift_end"
+                                    class="staff-input"
+                                    value="18:00"
+                                >
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="staff-label">
+                                    Working Days
+                                </label>
+
+                                <div class="working-days">
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="mon"
+                                            checked
+                                        >
+                                        <span>Mon</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="tue"
+                                            checked
+                                        >
+                                        <span>Tue</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="wed"
+                                            checked
+                                        >
+                                        <span>Wed</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="thu"
+                                            checked
+                                        >
+                                        <span>Thu</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="fri"
+                                            checked
+                                        >
+                                        <span>Fri</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="sat"
+                                            checked
+                                        >
+                                        <span>Sat</span>
+                                    </label>
+
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            name="days"
+                                            value="sun"
+                                        >
+                                        <span>Sun</span>
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Address & Notes
+                                </h5>
+
+                                <p>
+                                    Store additional staff information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-12">
+
+                                <label class="staff-label">
+                                    Address
+                                </label>
+
+                                <textarea
+                                    name="address"
+                                    class="staff-textarea"
+                                    rows="3"
+                                    placeholder="House, street, area..."
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="staff-label">
+                                    Internal Notes
+                                </label>
+
+                                <textarea
+                                    name="notes"
+                                    class="staff-textarea"
+                                    rows="3"
+                                    placeholder="Additional information about this staff member..."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT CONTENT -->
+
+                <div class="col-xl-4">
+
+
+                    <!-- STAFF PREVIEW -->
+
+                    <div class="staff-preview-card">
+
+                        <div class="staff-preview-label">
+                            STAFF PREVIEW
+                        </div>
+
+
+                        <div class="staff-preview-avatar">
+
+                            <span id="staffPreviewInitials">
+                                AS
+                            </span>
+
+                        </div>
+
+
+                        <div class="staff-preview-content">
+
+                            <h4 id="staffPreviewName">
+                                New Staff Member
+                            </h4>
+
+                            <p id="staffPreviewRole">
+                                Select a role
+                            </p>
+
+                            <div class="staff-preview-status">
+
+                                <span></span>
+
+                                Active Staff
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="staff-preview-info">
+
+                            <div>
+
+                                <i class="bi bi-telephone"></i>
+
+                                <span id="staffPreviewPhone">
+                                    +92 300 0000000
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="bi bi-briefcase"></i>
+
+                                <span id="staffPreviewDepartment">
+                                    Restaurant Team
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT ACCESS -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Account Access
+                                </h5>
+
+                                <p>
+                                    Set login access for the staff member.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="staff-access-field">
+
+                            <label class="staff-label">
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                name="username"
+                                class="staff-input"
+                                placeholder="e.g. ahmed.raza"
+                            >
+
+                        </div>
+
+
+                        <div class="staff-access-field">
+
+                            <label class="staff-label">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                name="password"
+                                class="staff-input"
+                                placeholder="Create password"
+                            >
+
+                        </div>
+
+
+                        <div class="staff-setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Login Access
+                                </strong>
+
+                                <small>
+                                    Allow this staff member to access the admin panel.
+                                </small>
+
+                            </div>
+
+                            <label class="zq-staff-switch">
+
+                                <input
+                                    type="checkbox"
+                                    name="login_access"
+                                    checked
+                                >
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="add-staff-card">
+
+                        <div class="add-staff-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Staff Status
+                                </h5>
+
+                                <p>
+                                    Control the staff account status.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="staff-setting-row no-border">
+
+                            <div>
+
+                                <strong>
+                                    Active Staff
+                                </strong>
+
+                                <small>
+                                    Staff member can be assigned shifts and orders.
+                                </small>
+
+                            </div>
+
+                            <label class="zq-staff-switch">
+
+                                <input
+                                    type="checkbox"
+                                    name="active"
+                                    checked
+                                >
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="staff-form-actions">
+
+                        <a
+                            href="/staff"
+                            class="cancel-staff-btn"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="save-staff-btn"
+                        >
+                            <i class="bi bi-check2"></i>
+                            Save Staff
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   ADD STAFF — PREMIUM LIGHT LUXURY
+   Page-specific styles only
+========================================================= */
+
+.add-staff-heading,
+.add-staff-card,
+.staff-preview-card,
+.staff-form-actions {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.add-staff-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.add-staff-eyebrow {
+    display: inline-block;
+    color: #a67c3a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1;
+}
+
+.add-staff-title {
+    margin: 8px 0 0;
+    color: #25231f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+}
+
+.add-staff-subtitle {
+    margin: 8px 0 0;
+    color: #777168;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.back-staff-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 15px;
+    color: #5e5952 !important;
+    background: #ffffff;
+    border: 1px solid #ddd7cd;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(54, 45, 35, .04);
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.back-staff-btn i {
+    font-size: 13px;
+}
+
+.back-staff-btn:hover {
+    color: #9b7438 !important;
+    background: #fffdf9;
+    border-color: #cdb98f;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(54, 45, 35, .07);
+}
+
+
+/* =========================================================
+   MAIN CARDS
+========================================================= */
+
+.add-staff-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e8e2d9;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 28px rgba(55, 45, 35, .055);
+    overflow: hidden;
+}
+
+.add-staff-card::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(185, 143, 76, .035);
+    pointer-events: none;
+}
+
+.add-staff-card-header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.add-staff-card-header h5 {
+    margin: 0 0 5px;
+    color: #292722;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.add-staff-card-header p {
+    margin: 0;
+    color: #8a847c;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.staff-section-icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #a47a38;
+    background: #faf6ed;
+    border: 1px solid #eee3cf;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.staff-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #514c45;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.staff-label span {
+    color: #b0823d;
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.staff-input,
+.staff-textarea {
+    width: 100%;
+    color: #2d2a26 !important;
+    background: #fcfbf8 !important;
+    border: 1px solid #ded8cf !important;
+    border-radius: 9px;
+    outline: none;
+    font-size: 13px;
+    box-shadow: none !important;
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.staff-input {
+    height: 43px;
+    padding: 10px 12px;
+}
+
+.staff-textarea {
+    min-height: 88px;
+    padding: 11px 12px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.staff-input:hover,
+.staff-textarea:hover {
+    background: #ffffff !important;
+    border-color: #cbc2b5 !important;
+}
+
+.staff-input:focus,
+.staff-textarea:focus {
+    background: #ffffff !important;
+    border-color: #b18a4e !important;
+    box-shadow: 0 0 0 3px rgba(177, 138, 78, .10) !important;
+}
+
+.staff-input::placeholder,
+.staff-textarea::placeholder {
+    color: #aaa39a !important;
+}
+
+.staff-input option {
+    color: #2d2a26;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   DATE / TIME INPUTS
+========================================================= */
+
+.staff-input[type="date"],
+.staff-input[type="time"] {
+    color-scheme: light;
+}
+
+.staff-input[type="date"]::-webkit-calendar-picker-indicator,
+.staff-input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: .55;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   PHONE GROUP
+========================================================= */
+
+.staff-phone-group {
+    width: 100%;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 9px;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.staff-phone-group:hover {
+    background: #ffffff;
+    border-color: #cbc2b5;
+}
+
+.staff-phone-group:focus-within {
+    background: #ffffff;
+    border-color: #b18a4e;
+    box-shadow: 0 0 0 3px rgba(177, 138, 78, .10);
+}
+
+.staff-phone-group span {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    color: #766f66;
+    background: #f7f3ed;
+    border-right: 1px solid #e2dbd1;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.staff-phone-group input {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    color: #2d2a26;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 13px;
+}
+
+.staff-phone-group input::placeholder {
+    color: #aaa39a;
+}
+
+
+/* =========================================================
+   WORKING DAYS
+========================================================= */
+
+.working-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.working-days label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.working-days input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.working-days span {
+    min-width: 50px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: #70695f;
+    background: #faf9f6;
+    border: 1px solid #ded8cf;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.working-days label:hover span {
+    border-color: #cdbb9c;
+    color: #9a743b;
+}
+
+.working-days input:checked + span {
+    color: #ffffff;
+    background: #a77d3f;
+    border-color: #a77d3f;
+    box-shadow: 0 5px 14px rgba(167, 125, 63, .16);
+}
+
+.working-days input:focus-visible + span {
+    outline: 3px solid rgba(167, 125, 63, .14);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   STAFF PREVIEW
+========================================================= */
+
+.staff-preview-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(186, 145, 78, .10),
+            transparent 34%
+        ),
+        #ffffff;
+    border: 1px solid #e6dfd5;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(55, 45, 35, .06);
+}
+
+.staff-preview-card::after {
+    content: "";
+    position: absolute;
+    left: -45px;
+    bottom: -55px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(167, 125, 63, .035);
+    pointer-events: none;
+}
+
+.staff-preview-label {
+    padding: 19px 20px 0;
+    color: #a47a38;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.staff-preview-avatar {
+    width: 82px;
+    height: 82px;
+    margin: 22px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #9d7437;
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf0,
+            #f4ead8
+        );
+    border: 1px solid #ddc9a5;
+    box-shadow:
+        0 8px 22px rgba(116, 85, 39, .10),
+        inset 0 0 0 6px rgba(255, 255, 255, .65);
+}
+
+.staff-preview-avatar span {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: .3px;
+}
+
+.staff-preview-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 20px 21px;
+    text-align: center;
+}
+
+.staff-preview-content h4 {
+    margin: 0 0 5px;
+    color: #292722;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.staff-preview-content p {
+    margin: 0 0 11px;
+    color: #817a71;
+    font-size: 11px;
+}
+
+.staff-preview-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 9px;
+    color: #39734f;
+    background: #edf7f0;
+    border: 1px solid #d6ebdc;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.staff-preview-status span {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: #4d9a68;
+    box-shadow: 0 0 0 3px rgba(77, 154, 104, .10);
+}
+
+.staff-preview-info {
+    position: relative;
+    z-index: 1;
+    padding: 16px 20px;
+    background: #fbfaf7;
+    border-top: 1px solid #ebe5dc;
+}
+
+.staff-preview-info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.staff-preview-info div:last-child {
+    margin-bottom: 0;
+}
+
+.staff-preview-info i {
+    width: 27px;
+    height: 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 27px;
+    color: #a37a3c;
+    background: #f5efe4;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+.staff-preview-info span {
+    color: #716b63;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   ACCOUNT ACCESS
+========================================================= */
+
+.staff-access-field {
+    margin-bottom: 17px;
+}
+
+.staff-access-field:last-of-type {
+    margin-bottom: 20px;
+}
+
+.staff-setting-row {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid #ebe5dc;
+}
+
+.staff-setting-row.no-border {
+    border-top: none;
+}
+
+.staff-setting-row strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #38342e;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.staff-setting-row small {
+    display: block;
+    max-width: 245px;
+    color: #8a837a;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PREMIUM SWITCH
+========================================================= */
+
+.zq-staff-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex: 0 0 44px;
+    display: block;
+}
+
+.zq-staff-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.zq-staff-switch span {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: #d8d2c9;
+    border: 1px solid #ccc5ba;
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.zq-staff-switch span::before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 2px;
+    left: 2px;
+    background: #ffffff;
+    border: 1px solid #d4cec4;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(42, 35, 28, .14);
+    transition:
+        transform .2s ease,
+        border-color .2s ease;
+}
+
+.zq-staff-switch input:checked + span {
+    background: #ad8448;
+    border-color: #ad8448;
+    box-shadow: 0 4px 12px rgba(173, 132, 72, .18);
+}
+
+.zq-staff-switch input:checked + span::before {
+    transform: translateX(20px);
+    border-color: #ffffff;
+}
+
+.zq-staff-switch input:focus-visible + span {
+    outline: 3px solid rgba(173, 132, 72, .14);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.staff-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.cancel-staff-btn,
+.save-staff-btn {
+    min-height: 44px;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.cancel-staff-btn {
+    color: #625c54 !important;
+    background: #ffffff;
+    border: 1px solid #dcd6cd;
+}
+
+.cancel-staff-btn:hover {
+    color: #292722 !important;
+    background: #faf8f4;
+    border-color: #c9c1b6;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(48, 40, 31, .06);
+}
+
+.save-staff-btn {
+    color: #ffffff;
+    background: #9f7638;
+    border: 1px solid #9f7638;
+    box-shadow: 0 7px 18px rgba(159, 118, 56, .18);
+}
+
+.save-staff-btn:hover {
+    color: #ffffff;
+    background: #b18749;
+    border-color: #b18749;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(159, 118, 56, .22);
+}
+
+.save-staff-btn i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.back-staff-btn:focus-visible,
+.cancel-staff-btn:focus-visible,
+.save-staff-btn:focus-visible {
+    outline: 3px solid rgba(167, 125, 63, .16);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .add-staff-card {
+        padding: 21px;
+    }
+
+    .staff-preview-card {
+        margin-bottom: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .add-staff-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .add-staff-title {
+        font-size: 34px;
+    }
+
+    .back-staff-btn {
+        width: 100%;
+    }
+
+    .add-staff-card {
+        padding: 19px;
+        border-radius: 14px;
+    }
+
+    .add-staff-card-header {
+        margin-bottom: 19px;
+    }
+
+    .staff-preview-card {
+        border-radius: 14px;
+    }
+
+    .staff-form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-staff-btn,
+    .save-staff-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .add-staff-title {
+        font-size: 30px;
+    }
+
+    .add-staff-subtitle {
+        font-size: 12px;
+    }
+
+    .add-staff-card {
+        padding: 16px;
+        margin-bottom: 14px;
+    }
+
+    .add-staff-card-header h5 {
+        font-size: 15px;
+    }
+
+    .add-staff-card-header p {
+        font-size: 10px;
+    }
+
+    .staff-section-icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        font-size: 14px;
+    }
+
+    .working-days {
+        gap: 6px;
+    }
+
+    .working-days span {
+        min-width: 45px;
+        height: 34px;
+    }
+
+    .staff-preview-avatar {
+        width: 74px;
+        height: 74px;
+    }
+
+    .staff-preview-content h4 {
+        font-size: 18px;
+    }
+
+    .staff-setting-row {
+        gap: 12px;
+    }
+
+    .staff-setting-row small {
+        max-width: 205px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .back-staff-btn,
+    .staff-input,
+    .staff-textarea,
+    .staff-phone-group,
+    .working-days span,
+    .zq-staff-switch span,
+    .zq-staff-switch span::before,
+    .cancel-staff-btn,
+    .save-staff-btn {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}

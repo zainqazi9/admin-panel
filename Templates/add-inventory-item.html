@@ -1,0 +1,1424 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- HEADER -->
+
+        <div class="add-inventory-heading">
+
+            <div>
+
+                <span class="add-inventory-eyebrow">
+                    INVENTORY MANAGEMENT
+                </span>
+
+                <h1 class="add-inventory-title">
+                    Add Inventory Item
+                </h1>
+
+                <p class="add-inventory-subtitle">
+                    Add ingredients and supplies to your restaurant inventory.
+                </p>
+
+            </div>
+
+            <a
+                href="/stock-alerts"
+                class="back-inventory-btn"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Back to Stock
+            </a>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="/add-inventory-item"
+            id="inventoryForm"
+        >
+
+            <div class="row g-4">
+
+
+                <!-- LEFT -->
+
+                <div class="col-xl-8">
+
+
+                    <!-- ITEM INFORMATION -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Item Information
+                                </h5>
+
+                                <p>
+                                    Enter the basic details of the inventory item.
+                                </p>
+
+                            </div>
+
+                            <div class="inventory-section-icon">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-8">
+
+                                <label class="inventory-label">
+                                    Item Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="item_name"
+                                    id="inventoryItemName"
+                                    class="inventory-input"
+                                    placeholder="e.g. Basmati Rice"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="inventory-label">
+                                    Item Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="item_code"
+                                    class="inventory-input"
+                                    value="INV-008"
+                                    placeholder="INV-001"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Category
+                                    <span>*</span>
+                                </label>
+
+                                <select
+                                    name="category"
+                                    id="inventoryCategorySelect"
+                                    class="inventory-input"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select category
+                                    </option>
+
+                                    <option value="meat">
+                                        Meat
+                                    </option>
+
+                                    <option value="grocery">
+                                        Grocery
+                                    </option>
+
+                                    <option value="vegetables">
+                                        Vegetables
+                                    </option>
+
+                                    <option value="dairy">
+                                        Dairy
+                                    </option>
+
+                                    <option value="beverages">
+                                        Beverages
+                                    </option>
+
+                                    <option value="spices">
+                                        Spices
+                                    </option>
+
+                                    <option value="packaging">
+                                        Packaging
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Unit
+                                    <span>*</span>
+                                </label>
+
+                                <select
+                                    name="unit"
+                                    id="inventoryUnit"
+                                    class="inventory-input"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select unit
+                                    </option>
+
+                                    <option value="kg">
+                                        Kilogram (kg)
+                                    </option>
+
+                                    <option value="g">
+                                        Gram (g)
+                                    </option>
+
+                                    <option value="liter">
+                                        Liter (L)
+                                    </option>
+
+                                    <option value="ml">
+                                        Milliliter (ml)
+                                    </option>
+
+                                    <option value="pcs">
+                                        Pieces (pcs)
+                                    </option>
+
+                                    <option value="box">
+                                        Box
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STOCK INFORMATION -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Stock Information
+                                </h5>
+
+                                <p>
+                                    Set current quantity and minimum stock level.
+                                </p>
+
+                            </div>
+
+                            <div class="inventory-section-icon">
+                                <i class="bi bi-bar-chart"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-4">
+
+                                <label class="inventory-label">
+                                    Current Quantity
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="quantity"
+                                    id="inventoryQuantity"
+                                    class="inventory-input"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="0"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="inventory-label">
+                                    Minimum Stock
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="minimum_stock"
+                                    id="inventoryMinimum"
+                                    class="inventory-input"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="10"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="inventory-label">
+                                    Maximum Stock
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="maximum_stock"
+                                    class="inventory-input"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="50"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Unit Cost (Rs.)
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="unit_cost"
+                                    id="inventoryUnitCost"
+                                    class="inventory-input"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="e.g. 390"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Reorder Quantity
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="reorder_quantity"
+                                    class="inventory-input"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="e.g. 30"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUPPLIER -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Supplier Information
+                                </h5>
+
+                                <p>
+                                    Connect this inventory item with its supplier.
+                                </p>
+
+                            </div>
+
+                            <div class="inventory-section-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Supplier
+                                </label>
+
+                                <select
+                                    name="supplier"
+                                    class="inventory-input"
+                                >
+
+                                    <option value="">
+                                        Select supplier
+                                    </option>
+
+                                    <option>
+                                        Fresh Meat Supplier
+                                    </option>
+
+                                    <option>
+                                        Pak Rice Traders
+                                    </option>
+
+                                    <option>
+                                        Fresh Farm Foods
+                                    </option>
+
+                                    <option>
+                                        Dairy Fresh
+                                    </option>
+
+                                    <option>
+                                        National Foods Supply
+                                    </option>
+
+                                    <option>
+                                        Beverage Distributors
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="inventory-label">
+                                    Supplier Contact
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="supplier_contact"
+                                    class="inventory-input"
+                                    placeholder="0300-1234567"
+                                >
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="inventory-label">
+                                    Storage Location
+                                </label>
+
+                                <select
+                                    name="storage_location"
+                                    class="inventory-input"
+                                >
+
+                                    <option value="">
+                                        Select storage location
+                                    </option>
+
+                                    <option>
+                                        Main Kitchen Store
+                                    </option>
+
+                                    <option>
+                                        Cold Storage
+                                    </option>
+
+                                    <option>
+                                        Dry Store
+                                    </option>
+
+                                    <option>
+                                        Beverage Store
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOTES -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Additional Notes
+                                </h5>
+
+                                <p>
+                                    Add any useful information about this item.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <textarea
+                            name="notes"
+                            class="inventory-textarea"
+                            rows="4"
+                            placeholder="Storage instructions, quality notes, expiry information..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="col-xl-4">
+
+
+                    <!-- PREVIEW -->
+
+                    <div class="inventory-preview-card">
+
+                        <div class="inventory-preview-label">
+                            ITEM PREVIEW
+                        </div>
+
+
+                        <div class="inventory-preview-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+
+
+                        <h4 id="inventoryPreviewName">
+                            New Inventory Item
+                        </h4>
+
+                        <p id="inventoryPreviewCategory">
+                            Select a category
+                        </p>
+
+
+                        <div class="inventory-preview-stock">
+
+                            <div>
+
+                                <span>
+                                    Current
+                                </span>
+
+                                <strong id="previewQuantity">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Minimum
+                                </span>
+
+                                <strong id="previewMinimum">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="inventory-preview-status healthy"
+                             id="inventoryPreviewStatus">
+
+                            <span></span>
+
+                            Stock Level Healthy
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STOCK STATUS -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Stock Alert
+                                </h5>
+
+                                <p>
+                                    Inventory will alert you when stock reaches this level.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="inventory-alert-setting">
+
+                            <div class="inventory-alert-setting-icon">
+                                <i class="bi bi-bell"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Low Stock Alerts
+                                </strong>
+
+                                <small>
+                                    Automatically notify when quantity is below minimum stock.
+                                </small>
+
+                            </div>
+
+                            <label class="inventory-switch">
+
+                                <input
+                                    type="checkbox"
+                                    name="low_stock_alert"
+                                    checked
+                                >
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPIRY -->
+
+                    <div class="add-inventory-card">
+
+                        <div class="add-inventory-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Expiry Tracking
+                                </h5>
+
+                                <p>
+                                    Useful for perishable restaurant ingredients.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <label class="inventory-label">
+                            Expiry Date
+                        </label>
+
+                        <input
+                            type="date"
+                            name="expiry_date"
+                            class="inventory-input"
+                        >
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="inventory-form-actions">
+
+                        <a
+                            href="/stock-alerts"
+                            class="cancel-inventory-btn"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="save-inventory-btn"
+                        >
+                            <i class="bi bi-check2"></i>
+                            Save Item
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   ADD INVENTORY ITEM — PREMIUM LIGHT LUXURY
+========================================================= */
+
+.add-inventory-heading,
+.add-inventory-card,
+.inventory-preview-card,
+.inventory-form-actions {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.add-inventory-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.add-inventory-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a67c32;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.add-inventory-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: #c49a4a;
+}
+
+.add-inventory-title {
+    color: #25221e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+    margin: 7px 0 0;
+}
+
+.add-inventory-subtitle {
+    color: #817a71;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 8px 0 0;
+}
+
+.back-inventory-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 15px;
+    color: #5e5850 !important;
+    background: #ffffff;
+    border: 1px solid #ddd7cf;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(42, 35, 25, .045);
+    transition: all .2s ease;
+}
+
+.back-inventory-btn i {
+    font-size: 13px;
+}
+
+.back-inventory-btn:hover {
+    color: #8d6827 !important;
+    background: #fffdf9;
+    border-color: #c9a35a;
+    transform: translateX(-2px);
+    box-shadow: 0 7px 18px rgba(42, 35, 25, .07);
+}
+
+
+/* =========================================================
+   MAIN CARDS
+========================================================= */
+
+.add-inventory-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    margin-bottom: 18px;
+    background: #ffffff;
+    border: 1px solid #e8e2da;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(39, 31, 22, .055);
+}
+
+.add-inventory-card::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -90px;
+    right: -80px;
+    border-radius: 50%;
+    background: rgba(196, 154, 74, .045);
+    pointer-events: none;
+}
+
+.add-inventory-card-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.add-inventory-card-header h5 {
+    color: #292621;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 5px;
+}
+
+.add-inventory-card-header p {
+    color: #8c857c;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.inventory-section-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9b742e;
+    background: #faf6ed;
+    border: 1px solid #eee3ce;
+    border-radius: 11px;
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.inventory-label {
+    display: block;
+    color: #48433d;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 7px;
+}
+
+.inventory-label span {
+    color: #b4832f;
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.inventory-input,
+.inventory-textarea {
+    width: 100%;
+    color: #302c27 !important;
+    background: #fcfbf9 !important;
+    border: 1px solid #ddd8d0 !important;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: none !important;
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.inventory-input {
+    height: 43px;
+    padding: 10px 12px;
+}
+
+.inventory-textarea {
+    min-height: 108px;
+    padding: 12px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.inventory-input:hover,
+.inventory-textarea:hover {
+    border-color: #cfc8be !important;
+    background: #ffffff !important;
+}
+
+.inventory-input:focus,
+.inventory-textarea:focus {
+    border-color: #c09a51 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(192, 154, 81, .10) !important;
+}
+
+.inventory-input::placeholder,
+.inventory-textarea::placeholder {
+    color: #aaa39a;
+    font-weight: 400;
+}
+
+.inventory-input option {
+    color: #302c27;
+    background: #ffffff;
+}
+
+input[type="date"].inventory-input {
+    color-scheme: light;
+}
+
+
+/* =========================================================
+   ITEM PREVIEW
+========================================================= */
+
+.inventory-preview-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    margin-bottom: 18px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(196,154,74,.13), transparent 28%),
+        linear-gradient(145deg, #ffffff, #fbf8f2);
+    border: 1px solid #e5ddcf;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(46, 37, 26, .07);
+}
+
+.inventory-preview-card::before {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    left: -70px;
+    bottom: -65px;
+    border-radius: 50%;
+    background: rgba(196,154,74,.07);
+}
+
+.inventory-preview-label {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: #a17a35;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-align: left;
+}
+
+.inventory-preview-icon {
+    position: relative;
+    z-index: 1;
+    width: 72px;
+    height: 72px;
+    margin: 21px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9a722d;
+    background: linear-gradient(145deg, #fbf6e9, #f4ead5);
+    border: 1px solid #ead9b9;
+    border-radius: 18px;
+    font-size: 28px;
+    box-shadow: 0 8px 20px rgba(122, 91, 35, .08);
+}
+
+.inventory-preview-card h4 {
+    position: relative;
+    z-index: 1;
+    color: #29251f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 5px;
+}
+
+.inventory-preview-card > p {
+    position: relative;
+    z-index: 1;
+    color: #898178;
+    font-size: 10px;
+    margin: 0;
+}
+
+.inventory-preview-stock {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin: 21px 0 16px;
+    background: rgba(255,255,255,.7);
+    border-top: 1px solid #e8e0d3;
+    border-bottom: 1px solid #e8e0d3;
+}
+
+.inventory-preview-stock div {
+    width: 50%;
+    padding: 14px 5px;
+}
+
+.inventory-preview-stock div + div {
+    border-left: 1px solid #e8e0d3;
+}
+
+.inventory-preview-stock span {
+    display: block;
+    color: #948b81;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 5px;
+}
+
+.inventory-preview-stock strong {
+    color: #37312a;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.inventory-preview-status {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 27px;
+    padding: 6px 11px;
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.inventory-preview-status span {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+}
+
+.inventory-preview-status.healthy {
+    color: #43815b;
+    background: #edf7f0;
+    border: 1px solid #d5ebdc;
+}
+
+.inventory-preview-status.healthy span {
+    background: #54a06d;
+}
+
+.inventory-preview-status.low {
+    color: #9a6c25;
+    background: #fff7e7;
+    border: 1px solid #f1dfb7;
+}
+
+.inventory-preview-status.low span {
+    background: #d39a3e;
+}
+
+.inventory-preview-status.out {
+    color: #a45146;
+    background: #fff0ed;
+    border: 1px solid #f1d2cd;
+}
+
+.inventory-preview-status.out span {
+    background: #c96c5e;
+}
+
+
+/* =========================================================
+   ALERT SETTING
+========================================================= */
+
+.inventory-alert-setting {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: #fcfaf6;
+    border: 1px solid #eee6da;
+    border-radius: 12px;
+}
+
+.inventory-alert-setting-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a4782d;
+    background: #f8f0df;
+    border: 1px solid #ecdfc5;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.inventory-alert-setting strong {
+    display: block;
+    color: #3d3832;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.inventory-alert-setting small {
+    display: block;
+    max-width: 215px;
+    color: #8c857c;
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PREMIUM SWITCH
+========================================================= */
+
+.inventory-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex: 0 0 44px;
+    margin-left: auto;
+}
+
+.inventory-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.inventory-switch span {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    background: #d7d2ca;
+    border: 1px solid #c9c3ba;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+
+.inventory-switch span::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,.12);
+    transition: transform .2s ease;
+}
+
+.inventory-switch input:checked + span {
+    background: #c39a4e;
+    border-color: #b98d3b;
+}
+
+.inventory-switch input:checked + span::before {
+    transform: translateX(19px);
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.inventory-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.cancel-inventory-btn,
+.save-inventory-btn {
+    min-height: 44px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.cancel-inventory-btn {
+    color: #625c54 !important;
+    background: #ffffff;
+    border: 1px solid #dcd6ce;
+    box-shadow: 0 4px 14px rgba(45, 36, 25, .04);
+}
+
+.cancel-inventory-btn:hover {
+    color: #39342e !important;
+    background: #faf8f5;
+    border-color: #c9c2b8;
+    transform: translateY(-1px);
+}
+
+.save-inventory-btn {
+    color: #ffffff;
+    background: linear-gradient(135deg, #9d762f, #b58a3c);
+    border: 1px solid #9d762f;
+    box-shadow: 0 7px 18px rgba(151, 111, 43, .18);
+}
+
+.save-inventory-btn:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #8f6928, #a97f34);
+    border-color: #8f6928;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(151, 111, 43, .23);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.back-inventory-btn:focus-visible,
+.cancel-inventory-btn:focus-visible,
+.save-inventory-btn:focus-visible,
+.inventory-input:focus-visible,
+.inventory-textarea:focus-visible,
+.inventory-switch input:focus-visible + span {
+    outline: 3px solid rgba(181, 138, 60, .20);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LARGE TABLETS
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .add-inventory-card {
+        padding: 22px;
+    }
+
+    .inventory-preview-card {
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETS
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .add-inventory-heading {
+        align-items: flex-start;
+    }
+
+    .back-inventory-btn {
+        white-space: nowrap;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .add-inventory-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .add-inventory-title {
+        font-size: 31px;
+    }
+
+    .back-inventory-btn {
+        width: 100%;
+    }
+
+    .add-inventory-card {
+        padding: 19px;
+        margin-bottom: 15px;
+        border-radius: 14px;
+    }
+
+    .add-inventory-card-header {
+        margin-bottom: 18px;
+    }
+
+    .inventory-preview-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .add-inventory-title {
+        font-size: 28px;
+    }
+
+    .add-inventory-subtitle {
+        font-size: 12px;
+    }
+
+    .add-inventory-card {
+        padding: 17px;
+    }
+
+    .add-inventory-card-header h5 {
+        font-size: 15px;
+    }
+
+    .add-inventory-card-header p {
+        font-size: 10px;
+    }
+
+    .inventory-section-icon {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+    }
+
+    .inventory-alert-setting {
+        align-items: flex-start;
+    }
+
+    .inventory-alert-setting small {
+        max-width: 175px;
+    }
+
+    .inventory-form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-inventory-btn,
+    .save-inventory-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .back-inventory-btn,
+    .cancel-inventory-btn,
+    .save-inventory-btn,
+    .inventory-input,
+    .inventory-textarea,
+    .inventory-switch span,
+    .inventory-switch span::before {
+        transition: none;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}

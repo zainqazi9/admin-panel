@@ -1,0 +1,1864 @@
+{% include "header.html" %}
+
+<!-- =========================================================
+     NEW ORDER PAGE
+========================================================= -->
+
+<div class="container-fluid px-3 px-lg-4">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <div class="new-order-kicker">
+                RESTAURANT ORDERS
+            </div>
+
+            <h1 class="new-order-title">
+                Create New Order
+            </h1>
+
+            <p class="new-order-subtitle">
+                Create a new customer order from the menu.
+            </p>
+
+        </div>
+
+        <div>
+
+            <a href="/orders" class="back-order-btn">
+                <i class="bi bi-arrow-left"></i>
+                Back to Orders
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN ORDER AREA
+    ====================================================== -->
+
+    <div class="row g-4">
+
+
+        <!-- =================================================
+             LEFT SIDE - ORDER FORM
+        ================================================== -->
+
+        <div class="col-lg-8">
+
+            <div class="new-order-card">
+
+
+                <!-- Customer Information -->
+
+                <div class="new-order-card-header">
+
+                    <div>
+
+                        <h4>
+                            Customer Information
+                        </h4>
+
+                        <p>
+                            Select customer and order type.
+                        </p>
+
+                    </div>
+
+                    <div class="order-card-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="new-order-card-body">
+
+                    <div class="row g-3">
+
+
+                        <!-- Customer -->
+
+                        <div class="col-md-6">
+
+                            <label class="order-form-label">
+                                Customer
+                            </label>
+
+                            <select
+                                class="form-select order-form-control"
+                                id="orderCustomer">
+
+                                <option value="">
+                                    Select customer
+                                </option>
+
+                                <option value="Walk-in Customer">
+                                    Walk-in Customer
+                                </option>
+
+                                <option value="Ali Khan">
+                                    Ali Khan
+                                </option>
+
+                                <option value="Ahmed Raza">
+                                    Ahmed Raza
+                                </option>
+
+                                <option value="Sara Ahmed">
+                                    Sara Ahmed
+                                </option>
+
+                                <option value="Usman Malik">
+                                    Usman Malik
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Order Type -->
+
+                        <div class="col-md-6">
+
+                            <label class="order-form-label">
+                                Order Type
+                            </label>
+
+                            <select
+                                class="form-select order-form-control"
+                                id="orderType"
+                                onchange="changeOrderType()">
+
+                                <option value="">
+                                    Select order type
+                                </option>
+
+                                <option value="Dine In">
+                                    Dine In
+                                </option>
+
+                                <option value="Takeaway">
+                                    Takeaway
+                                </option>
+
+                                <option value="Delivery">
+                                    Delivery
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Table -->
+
+                        <div
+                            class="col-md-6"
+                            id="tableField">
+
+                            <label class="order-form-label">
+                                Table
+                            </label>
+
+                            <select
+                                class="form-select order-form-control"
+                                id="orderTable">
+
+                                <option value="">
+                                    Select table
+                                </option>
+
+                                <option value="Table 01">
+                                    Table 01
+                                </option>
+
+                                <option value="Table 02">
+                                    Table 02
+                                </option>
+
+                                <option value="Table 03">
+                                    Table 03
+                                </option>
+
+                                <option value="Table 04">
+                                    Table 04
+                                </option>
+
+                                <option value="Table 05">
+                                    Table 05
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Phone -->
+
+                        <div class="col-md-6">
+
+                            <label class="order-form-label">
+                                Customer Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control order-form-control"
+                                id="customerPhone"
+                                placeholder="03XX-XXXXXXX">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ADD PRODUCTS
+                ================================================== -->
+
+                <div class="new-order-card-header product-header">
+
+                    <div>
+
+                        <h4>
+                            Add Menu Items
+                        </h4>
+
+                        <p>
+                            Select products and quantity.
+                        </p>
+
+                    </div>
+
+                    <div class="order-card-icon">
+                        <i class="bi bi-cup-hot"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="new-order-card-body">
+
+
+                    <div class="row g-3 align-items-end">
+
+
+                        <!-- Product -->
+
+                        <div class="col-md-6">
+
+                            <label class="order-form-label">
+                                Product
+                            </label>
+
+                            <select
+                                class="form-select order-form-control"
+                                id="orderProduct">
+
+                                <option value="">
+                                    Select product
+                                </option>
+
+                                <option
+                                    value="Chicken Biryani"
+                                    data-price="450">
+
+                                    Chicken Biryani — Rs. 450
+
+                                </option>
+
+                                <option
+                                    value="Classic Burger"
+                                    data-price="550">
+
+                                    Classic Burger — Rs. 550
+
+                                </option>
+
+                                <option
+                                    value="Chicken Karahi"
+                                    data-price="1200">
+
+                                    Chicken Karahi — Rs. 1,200
+
+                                </option>
+
+                                <option
+                                    value="Chicken Tikka"
+                                    data-price="650">
+
+                                    Chicken Tikka — Rs. 650
+
+                                </option>
+
+                                <option
+                                    value="French Fries"
+                                    data-price="300">
+
+                                    French Fries — Rs. 300
+
+                                </option>
+
+                                <option
+                                    value="Pizza"
+                                    data-price="950">
+
+                                    Pizza — Rs. 950
+
+                                </option>
+
+                                <option
+                                    value="Cold Drink"
+                                    data-price="150">
+
+                                    Cold Drink — Rs. 150
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Quantity -->
+
+                        <div class="col-md-3">
+
+                            <label class="order-form-label">
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control order-form-control"
+                                id="orderQuantity"
+                                value="1"
+                                min="1">
+
+                        </div>
+
+
+                        <!-- Add Button -->
+
+                        <div class="col-md-3">
+
+                            <button
+                                type="button"
+                                class="add-product-btn w-100"
+                                onclick="addOrderItem()">
+
+                                <i class="bi bi-plus-lg"></i>
+                                Add Item
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ORDER ITEMS TABLE
+                    ================================================== -->
+
+                    <div class="order-items-container mt-4">
+
+                        <div class="order-items-top">
+
+                            <div>
+                                Order Items
+                            </div>
+
+                            <span id="itemCount">
+                                0 items
+                            </span>
+
+                        </div>
+
+
+                        <div id="orderItems">
+
+                            <div class="empty-order">
+
+                                <i class="bi bi-basket3"></i>
+
+                                <h6>
+                                    No items added
+                                </h6>
+
+                                <p>
+                                    Select a product above to add items.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Notes -->
+
+                    <div class="mt-4">
+
+                        <label class="order-form-label">
+                            Order Notes
+                        </label>
+
+                        <textarea
+                            class="form-control order-form-control"
+                            id="orderNotes"
+                            rows="3"
+                            placeholder="Special instructions..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE - ORDER SUMMARY
+        ================================================== -->
+
+        <div class="col-lg-4">
+
+            <div class="order-summary-card">
+
+
+                <!-- Summary Header -->
+
+                <div class="order-summary-header">
+
+                    <div>
+
+                        <span>
+                            ORDER SUMMARY
+                        </span>
+
+                        <h4>
+                            Your Order
+                        </h4>
+
+                    </div>
+
+                    <div class="summary-icon">
+                        <i class="bi bi-receipt"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- Summary Items -->
+
+                <div
+                    class="summary-items"
+                    id="summaryItems">
+
+                    <div class="summary-empty">
+
+                        <i class="bi bi-basket"></i>
+
+                        <p>
+                            No items selected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Summary Totals -->
+
+                <div class="summary-totals">
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="summarySubtotal">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Tax (5%)
+                        </span>
+
+                        <strong id="summaryTax">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row total-row">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="summaryTotal">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Payment -->
+
+                <div class="payment-section">
+
+                    <label class="order-form-label">
+                        Payment Method
+                    </label>
+
+                    <select
+                        class="form-select order-form-control"
+                        id="paymentMethod">
+
+                        <option value="">
+                            Select payment method
+                        </option>
+
+                        <option value="Cash">
+                            Cash
+                        </option>
+
+                        <option value="Card">
+                            Card
+                        </option>
+
+                        <option value="Online">
+                            Online
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Place Order -->
+
+                <button
+                    type="button"
+                    class="place-order-main-btn"
+                    onclick="placeOrder()">
+
+                    <i class="bi bi-check2-circle"></i>
+
+                    Place Order
+
+                </button>
+
+
+                <!-- Cancel -->
+
+                <a
+                    href="/orders"
+                    class="cancel-order-link">
+
+                    Cancel Order
+
+                </a>
+
+
+                <!-- Success -->
+
+                <div
+                    id="orderSuccess"
+                    class="order-success-message">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =============================================================
+     NEW ORDER CSS
+============================================================= -->
+
+<style>
+/* =========================================================
+   ADMIN ZQ — NEW ORDER
+   PREMIUM / PROFESSIONAL PAGE CSS
+   Page-specific only
+========================================================= */
+
+.new-order-card,
+.order-summary-card {
+    --no-bg: #f5f2ed;
+    --no-card: #ffffff;
+    --no-soft: #faf8f4;
+    --no-border: #e8e1d8;
+    --no-text: #25211d;
+    --no-muted: #81796f;
+    --no-gold: #b97825;
+    --no-gold-dark: #925d18;
+    --no-gold-soft: #fff4df;
+    --no-green: #2e8b57;
+    --no-green-soft: #edf8f1;
+    --no-shadow: 0 12px 35px rgba(38, 31, 24, .07);
+    --no-shadow-hover: 0 20px 48px rgba(38, 31, 24, .11);
+}
+
+.new-order-card *,
+.order-summary-card * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.new-order-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+
+    color: #b97825 !important;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.new-order-kicker::before {
+    content: "";
+    width: 25px;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #b97825,
+        rgba(185, 120, 37, .2)
+    );
+}
+
+.new-order-title {
+    margin: 0 0 7px;
+
+    color: #25211d !important;
+    font-size: clamp(29px, 3vw, 39px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+}
+
+.new-order-subtitle {
+    margin: 0;
+
+    color: #81796f !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 44px;
+    padding: 0 17px;
+
+    background: #ffffff !important;
+    border: 1px solid #ded7ce !important;
+    border-radius: 11px;
+
+    color: #514a42 !important;
+    text-decoration: none !important;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow: 0 5px 16px rgba(35, 30, 24, .05);
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+.back-order-btn i {
+    font-size: 14px;
+}
+
+.back-order-btn:hover {
+    background: #fff9f0 !important;
+    border-color: #b97825 !important;
+    color: #925d18 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(185, 120, 37, .12);
+}
+
+
+/* =========================================================
+   MAIN LEFT ORDER CARD
+========================================================= */
+
+.new-order-card {
+    position: relative;
+    overflow: hidden;
+
+    background: #ffffff !important;
+    border: 1px solid #e8e1d8 !important;
+    border-radius: 21px;
+
+    box-shadow: 0 12px 35px rgba(38, 31, 24, .07);
+
+    transition:
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+.new-order-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 28px;
+    right: 28px;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(185, 120, 37, .65),
+        transparent
+    );
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.new-order-card-header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 22px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #faf8f4 100%
+        ) !important;
+
+    border-bottom: 1px solid #e8e1d8 !important;
+}
+
+.new-order-card-header h4 {
+    margin: 0 0 5px;
+
+    color: #25211d !important;
+
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.25px;
+}
+
+.new-order-card-header p {
+    margin: 0;
+
+    color: #81796f !important;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.order-card-icon {
+    flex: 0 0 48px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5e3,
+            #ffedd0
+        ) !important;
+
+    border: 1px solid rgba(185, 120, 37, .16);
+
+    color: #b97825 !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 6px 15px rgba(185, 120, 37, .08);
+}
+
+.order-card-icon i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   PRODUCT HEADER
+========================================================= */
+
+.new-order-card-header.product-header {
+    margin-top: 1px;
+
+    border-top: 1px solid #eee8df;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.new-order-card-body {
+    padding: 25px;
+    background: #ffffff !important;
+}
+
+
+/* =========================================================
+   FORM LABELS
+========================================================= */
+
+.order-form-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #514a42 !important;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .55px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FORM INPUTS / SELECTS / TEXTAREA
+========================================================= */
+
+.order-form-control {
+    width: 100%;
+
+    min-height: 46px;
+
+    background-color: #faf9f6 !important;
+    border: 1px solid #e2dbd2 !important;
+    border-radius: 11px !important;
+
+    color: #25211d !important;
+
+    font-size: 13px;
+
+    box-shadow: none !important;
+
+    transition:
+        border-color .2s ease,
+        background-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+select.order-form-control {
+    height: 46px;
+}
+
+textarea.order-form-control {
+    min-height: 100px;
+    padding-top: 13px;
+    resize: vertical;
+}
+
+input.order-form-control {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.order-form-control::placeholder {
+    color: #aaa39a !important;
+}
+
+.order-form-control:hover {
+    background-color: #ffffff !important;
+    border-color: #d4ccc1 !important;
+}
+
+.order-form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #b97825 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(185, 120, 37, .11) !important;
+
+    outline: none !important;
+}
+
+select.order-form-control option {
+    background: #ffffff;
+    color: #25211d;
+}
+
+
+/* =========================================================
+   ADD PRODUCT BUTTON
+========================================================= */
+
+.add-product-btn {
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c88b38 0%,
+            #b97825 100%
+        ) !important;
+
+    border: 1px solid #b97825 !important;
+    border-radius: 11px !important;
+
+    color: #211a13 !important;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 18px rgba(185, 120, 37, .20),
+        inset 0 1px 0 rgba(255,255,255,.25);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+.add-product-btn i {
+    font-size: 14px;
+}
+
+.add-product-btn:hover {
+    color: #211a13 !important;
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 13px 25px rgba(185, 120, 37, .27),
+        inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+.add-product-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ORDER ITEMS CONTAINER
+========================================================= */
+
+.order-items-container {
+    overflow: hidden;
+
+    background: #faf9f6 !important;
+
+    border: 1px solid #e8e1d8 !important;
+    border-radius: 16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.order-items-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    min-height: 51px;
+
+    padding: 0 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fdfcf9,
+            #f7f4ef
+        ) !important;
+
+    border-bottom: 1px solid #e8e1d8 !important;
+
+    color: #332e28 !important;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+#itemCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 25px;
+    padding: 0 9px;
+
+    background: #fff2dc !important;
+    border: 1px solid rgba(185,120,37,.14);
+
+    border-radius: 20px;
+
+    color: #925d18 !important;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   EMPTY ORDER
+========================================================= */
+
+.empty-order {
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    background: #ffffff !important;
+}
+
+.empty-order i {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 16px;
+
+    background: #fff4df !important;
+    color: #b97825 !important;
+
+    font-size: 23px;
+}
+
+.empty-order h6 {
+    margin: 0 0 5px;
+
+    color: #302b25 !important;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.empty-order p {
+    margin: 0;
+
+    color: #938b81 !important;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   DYNAMIC ORDER ITEMS
+========================================================= */
+
+.order-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 15px 17px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eee9e2;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.order-item:last-child {
+    border-bottom: 0;
+}
+
+.order-item:hover {
+    background: #fffaf3;
+}
+
+.order-item-name {
+    color: #2d2822 !important;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.order-item-meta {
+    margin-top: 3px;
+
+    color: #968e84 !important;
+
+    font-size: 10px;
+}
+
+.order-item-price {
+    color: #925d18 !important;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.remove-item-btn {
+    width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+
+    background: #fff !important;
+
+    border: 1px solid #e4dcd2 !important;
+    border-radius: 9px !important;
+
+    color: #9a6a39 !important;
+
+    transition:
+        all .2s ease;
+}
+
+.remove-item-btn:hover {
+    background: #fff1ed !important;
+    border-color: #d9a79b !important;
+    color: #b94b3c !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ORDER SUMMARY CARD
+========================================================= */
+
+.order-summary-card {
+    position: relative;
+    overflow: hidden;
+
+    background: #ffffff !important;
+
+    border: 1px solid #e8e1d8 !important;
+    border-radius: 21px;
+
+    box-shadow: 0 14px 38px rgba(38, 31, 24, .09);
+
+    position: sticky;
+    top: 22px;
+}
+
+.order-summary-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 25px;
+    right: 25px;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b97825,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   SUMMARY HEADER
+========================================================= */
+
+.order-summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 22px 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292621 0%,
+            #1d1b18 100%
+        ) !important;
+
+    border-bottom: 1px solid #3b352e !important;
+}
+
+.order-summary-header span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #d59a4d !important;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.order-summary-header h4 {
+    margin: 0;
+
+    color: #ffffff !important;
+
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -.25px;
+}
+
+.summary-icon {
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.11);
+
+    color: #d59a4d !important;
+}
+
+.summary-icon i {
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   SUMMARY ITEMS
+========================================================= */
+
+.summary-items {
+    min-height: 115px;
+
+    padding: 8px 18px;
+
+    background: #ffffff !important;
+}
+
+.summary-empty {
+    min-height: 105px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.summary-empty i {
+    margin-bottom: 8px;
+
+    color: #c8bcae !important;
+
+    font-size: 27px;
+}
+
+.summary-empty p {
+    margin: 0;
+
+    color: #999187 !important;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   DYNAMIC SUMMARY ITEM
+========================================================= */
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 13px 2px;
+
+    border-bottom: 1px solid #eee9e2;
+
+    color: #332d26;
+}
+
+.summary-item:last-child {
+    border-bottom: 0;
+}
+
+.summary-item-name {
+    color: #332d26 !important;
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.summary-item-qty {
+    color: #938b81 !important;
+
+    font-size: 10px;
+}
+
+.summary-item-total {
+    color: #925d18 !important;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SUMMARY TOTALS
+========================================================= */
+
+.summary-totals {
+    padding: 17px 20px;
+
+    background: #faf9f6 !important;
+
+    border-top: 1px solid #e8e1d8 !important;
+    border-bottom: 1px solid #e8e1d8 !important;
+}
+
+.summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 6px 0;
+
+    color: #756d64 !important;
+
+    font-size: 12px;
+}
+
+.summary-row strong {
+    color: #403a33 !important;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.total-row {
+    margin-top: 9px;
+    padding: 12px 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7e9,
+            #fff2db
+        ) !important;
+
+    border: 1px solid rgba(185,120,37,.15) !important;
+    border-radius: 11px;
+}
+
+.total-row span {
+    color: #57472f !important;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.total-row strong {
+    color: #925d18 !important;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   PAYMENT
+========================================================= */
+
+.payment-section {
+    padding: 20px;
+
+    background: #ffffff !important;
+}
+
+.payment-section .order-form-label {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   PLACE ORDER BUTTON
+========================================================= */
+
+.place-order-main-btn {
+    width: calc(100% - 40px);
+
+    min-height: 50px;
+
+    margin: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c98b3d 0%,
+            #b97825 100%
+        ) !important;
+
+    border: 1px solid #b97825 !important;
+    border-radius: 12px !important;
+
+    color: #211a13 !important;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 22px rgba(185,120,37,.22),
+        inset 0 1px 0 rgba(255,255,255,.25);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+.place-order-main-btn i {
+    font-size: 16px;
+}
+
+.place-order-main-btn:hover {
+    color: #211a13 !important;
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 15px 29px rgba(185,120,37,.29),
+        inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+.place-order-main-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CANCEL
+========================================================= */
+
+.cancel-order-link {
+    display: block;
+
+    margin: 13px 20px 19px;
+
+    color: #8b8379 !important;
+
+    text-align: center;
+    text-decoration: none !important;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition:
+        color .2s ease;
+}
+
+.cancel-order-link:hover {
+    color: #b94b3c !important;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.order-success-message {
+    margin: 0 20px 20px;
+
+    padding: 11px 13px;
+
+    background: #edf8f1 !important;
+
+    border: 1px solid rgba(46,139,87,.16);
+    border-radius: 10px;
+
+    color: #2e8b57 !important;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.back-order-btn:focus-visible,
+.add-product-btn:focus-visible,
+.place-order-main-btn:focus-visible,
+.remove-item-btn:focus-visible {
+    outline: 3px solid rgba(185,120,37,.20);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.order-items-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.order-items-container::-webkit-scrollbar-track {
+    background: #f3f0eb;
+}
+
+.order-items-container::-webkit-scrollbar-thumb {
+    background: #cfc6bb;
+    border-radius: 20px;
+}
+
+.order-items-container::-webkit-scrollbar-thumb:hover {
+    background: #b8aea2;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .order-summary-card {
+        position: static;
+        top: auto;
+    }
+
+    .new-order-card-header {
+        padding: 20px;
+    }
+
+    .new-order-card-body {
+        padding: 20px;
+    }
+
+    .order-summary-header {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .new-order-title {
+        font-size: 29px;
+        letter-spacing: -.8px;
+    }
+
+    .new-order-subtitle {
+        font-size: 13px;
+    }
+
+    .back-order-btn {
+        width: 100%;
+        min-height: 45px;
+    }
+
+    .new-order-card,
+    .order-summary-card {
+        border-radius: 17px;
+    }
+
+    .new-order-card-header {
+        padding: 18px;
+    }
+
+    .new-order-card-body {
+        padding: 18px;
+    }
+
+    .order-card-icon {
+        width: 43px;
+        height: 43px;
+        flex-basis: 43px;
+    }
+
+    .new-order-card-header h4 {
+        font-size: 16px;
+    }
+
+    .order-form-control,
+    select.order-form-control {
+        min-height: 45px;
+        height: 45px;
+    }
+
+    .add-product-btn {
+        min-height: 45px;
+    }
+
+    .order-items-top {
+        min-height: 48px;
+        padding: 0 13px;
+    }
+
+    .order-item {
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .summary-items {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .summary-totals {
+        padding: 15px;
+    }
+
+    .payment-section {
+        padding: 17px;
+    }
+
+    .place-order-main-btn {
+        width: calc(100% - 34px);
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+
+    .cancel-order-link {
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+
+    .order-success-message {
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .new-order-kicker {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .new-order-title {
+        font-size: 26px;
+    }
+
+    .new-order-subtitle {
+        font-size: 12px;
+    }
+
+    .new-order-card-header {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .new-order-card-body {
+        padding: 16px;
+    }
+
+    .order-card-icon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        border-radius: 12px;
+    }
+
+    .order-card-icon i {
+        font-size: 17px;
+    }
+
+    .order-form-label {
+        font-size: 10px;
+    }
+
+    .order-items-container {
+        border-radius: 13px;
+    }
+
+    .order-item {
+        flex-wrap: wrap;
+    }
+
+    .order-item-price {
+        margin-left: auto;
+    }
+
+    .order-summary-header {
+        padding: 18px;
+    }
+
+    .summary-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .summary-totals {
+        padding: 14px;
+    }
+
+    .total-row {
+        padding: 11px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .new-order-card,
+    .order-summary-card,
+    .back-order-btn,
+    .add-product-btn,
+    .place-order-main-btn,
+    .order-item,
+    .remove-item-btn {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    .back-order-btn,
+    .add-product-btn,
+    .place-order-main-btn,
+    .cancel-order-link {
+        display: none !important;
+    }
+
+    .new-order-card,
+    .order-summary-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .order-summary-card {
+        position: static;
+    }
+}
+</style>

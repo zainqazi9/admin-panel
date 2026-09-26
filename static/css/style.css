@@ -1,0 +1,1242 @@
+/* =========================================================
+   adminZQ PREMIUM ADMIN LAYOUT
+   HEADER + SIDEBAR + FOOTER ONLY
+   ========================================================= */
+
+:root {
+    --azq-black: #101214;
+    --azq-black-2: #151719;
+    --azq-black-3: #1b1e21;
+
+    --azq-gold: #c7a56a;
+    --azq-gold-light: #dfc18c;
+    --azq-gold-dark: #9f7b43;
+
+    --azq-white: #ffffff;
+    --azq-muted: #92979d;
+    --azq-muted-2: #686d73;
+
+    --azq-border: rgba(255, 255, 255, 0.075);
+
+    --azq-green: #6e9b7a;
+    --azq-red: #c96f6f;
+
+    --azq-sidebar-width: 270px;
+    --azq-header-height: 76px;
+
+    --azq-transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body > * {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.azq-layout {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #f5f3ef;
+}
+
+.azq-main {
+    position: relative;
+    min-height: 100vh;
+
+    margin: 0 0 0 var(--azq-sidebar-width) !important;
+
+    /*
+       Header fixed hone ki wajah se content ko
+       header ke neeche space milti hai.
+    */
+    padding-top: var(--azq-header-height) !important;
+
+    box-sizing: border-box;
+
+    transition:
+        margin-left var(--azq-transition),
+        padding-top var(--azq-transition);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.azq-sidebar {
+    position: fixed;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: var(--azq-sidebar-width);
+    height: 100vh;
+
+    margin: 0 !important;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            180deg,
+            #101214 0%,
+            #121416 55%,
+            #0e1012 100%
+        );
+
+    border-right: 1px solid var(--azq-border);
+
+    z-index: 1050;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: #34383c transparent;
+}
+
+.azq-sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.azq-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.azq-sidebar::-webkit-scrollbar-thumb {
+    background: #34383c;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
+
+.azq-sidebar-brand {
+    padding: 24px 22px 20px;
+
+    border-bottom: 1px solid var(--azq-border);
+}
+
+.azq-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    text-decoration: none;
+}
+
+.azq-brand-logo {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(199, 165, 106, 0.18),
+            rgba(199, 165, 106, 0.05)
+        );
+
+    border: 1px solid rgba(199, 165, 106, 0.25);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.azq-brand-logo img {
+    width: 39px;
+    height: 39px;
+
+    object-fit: contain;
+}
+
+.azq-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.azq-brand-name {
+    color: var(--azq-white);
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.azq-brand-subtitle {
+    margin-top: 4px;
+
+    color: var(--azq-muted);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.azq-navigation {
+    padding: 22px 14px;
+
+    flex: 1;
+}
+
+.azq-nav-label {
+    padding: 0 12px 9px;
+
+    color: #565b60;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.azq-nav-label-space {
+    margin-top: 22px;
+}
+
+.azq-nav-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 47px;
+
+    padding: 0 12px;
+    margin-bottom: 4px;
+
+    color: #969ba0;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    transition:
+        color var(--azq-transition),
+        background var(--azq-transition),
+        transform var(--azq-transition);
+}
+
+.azq-nav-link:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    transform: translateX(2px);
+}
+
+.azq-nav-link.active {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(199, 165, 106, 0.17),
+            rgba(199, 165, 106, 0.055)
+        );
+
+    border: 1px solid rgba(199, 165, 106, 0.12);
+}
+
+.azq-nav-link.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: -14px;
+    top: 8px;
+    bottom: 8px;
+
+    width: 3px;
+
+    background: var(--azq-gold);
+
+    border-radius: 0 5px 5px 0;
+
+    box-shadow:
+        0 0 12px rgba(199, 165, 106, 0.45);
+}
+
+.azq-nav-icon {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #73787d;
+
+    font-size: 16px;
+
+    border-radius: 9px;
+
+    transition: var(--azq-transition);
+}
+
+.azq-nav-link:hover .azq-nav-icon {
+    color: #ffffff;
+}
+
+.azq-nav-link.active .azq-nav-icon {
+    color: var(--azq-gold);
+}
+
+.azq-nav-text {
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.azq-alert-count {
+    margin-left: auto;
+
+    min-width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 6px;
+
+    border-radius: 7px;
+
+    background: rgba(201, 111, 111, 0.13);
+
+    color: #df8b8b;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SIDEBAR USER
+   ========================================================= */
+
+.azq-sidebar-user {
+    margin: 0 14px 12px;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--azq-border);
+
+    border-radius: 13px;
+}
+
+.azq-user-avatar {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(199, 165, 106, 0.25);
+}
+
+.azq-user-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.azq-user-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.azq-user-info strong {
+    color: #f4f3ef;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.azq-user-info span {
+    margin-top: 2px;
+
+    color: #747a80;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.azq-user-menu {
+    margin-left: auto;
+
+    color: #666b70;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   SIDEBAR STATUS
+   ========================================================= */
+
+.azq-sidebar-status {
+    margin: 0 14px 18px;
+
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border-top: 1px solid var(--azq-border);
+}
+
+.azq-status-indicator {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--azq-green);
+
+    box-shadow:
+        0 0 0 4px rgba(110, 155, 122, 0.10),
+        0 0 12px rgba(110, 155, 122, 0.35);
+}
+
+.azq-sidebar-status div {
+    display: flex;
+    flex-direction: column;
+}
+
+.azq-sidebar-status strong {
+    color: #d9dbdc;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.azq-sidebar-status small {
+    margin-top: 2px;
+
+    color: #62676c;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   HEADER
+   IMPORTANT:
+   FIXED TOP = WHITE GAP COMPLETELY REMOVED
+   ========================================================= */
+
+.azq-header {
+    position: fixed !important;
+
+    top: 0 !important;
+    right: 0 !important;
+    left: var(--azq-sidebar-width) !important;
+
+    width: auto;
+
+    height: var(--azq-header-height);
+
+    margin: 0 !important;
+    padding: 0 28px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(16, 18, 20, 0.97);
+
+    border-bottom: 1px solid var(--azq-border);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    z-index: 1040;
+}
+
+
+/* =========================================================
+   HEADER LEFT / RIGHT
+   ========================================================= */
+
+.azq-header-left,
+.azq-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.azq-header-left {
+    min-width: 0;
+    flex: 1;
+}
+
+.azq-header-right {
+    gap: 9px;
+}
+
+
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
+
+.azq-sidebar-toggle {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--azq-border);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.azq-sidebar-toggle span {
+    display: block;
+
+    width: 17px;
+    height: 1.5px;
+
+    background: #b3b5b6;
+
+    border-radius: 5px;
+
+    transition: var(--azq-transition);
+}
+
+.azq-sidebar-toggle:hover {
+    border-color: rgba(199, 165, 106, 0.3);
+
+    background: rgba(199, 165, 106, 0.07);
+}
+
+.azq-sidebar-toggle:hover span {
+    background: var(--azq-gold);
+}
+
+
+/* =========================================================
+   HEADER SEARCH
+   ========================================================= */
+
+.azq-search {
+    position: relative;
+
+    width: min(430px, 45vw);
+
+    margin-left: 18px;
+}
+
+.azq-search > i {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #656a70;
+
+    font-size: 14px;
+}
+
+.azq-search input {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 45px 0 41px;
+
+    color: #eeeeec;
+
+    background: #181b1e;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 12px;
+
+    transition: var(--azq-transition);
+
+    box-sizing: border-box;
+}
+
+.azq-search input::placeholder {
+    color: #646a70;
+}
+
+.azq-search input:focus {
+    border-color: rgba(199, 165, 106, 0.35);
+
+    background: #1b1e21;
+
+    box-shadow:
+        0 0 0 3px rgba(199, 165, 106, 0.06);
+}
+
+.azq-search-shortcut {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6c7176;
+
+    background: #222528;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 6px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+   ========================================================= */
+
+.azq-header-button {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #9da1a5;
+
+    background: #181b1e;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: var(--azq-transition);
+}
+
+.azq-header-button:hover {
+    color: var(--azq-gold);
+
+    background: #1e2124;
+
+    border-color: rgba(199, 165, 106, 0.25);
+
+    transform: translateY(-1px);
+}
+
+.azq-header-button i {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.azq-notification-badge {
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #c96f6f;
+
+    border: 1.5px solid #181b1e;
+}
+
+.azq-notification-menu {
+    width: 340px;
+
+    padding: 0;
+    margin-top: 10px;
+
+    overflow: hidden;
+
+    background: #181b1e;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.azq-dropdown-heading {
+    padding: 16px 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--azq-border);
+}
+
+.azq-dropdown-heading strong {
+    color: #eeeeeb;
+
+    font-size: 13px;
+}
+
+.azq-dropdown-heading span {
+    color: var(--azq-gold);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.azq-notification-item {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 13px 16px;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+
+    transition: background var(--azq-transition);
+}
+
+.azq-notification-item:hover {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.azq-notification-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--azq-gold);
+
+    background: rgba(199, 165, 106, 0.10);
+
+    border-radius: 9px;
+}
+
+.azq-warning-icon {
+    color: #d98b8b;
+
+    background: rgba(201, 111, 111, 0.10);
+}
+
+.azq-notification-item > span:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.azq-notification-item strong {
+    color: #dfe0df;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.azq-notification-item small {
+    margin-top: 3px;
+
+    color: #686e73;
+
+    font-size: 9px;
+}
+
+.azq-notification-footer {
+    padding: 11px 16px;
+
+    text-align: center;
+}
+
+.azq-notification-footer a {
+    color: var(--azq-gold);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.azq-notification-footer a:hover {
+    color: var(--azq-gold-light);
+}
+
+
+/* =========================================================
+   PROFILE BUTTON
+   ========================================================= */
+
+.azq-profile-button {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 3px 10px 3px 4px;
+
+    color: #ffffff;
+
+    background: #181b1e;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+
+    transition: var(--azq-transition);
+}
+
+.azq-profile-button:hover {
+    border-color: rgba(199, 165, 106, 0.25);
+
+    background: #1e2124;
+}
+
+.azq-profile-button::after {
+    margin-left: 4px;
+
+    color: #73787d;
+}
+
+.azq-profile-button img {
+    width: 34px;
+    height: 34px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(199, 165, 106, 0.2);
+}
+
+.azq-profile-details {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.azq-profile-details strong {
+    color: #e6e6e3;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.azq-profile-details small {
+    margin-top: 2px;
+
+    color: #686e73;
+
+    font-size: 8px;
+}
+
+.azq-profile-menu {
+    min-width: 190px;
+
+    padding: 7px;
+    margin-top: 10px;
+
+    background: #181b1e;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.azq-profile-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 10px;
+
+    color: #aeb2b5;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+}
+
+.azq-profile-menu .dropdown-item i {
+    width: 18px;
+
+    color: #777d82;
+}
+
+.azq-profile-menu .dropdown-item:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.azq-profile-menu .dropdown-item:hover i {
+    color: var(--azq-gold);
+}
+
+.azq-profile-menu .dropdown-divider {
+    border-color: var(--azq-border);
+}
+
+.azq-profile-menu .azq-signout:hover {
+    color: #d98b8b;
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+   ========================================================= */
+
+.azq-sidebar-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.62);
+
+    z-index: 1040;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.azq-footer {
+    padding: 22px 28px;
+
+    background: #101214;
+
+    border-top: 1px solid var(--azq-border);
+}
+
+.azq-footer-inner {
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.azq-footer-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.azq-footer-logo {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--azq-gold);
+
+    border: 1px solid rgba(199, 165, 106, 0.2);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.azq-footer-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.azq-footer-text strong {
+    color: #d9d9d7;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.azq-footer-text span {
+    margin-top: 2px;
+
+    color: #62676c;
+
+    font-size: 9px;
+}
+
+.azq-footer-right {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #60656a;
+
+    font-size: 9px;
+}
+
+.azq-footer-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--azq-green);
+
+    box-shadow:
+        0 0 8px rgba(110, 155, 122, 0.4);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+    :root {
+        --azq-sidebar-width: 240px;
+    }
+
+    .azq-header {
+        padding: 0 20px;
+    }
+
+    .azq-search {
+        width: min(340px, 40vw);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .azq-sidebar {
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.3s ease;
+
+        box-shadow:
+            20px 0 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .azq-sidebar.azq-sidebar-open {
+        transform: translateX(0);
+    }
+
+    .azq-main {
+        margin-left: 0 !important;
+
+        padding-top: var(--azq-header-height) !important;
+    }
+
+    .azq-header {
+        left: 0 !important;
+    }
+
+    .azq-sidebar-overlay {
+        display: block;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .azq-sidebar-overlay.azq-overlay-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .azq-search {
+        width: min(360px, 48vw);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    :root {
+        --azq-header-height: 68px;
+    }
+
+    .azq-header {
+        padding: 0 14px;
+    }
+
+    .azq-search {
+        display: none;
+    }
+
+    .azq-header-right {
+        gap: 6px;
+    }
+
+    .azq-header-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .azq-profile-button {
+        width: 38px;
+
+        padding: 3px;
+    }
+
+    .azq-profile-button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .azq-profile-details {
+        display: none;
+    }
+
+    .azq-footer {
+        padding: 18px 15px;
+    }
+
+    .azq-footer-inner {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .azq-footer-right {
+        align-self: flex-start;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .azq-header-right .theme-toggle {
+        display: none;
+    }
+}

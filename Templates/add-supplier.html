@@ -1,0 +1,1222 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- Page Header -->
+        <div class="restaurant-heading">
+            <div>
+                <span class="restaurant-eyebrow">SUPPLIER MANAGEMENT</span>
+                <h1 class="restaurant-title">Add Supplier</h1>
+                <p class="restaurant-subtitle">
+                    Add a new supplier to your restaurant supply network.
+                </p>
+            </div>
+
+            <div class="restaurant-actions">
+                <a href="/modals" class="btn btn-outline-dark">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Suppliers
+                </a>
+            </div>
+        </div>
+
+        <form action="/add-supplier" method="POST" id="supplierForm">
+
+            <div class="row g-4">
+
+                <!-- Left Side -->
+                <div class="col-12 col-xl-8">
+
+                    <!-- Basic Information -->
+                    <div class="add-supplier-card mb-4">
+
+                        <div class="form-section-heading">
+                            <div class="form-section-icon">
+                                <i class="bi bi-building"></i>
+                            </div>
+
+                            <div>
+                                <h4>Supplier Information</h4>
+                                <p>Enter the basic details of the supplier.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-8">
+                                <label class="form-label">
+                                    Supplier Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="supplier_name"
+                                    id="supplierName"
+                                    class="form-control supplier-input"
+                                    placeholder="e.g. Fresh Meat Supplier"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">
+                                    Supplier Code <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="supplier_code"
+                                    id="supplierCode"
+                                    class="form-control supplier-input"
+                                    value="SUP-009"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Category <span>*</span>
+                                </label>
+
+                                <select
+                                    name="category"
+                                    id="supplierCategory"
+                                    class="form-select supplier-input"
+                                    required
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="Meat">Meat</option>
+                                    <option value="Grocery">Grocery</option>
+                                    <option value="Vegetables">Vegetables</option>
+                                    <option value="Dairy">Dairy</option>
+                                    <option value="Beverages">Beverages</option>
+                                    <option value="Spices">Spices</option>
+                                    <option value="Packaging">Packaging</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Supplier Type
+                                </label>
+
+                                <select
+                                    name="supplier_type"
+                                    class="form-select supplier-input"
+                                >
+                                    <option value="Local">Local Supplier</option>
+                                    <option value="Wholesale">Wholesale Supplier</option>
+                                    <option value="Distributor">Distributor</option>
+                                    <option value="Manufacturer">Manufacturer</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="add-supplier-card mb-4">
+
+                        <div class="form-section-heading">
+                            <div class="form-section-icon">
+                                <i class="bi bi-person-lines-fill"></i>
+                            </div>
+
+                            <div>
+                                <h4>Contact Information</h4>
+                                <p>Supplier representative and communication details.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Contact Person <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="contact_person"
+                                    class="form-control supplier-input"
+                                    placeholder="e.g. Ahmed Raza"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Phone Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    class="form-control supplier-input"
+                                    placeholder="0300-1234567"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control supplier-input"
+                                    placeholder="supplier@example.com"
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Alternate Phone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    name="alternate_phone"
+                                    class="form-control supplier-input"
+                                    placeholder="0312-1234567"
+                                >
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="add-supplier-card mb-4">
+
+                        <div class="form-section-heading">
+                            <div class="form-section-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+
+                            <div>
+                                <h4>Business Address</h4>
+                                <p>Enter the supplier's business and delivery address.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-12">
+                                <label class="form-label">
+                                    Street Address
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="address"
+                                    class="form-control supplier-input"
+                                    placeholder="Shop / Office / Warehouse address"
+                                >
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="city"
+                                    class="form-control supplier-input"
+                                    placeholder="e.g. Karachi"
+                                >
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">
+                                    Area
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="area"
+                                    class="form-control supplier-input"
+                                    placeholder="e.g. Gulshan"
+                                >
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">
+                                    Postal Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="postal_code"
+                                    class="form-control supplier-input"
+                                    placeholder="75000"
+                                >
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="add-supplier-card mb-4">
+
+                        <div class="form-section-heading">
+                            <div class="form-section-icon">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+
+                            <div>
+                                <h4>Payment Information</h4>
+                                <p>Set payment terms for this supplier.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Payment Terms
+                                </label>
+
+                                <select
+                                    name="payment_terms"
+                                    class="form-select supplier-input"
+                                >
+                                    <option value="Cash">Cash</option>
+                                    <option value="7 Days">7 Days Credit</option>
+                                    <option value="15 Days">15 Days Credit</option>
+                                    <option value="30 Days">30 Days Credit</option>
+                                    <option value="60 Days">60 Days Credit</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Tax / NTN Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="tax_number"
+                                    class="form-control supplier-input"
+                                    placeholder="Optional"
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Bank Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="bank_name"
+                                    class="form-control supplier-input"
+                                    placeholder="Optional"
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    Account / IBAN
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="bank_account"
+                                    class="form-control supplier-input"
+                                    placeholder="Optional"
+                                >
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="add-supplier-card">
+
+                        <div class="form-section-heading">
+                            <div class="form-section-icon">
+                                <i class="bi bi-sticky"></i>
+                            </div>
+
+                            <div>
+                                <h4>Additional Notes</h4>
+                                <p>Add any extra information about this supplier.</p>
+                            </div>
+                        </div>
+
+                        <textarea
+                            name="notes"
+                            class="form-control supplier-textarea"
+                            rows="5"
+                            placeholder="Delivery schedule, product quality notes, special pricing, etc."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Side -->
+                <div class="col-12 col-xl-4">
+
+                    <!-- Preview -->
+                    <div class="supplier-preview-card mb-4">
+
+                        <div class="preview-top">
+                            <span>SUPPLIER PREVIEW</span>
+
+                            <div class="preview-avatar" id="previewAvatar">
+                                NS
+                            </div>
+                        </div>
+
+                        <h3 id="previewName">
+                            New Supplier
+                        </h3>
+
+                        <p id="previewCategory">
+                            Supplier Category
+                        </p>
+
+                        <div class="preview-divider"></div>
+
+                        <div class="preview-detail">
+                            <i class="bi bi-person"></i>
+                            <div>
+                                <small>Contact Person</small>
+                                <strong id="previewContact">Not provided</strong>
+                            </div>
+                        </div>
+
+                        <div class="preview-detail">
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <small>Phone</small>
+                                <strong id="previewPhone">Not provided</strong>
+                            </div>
+                        </div>
+
+                        <div class="preview-detail">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <small>Email</small>
+                                <strong id="previewEmail">Not provided</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Status -->
+                    <div class="supplier-side-card mb-4">
+
+                        <h5>
+                            <i class="bi bi-toggle-on"></i>
+                            Supplier Status
+                        </h5>
+
+                        <div class="status-switch-row">
+                            <div>
+                                <strong>Active Supplier</strong>
+                                <small>Allow this supplier to be used for orders.</small>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    name="status"
+                                    value="Active"
+                                    checked
+                                >
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Delivery -->
+                    <div class="supplier-side-card mb-4">
+
+                        <h5>
+                            <i class="bi bi-truck"></i>
+                            Delivery Settings
+                        </h5>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Delivery Days
+                            </label>
+
+                            <select
+                                name="delivery_days"
+                                class="form-select supplier-input"
+                            >
+                                <option value="Daily">Daily</option>
+                                <option value="2-3 Days">Every 2–3 Days</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Biweekly">Biweekly</option>
+                                <option value="On Request">On Request</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-label">
+                                Preferred Delivery Time
+                            </label>
+
+                            <input
+                                type="time"
+                                name="delivery_time"
+                                class="form-control supplier-input"
+                                value="09:00"
+                            >
+                        </div>
+
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="supplier-form-actions">
+
+                        <a href="/suppliers" class="btn cancel-supplier-btn">
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="btn save-supplier-btn"
+                        >
+                            <i class="bi bi-check-lg"></i>
+                            Save Supplier
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</main>
+
+<style>
+    /* =========================================================
+       ADD SUPPLIER — PREMIUM LIGHT LUXURY
+       Page-specific styling only
+    ========================================================= */
+
+    .add-supplier-card,
+    .supplier-preview-card,
+    .supplier-side-card,
+    .supplier-form-actions,
+    .restaurant-heading {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    /* =========================
+       PAGE HEADER
+    ========================= */
+
+    .restaurant-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 30px;
+    }
+
+    .restaurant-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #a47732;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .restaurant-eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: #b78a43;
+    }
+
+    .restaurant-title {
+        margin: 0;
+        color: #24211d;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(28px, 3vw, 38px);
+        font-weight: 600;
+        letter-spacing: -0.7px;
+        line-height: 1.1;
+    }
+
+    .restaurant-subtitle {
+        margin: 9px 0 0;
+        color: #8b857d;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .restaurant-actions {
+        flex-shrink: 0;
+    }
+
+    .restaurant-actions .btn {
+        min-height: 43px;
+        padding: 0 17px;
+        border: 1px solid #ddd5c8;
+        border-radius: 11px;
+        background: #fff;
+        color: #4a453e;
+        font-size: 12px;
+        font-weight: 650;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        box-shadow: 0 5px 18px rgba(52, 43, 31, .05);
+        transition: all .2s ease;
+    }
+
+    .restaurant-actions .btn:hover {
+        color: #24211d;
+        border-color: #b78a43;
+        background: #fffdf9;
+        transform: translateY(-1px);
+        box-shadow: 0 9px 24px rgba(52, 43, 31, .08);
+    }
+
+    .restaurant-actions .btn i {
+        color: #a47732;
+        font-size: 14px;
+    }
+
+    /* =========================
+       MAIN FORM CARDS
+    ========================= */
+
+    .add-supplier-card {
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e8e1d7;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 8px 30px rgba(54, 45, 34, .055);
+        transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .add-supplier-card::after {
+        content: "";
+        position: absolute;
+        width: 115px;
+        height: 115px;
+        right: -55px;
+        top: -58px;
+        border-radius: 50%;
+        background: rgba(183, 138, 67, .045);
+        pointer-events: none;
+    }
+
+    .add-supplier-card:hover {
+        border-color: #dfd3c2;
+        box-shadow: 0 12px 35px rgba(54, 45, 34, .07);
+    }
+
+    /* =========================
+       SECTION HEADER
+    ========================= */
+
+    .form-section-heading {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin-bottom: 24px;
+    }
+
+    .form-section-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f1e6;
+        border: 1px solid #eee1ce;
+        color: #a47732;
+        font-size: 17px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .form-section-heading h4 {
+        margin: 0;
+        color: #2b2722;
+        font-size: 15px;
+        font-weight: 750;
+        letter-spacing: -.15px;
+    }
+
+    .form-section-heading p {
+        margin: 4px 0 0;
+        color: #999188;
+        font-size: 11.5px;
+        line-height: 1.5;
+    }
+
+    /* =========================
+       FORM LABELS
+    ========================= */
+
+    .add-supplier-card .form-label,
+    .supplier-side-card .form-label {
+        display: block;
+        color: #514b43;
+        font-size: 11.5px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+
+    .add-supplier-card .form-label span {
+        color: #b47728;
+        font-weight: 800;
+    }
+
+    /* =========================
+       INPUTS / SELECTS
+    ========================= */
+
+    .supplier-input,
+    .supplier-textarea {
+        width: 100%;
+        background: #fcfbf8 !important;
+        border: 1px solid #ded7cd !important;
+        color: #29251f !important;
+        border-radius: 11px !important;
+        font-size: 12.5px !important;
+        box-shadow: none !important;
+        transition: border-color .2s ease,
+                    box-shadow .2s ease,
+                    background .2s ease;
+    }
+
+    .supplier-input {
+        height: 45px;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .supplier-textarea {
+        min-height: 125px;
+        padding: 13px 14px;
+        line-height: 1.6;
+        resize: vertical;
+    }
+
+    .supplier-input:hover,
+    .supplier-textarea:hover {
+        background: #fff !important;
+        border-color: #cfc5b7 !important;
+    }
+
+    .supplier-input:focus,
+    .supplier-textarea:focus {
+        background: #fff !important;
+        border-color: #b78a43 !important;
+        box-shadow: 0 0 0 3px rgba(183, 138, 67, .10) !important;
+        outline: none;
+    }
+
+    .supplier-input::placeholder,
+    .supplier-textarea::placeholder {
+        color: #aaa39a !important;
+        opacity: 1;
+    }
+
+    .supplier-input option {
+        background: #fff;
+        color: #29251f;
+    }
+
+    /* Date/time native controls */
+    .supplier-input[type="time"] {
+        color-scheme: light;
+    }
+
+    /* =========================
+       PREVIEW CARD
+    ========================= */
+
+    .supplier-preview-card {
+        position: relative;
+        overflow: hidden;
+        background:
+            linear-gradient(145deg, #fffdf9 0%, #f8f3ea 100%);
+        border: 1px solid #e5dbcd;
+        border-radius: 19px;
+        padding: 25px;
+        box-shadow: 0 10px 32px rgba(54, 45, 34, .07);
+    }
+
+    .supplier-preview-card::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        right: -95px;
+        top: -95px;
+        border-radius: 50%;
+        background: rgba(183, 138, 67, .07);
+        pointer-events: none;
+    }
+
+    .preview-top {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .preview-top > span {
+        color: #9a9185;
+        font-size: 9.5px;
+        font-weight: 800;
+        letter-spacing: 1.45px;
+    }
+
+    .preview-avatar {
+        width: 51px;
+        height: 51px;
+        flex: 0 0 51px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #c39a5a, #a47732);
+        border: 1px solid rgba(130, 92, 36, .18);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: .4px;
+        box-shadow: 0 8px 20px rgba(164, 119, 50, .18);
+    }
+
+    .supplier-preview-card h3 {
+        position: relative;
+        z-index: 1;
+        margin: 0 0 5px;
+        color: #29251f;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
+        word-break: break-word;
+    }
+
+    .supplier-preview-card > p {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #8c8479;
+        font-size: 11.5px;
+    }
+
+    .preview-divider {
+        height: 1px;
+        background: #e5ddd2;
+        margin: 22px 0;
+    }
+
+    .preview-detail {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 17px;
+    }
+
+    .preview-detail:last-child {
+        margin-bottom: 0;
+    }
+
+    .preview-detail > i {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #e8dfd3;
+        color: #a47732;
+        font-size: 13px;
+    }
+
+    .preview-detail small {
+        display: block;
+        color: #9a9288;
+        font-size: 9.5px;
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+
+    .preview-detail strong {
+        display: block;
+        color: #413b34;
+        font-size: 11.5px;
+        font-weight: 650;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+
+    /* =========================
+       SIDE SETTINGS CARDS
+    ========================= */
+
+    .supplier-side-card {
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #e8e1d7;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 7px 26px rgba(54, 45, 34, .05);
+    }
+
+    .supplier-side-card h5 {
+        display: flex;
+        align-items: center;
+        color: #302b25;
+        font-size: 13.5px;
+        font-weight: 750;
+        margin: 0 0 20px;
+        letter-spacing: -.1px;
+    }
+
+    .supplier-side-card h5 i {
+        width: 31px;
+        height: 31px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 9px;
+        border-radius: 9px;
+        background: #f8f1e6;
+        color: #a47732;
+        font-size: 13px;
+    }
+
+    /* =========================
+       STATUS SWITCH
+    ========================= */
+
+    .status-switch-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 13px 14px;
+        background: #faf8f4;
+        border: 1px solid #eee7dd;
+        border-radius: 12px;
+    }
+
+    .status-switch-row strong {
+        display: block;
+        color: #403a33;
+        font-size: 11.5px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .status-switch-row small {
+        display: block;
+        max-width: 210px;
+        color: #9a9289;
+        font-size: 10px;
+        line-height: 1.55;
+    }
+
+    /* =========================
+       PREMIUM SWITCH
+    ========================= */
+
+    .switch {
+        position: relative;
+        width: 46px;
+        height: 25px;
+        display: inline-block;
+        flex: 0 0 46px;
+    }
+
+    .switch input {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+    }
+
+    .slider {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background: #d7d1c8;
+        border: 1px solid #cfc7bc;
+        border-radius: 30px;
+        transition: all .2s ease;
+    }
+
+    .slider:before {
+        content: "";
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        left: 2px;
+        top: 2px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0,0,0,.15);
+        transition: transform .2s ease;
+    }
+
+    .switch input:checked + .slider {
+        background: #ad813c;
+        border-color: #ad813c;
+    }
+
+    .switch input:checked + .slider:before {
+        transform: translateX(21px);
+    }
+
+    .switch input:focus-visible + .slider {
+        box-shadow: 0 0 0 3px rgba(173, 129, 60, .16);
+    }
+
+    /* =========================
+       FORM ACTIONS
+    ========================= */
+
+    .supplier-form-actions {
+        display: flex;
+        gap: 10px;
+        padding: 3px;
+    }
+
+    .cancel-supplier-btn,
+    .save-supplier-btn {
+        min-height: 46px;
+        flex: 1;
+        border-radius: 11px !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        transition: all .2s ease;
+    }
+
+    .cancel-supplier-btn {
+        background: #fff !important;
+        border: 1px solid #ddd5ca !important;
+        color: #665f56 !important;
+        box-shadow: 0 5px 16px rgba(54, 45, 34, .04);
+    }
+
+    .cancel-supplier-btn:hover {
+        background: #faf7f2 !important;
+        border-color: #cfc3b3 !important;
+        color: #302b25 !important;
+        transform: translateY(-1px);
+    }
+
+    .save-supplier-btn {
+        background: linear-gradient(135deg, #b88a42, #9f722f) !important;
+        border: 1px solid #a47732 !important;
+        color: #fff !important;
+        box-shadow: 0 8px 20px rgba(164, 119, 50, .18);
+    }
+
+    .save-supplier-btn:hover {
+        background: linear-gradient(135deg, #c29650, #a47732) !important;
+        border-color: #9c6f2e !important;
+        color: #fff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 11px 25px rgba(164, 119, 50, .23);
+    }
+
+    .save-supplier-btn i {
+        font-size: 14px;
+    }
+
+    /* =========================
+       FOCUS ACCESSIBILITY
+    ========================= */
+
+    .restaurant-actions .btn:focus-visible,
+    .cancel-supplier-btn:focus-visible,
+    .save-supplier-btn:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(183, 138, 67, .16) !important;
+    }
+
+    /* =========================
+       LARGE TABLET
+    ========================= */
+
+    @media (max-width: 1199px) {
+        .restaurant-heading {
+            margin-bottom: 25px;
+        }
+
+        .add-supplier-card {
+            padding: 22px;
+        }
+
+        .supplier-preview-card,
+        .supplier-side-card {
+            padding: 21px;
+        }
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 991px) {
+        .restaurant-heading {
+            align-items: flex-start;
+        }
+
+        .supplier-preview-card {
+            margin-top: 0;
+        }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 767px) {
+        .restaurant-heading {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 17px;
+        }
+
+        .restaurant-actions {
+            width: 100%;
+        }
+
+        .restaurant-actions .btn {
+            width: 100%;
+        }
+
+        .restaurant-title {
+            font-size: 29px;
+        }
+
+        .add-supplier-card,
+        .supplier-preview-card,
+        .supplier-side-card {
+            border-radius: 15px;
+            padding: 19px;
+        }
+
+        .form-section-heading {
+            margin-bottom: 20px;
+        }
+
+        .status-switch-row {
+            padding: 12px;
+        }
+    }
+
+    /* =========================
+       SMALL MOBILE
+    ========================= */
+
+    @media (max-width: 575px) {
+        .restaurant-eyebrow {
+            font-size: 9px;
+            letter-spacing: 1.35px;
+        }
+
+        .restaurant-title {
+            font-size: 26px;
+        }
+
+        .restaurant-subtitle {
+            font-size: 12px;
+        }
+
+        .add-supplier-card,
+        .supplier-preview-card,
+        .supplier-side-card {
+            padding: 17px;
+        }
+
+        .form-section-icon {
+            width: 40px;
+            height: 40px;
+            flex-basis: 40px;
+        }
+
+        .form-section-heading h4 {
+            font-size: 14px;
+        }
+
+        .form-section-heading p {
+            font-size: 10.5px;
+        }
+
+        .supplier-input {
+            height: 43px;
+        }
+
+        .supplier-form-actions {
+            flex-direction: column;
+        }
+
+        .cancel-supplier-btn,
+        .save-supplier-btn {
+            width: 100%;
+        }
+
+        .preview-avatar {
+            width: 46px;
+            height: 46px;
+            flex-basis: 46px;
+        }
+    }
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+        .add-supplier-card,
+        .restaurant-actions .btn,
+        .cancel-supplier-btn,
+        .save-supplier-btn,
+        .slider,
+        .slider:before {
+            transition: none !important;
+        }
+    }
+</style>
+
+
+
+{% include "footer.html" %}

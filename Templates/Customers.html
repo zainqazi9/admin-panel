@@ -1,0 +1,1653 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- PAGE HEADER -->
+        <div class="customer-heading">
+
+            <div>
+                <span class="customer-eyebrow">
+                    CUSTOMER MANAGEMENT
+                </span>
+
+                <h1 class="customer-title">
+                    Customers
+                </h1>
+
+                <p class="customer-subtitle">
+                    Manage your restaurant customers and keep track of their activity.
+                </p>
+            </div>
+
+            <a href="/add-customer" class="customer-add-btn">
+                <i class="bi bi-person-plus"></i>
+                Add Customer
+            </a>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-xl-3 col-md-6">
+                <div class="customer-stat-card">
+
+                    <div>
+                        <div class="customer-stat-label">
+                            Total Customers
+                        </div>
+
+                        <div class="customer-stat-number">
+                            96
+                        </div>
+
+                        <div class="customer-stat-note">
+                            Registered customers
+                        </div>
+                    </div>
+
+                    <div class="customer-stat-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="customer-stat-card">
+
+                    <div>
+                        <div class="customer-stat-label">
+                            New This Month
+                        </div>
+
+                        <div class="customer-stat-number">
+                            18
+                        </div>
+
+                        <div class="customer-stat-note positive">
+                            New registrations
+                        </div>
+                    </div>
+
+                    <div class="customer-stat-icon">
+                        <i class="bi bi-person-plus"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="customer-stat-card">
+
+                    <div>
+                        <div class="customer-stat-label">
+                            Active Customers
+                        </div>
+
+                        <div class="customer-stat-number">
+                            74
+                        </div>
+
+                        <div class="customer-stat-note">
+                            Ordered recently
+                        </div>
+                    </div>
+
+                    <div class="customer-stat-icon">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="customer-stat-card">
+
+                    <div>
+                        <div class="customer-stat-label">
+                            Repeat Customers
+                        </div>
+
+                        <div class="customer-stat-number">
+                            42
+                        </div>
+
+                        <div class="customer-stat-note">
+                            Returning customers
+                        </div>
+                    </div>
+
+                    <div class="customer-stat-icon gold">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+        <div class="customer-filter-card">
+
+            <div class="customer-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="customerSearch"
+                    placeholder="Search customer, phone or email..."
+                    onkeyup="filterCustomers()"
+                >
+
+            </div>
+
+
+            <select
+                id="customerStatus"
+                class="customer-select"
+                onchange="filterCustomers()"
+            >
+                <option value="all">All Customers</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+
+            <button
+                type="button"
+                class="customer-reset-btn"
+                onclick="resetCustomerFilters()"
+            >
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Reset
+            </button>
+
+        </div>
+
+
+        <!-- CUSTOMER TABLE -->
+        <div class="customer-table-card">
+
+            <div class="customer-table-header">
+
+                <div>
+                    <h5>
+                        All Customers
+                    </h5>
+
+                    <p>
+                        View customer profiles, orders and contact information.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="customer-export-btn"
+                    onclick="exportCustomers()"
+                >
+                    <i class="bi bi-download"></i>
+                    Export
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="customer-table">
+
+                    <thead>
+                        <tr>
+                            <th>CUSTOMER</th>
+                            <th>PHONE</th>
+                            <th>EMAIL</th>
+                            <th>ORDERS</th>
+                            <th>TOTAL SPENT</th>
+                            <th>LAST ORDER</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="customerTableBody">
+
+
+                        <!-- CUSTOMER 1 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="ali khan"
+                            data-phone="03001234567"
+                            data-email="ali.khan@gmail.com"
+                            data-status="active"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-one">
+                                        AK
+                                    </div>
+
+                                    <div>
+                                        <strong>Ali Khan</strong>
+                                        <small>Customer #C-001</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0300-1234567</td>
+
+                            <td>ali.khan@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    18
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 28,450
+                                </strong>
+                            </td>
+
+                            <td>17 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button
+                                        title="View"
+                                        onclick="viewCustomer('C-001')"
+                                    >
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button
+                                        title="Edit"
+                                        onclick="editCustomer('C-001')"
+                                    >
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- CUSTOMER 2 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="ahmed raza"
+                            data-phone="03111234567"
+                            data-email="ahmed.raza@gmail.com"
+                            data-status="active"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-two">
+                                        AR
+                                    </div>
+
+                                    <div>
+                                        <strong>Ahmed Raza</strong>
+                                        <small>Customer #C-002</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0311-1234567</td>
+
+                            <td>ahmed.raza@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    14
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 21,800
+                                </strong>
+                            </td>
+
+                            <td>16 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button onclick="viewCustomer('C-002')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editCustomer('C-002')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- CUSTOMER 3 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="sara ahmed"
+                            data-phone="03221234567"
+                            data-email="sara.ahmed@gmail.com"
+                            data-status="active"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-three">
+                                        SA
+                                    </div>
+
+                                    <div>
+                                        <strong>Sara Ahmed</strong>
+                                        <small>Customer #C-003</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0322-1234567</td>
+
+                            <td>sara.ahmed@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    11
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 19,650
+                                </strong>
+                            </td>
+
+                            <td>15 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button onclick="viewCustomer('C-003')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editCustomer('C-003')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- CUSTOMER 4 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="hamza ali"
+                            data-phone="03331234567"
+                            data-email="hamza.ali@gmail.com"
+                            data-status="active"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-four">
+                                        HA
+                                    </div>
+
+                                    <div>
+                                        <strong>Hamza Ali</strong>
+                                        <small>Customer #C-004</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0333-1234567</td>
+
+                            <td>hamza.ali@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    9
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 14,250
+                                </strong>
+                            </td>
+
+                            <td>14 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button onclick="viewCustomer('C-004')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editCustomer('C-004')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- CUSTOMER 5 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="usman malik"
+                            data-phone="03451234567"
+                            data-email="usman.malik@gmail.com"
+                            data-status="inactive"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-five">
+                                        UM
+                                    </div>
+
+                                    <div>
+                                        <strong>Usman Malik</strong>
+                                        <small>Customer #C-005</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0345-1234567</td>
+
+                            <td>usman.malik@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    6
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 9,850
+                                </strong>
+                            </td>
+
+                            <td>02 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status inactive">
+                                    Inactive
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button onclick="viewCustomer('C-005')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editCustomer('C-005')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- CUSTOMER 6 -->
+
+                        <tr
+                            class="customer-row"
+                            data-name="fatima zahra"
+                            data-phone="03051234567"
+                            data-email="fatima.zahra@gmail.com"
+                            data-status="active"
+                        >
+
+                            <td>
+                                <div class="customer-profile">
+
+                                    <div class="customer-avatar avatar-six">
+                                        FZ
+                                    </div>
+
+                                    <div>
+                                        <strong>Fatima Zahra</strong>
+                                        <small>Customer #C-006</small>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>0305-1234567</td>
+
+                            <td>fatima.zahra@gmail.com</td>
+
+                            <td>
+                                <span class="order-count">
+                                    8
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="spent-amount">
+                                    Rs. 13,600
+                                </strong>
+                            </td>
+
+                            <td>13 Sep 2026</td>
+
+                            <td>
+                                <span class="customer-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="customer-actions">
+
+                                    <button onclick="viewCustomer('C-006')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editCustomer('C-006')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                id="customerEmpty"
+                class="customer-empty d-none"
+            >
+
+                <i class="bi bi-person-x"></i>
+
+                <h5>
+                    No customers found
+                </h5>
+
+                <p>
+                    Try changing your search or filter.
+                </p>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="customer-pagination">
+
+                <span>
+                    Showing 1–6 of 96 customers
+                </span>
+
+                <div>
+
+                    <button disabled>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <button class="current">
+                        1
+                    </button>
+
+                    <button>
+                        2
+                    </button>
+
+                    <button>
+                        3
+                    </button>
+
+                    <span>...</span>
+
+                    <button>
+                        16
+                    </button>
+
+                    <button>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   ADMIN ZQ — CUSTOMERS
+   PREMIUM LIGHT LUXURY THEME
+   Page-specific only
+========================================================= */
+
+.customer-heading,
+.customer-stat-card,
+.customer-filter-card,
+.customer-table-card,
+.customer-table,
+.customer-empty,
+.customer-pagination {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.customer-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.customer-eyebrow {
+    display: inline-block;
+    color: #a77a2f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.customer-title {
+    color: #26231f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
+    margin: 0;
+}
+
+.customer-subtitle {
+    color: #858078;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 8px 0 0;
+}
+
+.customer-add-btn {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 17px;
+    color: #ffffff !important;
+    background: linear-gradient(
+        135deg,
+        #a87b34,
+        #b99152
+    );
+    border: 1px solid #a87b34;
+    border-radius: 10px;
+    box-shadow:
+        0 7px 18px rgba(150, 108, 43, 0.18),
+        inset 0 1px 0 rgba(255,255,255,.15);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-add-btn i {
+    font-size: 15px;
+}
+
+.customer-add-btn:hover {
+    color: #ffffff !important;
+    background: linear-gradient(
+        135deg,
+        #966d2d,
+        #aa8244
+    );
+    border-color: #966d2d;
+    box-shadow:
+        0 10px 22px rgba(150, 108, 43, 0.24),
+        inset 0 1px 0 rgba(255,255,255,.15);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.customer-stat-card {
+    position: relative;
+    min-height: 126px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fcfbf9 100%
+        );
+    border: 1px solid #e6e1d9;
+    border-radius: 15px;
+    box-shadow:
+        0 8px 24px rgba(40, 35, 28, 0.045),
+        0 2px 6px rgba(40, 35, 28, 0.025);
+    overflow: hidden;
+    transition:
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-stat-card::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: -38px;
+    bottom: -46px;
+    border-radius: 50%;
+    background: rgba(176, 137, 71, 0.055);
+    pointer-events: none;
+}
+
+.customer-stat-card:hover {
+    border-color: #d9ccb5;
+    transform: translateY(-3px);
+    box-shadow:
+        0 14px 30px rgba(40, 35, 28, 0.075),
+        0 3px 8px rgba(40, 35, 28, 0.025);
+}
+
+.customer-stat-label {
+    color: #858078;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .35px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.customer-stat-number {
+    color: #292621;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.4px;
+}
+
+.customer-stat-note {
+    color: #aaa39a;
+    font-size: 10px;
+    line-height: 1.4;
+    margin-top: 7px;
+}
+
+.customer-stat-note.positive {
+    color: #5f9877;
+}
+
+.customer-stat-icon {
+    position: relative;
+    z-index: 1;
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9e752f;
+    background: linear-gradient(
+        145deg,
+        #fffaf0,
+        #f6eddd
+    );
+    border: 1px solid #e7d8bb;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    font-size: 19px;
+}
+
+.customer-stat-icon.gold {
+    color: #98702c;
+    background: linear-gradient(
+        145deg,
+        #fffaf0,
+        #f4e9d5
+    );
+    border-color: #e3d0a9;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.customer-filter-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 17px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    border: 1px solid #e6e1d9;
+    border-radius: 14px;
+    box-shadow:
+        0 7px 22px rgba(40, 35, 28, 0.04),
+        0 2px 5px rgba(40, 35, 28, 0.02);
+}
+
+.customer-search {
+    height: 42px;
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 13px;
+    background: #fcfbf9;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 2px rgba(35, 30, 24, 0.02);
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-search:hover {
+    background: #ffffff;
+    border-color: #cfc8be;
+}
+
+.customer-search:focus-within {
+    background: #ffffff;
+    border-color: #b28a4b;
+    box-shadow:
+        0 0 0 3px rgba(178, 138, 75, 0.09),
+        0 3px 10px rgba(40, 35, 28, 0.03);
+}
+
+.customer-search i {
+    color: #a37a35;
+    font-size: 14px;
+}
+
+.customer-search input {
+    width: 100%;
+    height: 100%;
+    color: #302c27;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.customer-search input::placeholder {
+    color: #aaa49c;
+}
+
+.customer-select {
+    width: 175px;
+    height: 42px;
+    padding: 0 12px;
+    color: #5b554e;
+    background-color: #fcfbf9;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.customer-select:hover {
+    background-color: #ffffff;
+    border-color: #cfc8be;
+}
+
+.customer-select:focus {
+    background-color: #ffffff;
+    border-color: #b28a4b;
+    box-shadow: 0 0 0 3px rgba(178, 138, 75, 0.09);
+}
+
+.customer-select option {
+    color: #302c27;
+    background: #ffffff;
+}
+
+.customer-reset-btn {
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 14px;
+    color: #6c665f;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.customer-reset-btn i {
+    font-size: 13px;
+}
+
+.customer-reset-btn:hover {
+    color: #936a2b;
+    background: #fffaf1;
+    border-color: #cfb77f;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.customer-table-card {
+    background: #ffffff;
+    border: 1px solid #e6e1d9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 9px 27px rgba(40, 35, 28, 0.05),
+        0 2px 6px rgba(40, 35, 28, 0.025);
+}
+
+.customer-table-header {
+    min-height: 84px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #ece8e1;
+}
+
+.customer-table-header h5 {
+    color: #292621;
+    font-size: 16px;
+    font-weight: 750;
+    line-height: 1.35;
+    margin: 0 0 4px;
+}
+
+.customer-table-header p {
+    color: #928b83;
+    font-size: 10px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.customer-export-btn {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 12px;
+    color: #6b655e;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.customer-export-btn i {
+    font-size: 12px;
+}
+
+.customer-export-btn:hover {
+    color: #91692d;
+    background: #fffaf1;
+    border-color: #cfb77f;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.customer-table {
+    width: 100%;
+    min-width: 1080px;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.customer-table thead th {
+    padding: 12px 10px;
+    color: #938c83;
+    background: #faf9f7;
+    border-bottom: 1px solid #e5e0d8;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .65px;
+    line-height: 1.3;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.customer-table tbody td {
+    padding: 14px 10px;
+    color: #756f68;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeae4;
+    font-size: 10px;
+    line-height: 1.4;
+    white-space: nowrap;
+    vertical-align: middle;
+    transition: background .15s ease;
+}
+
+.customer-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.customer-table tbody tr:hover td {
+    background: #fffdf9;
+}
+
+
+/* =========================================================
+   CUSTOMER PROFILE
+========================================================= */
+
+.customer-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 165px;
+}
+
+.customer-profile strong {
+    display: block;
+    color: #39342f;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.customer-profile small {
+    display: block;
+    color: #aaa39b;
+    font-size: 8px;
+    line-height: 1.3;
+    margin-top: 3px;
+}
+
+.customer-avatar {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9c732f;
+    background: linear-gradient(
+        145deg,
+        #fffaf0,
+        #f5ecdc
+    );
+    border: 1px solid #e5d4b4;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.avatar-two {
+    color: #8d6a35;
+    background: linear-gradient(145deg, #fffaf1, #f3eadc);
+    border-color: #e1d2b9;
+}
+
+.avatar-three {
+    color: #608b72;
+    background: linear-gradient(145deg, #f3faf5, #e7f1ea);
+    border-color: #cfe1d5;
+}
+
+.avatar-four {
+    color: #a06f56;
+    background: linear-gradient(145deg, #fff7f2, #f5e9e1);
+    border-color: #e6d1c4;
+}
+
+.avatar-five {
+    color: #777069;
+    background: linear-gradient(145deg, #f7f6f4, #eceae6);
+    border-color: #dcd8d2;
+}
+
+.avatar-six {
+    color: #846b91;
+    background: linear-gradient(145deg, #faf5fc, #eee7f1);
+    border-color: #ddd1e3;
+}
+
+
+/* =========================================================
+   ORDERS / SPENDING
+========================================================= */
+
+.order-count {
+    min-width: 29px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    color: #75602f;
+    background: #faf5e9;
+    border: 1px solid #eadfc8;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.spent-amount {
+    color: #514b44;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.customer-status {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 8px;
+    font-weight: 750;
+    line-height: 1;
+}
+
+.customer-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.customer-status.active {
+    color: #4e8968;
+    background: #f0f8f2;
+    border: 1px solid #d5e9da;
+}
+
+.customer-status.active::before {
+    background: #5b9a74;
+    box-shadow: 0 0 0 3px rgba(91, 154, 116, 0.10);
+}
+
+.customer-status.inactive {
+    color: #857d74;
+    background: #f5f3f0;
+    border: 1px solid #e5e0da;
+}
+
+.customer-status.inactive::before {
+    background: #aaa198;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.customer-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.customer-actions button {
+    width: 31px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a837b;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-actions button i {
+    font-size: 12px;
+}
+
+.customer-actions button:hover {
+    color: #966d2d;
+    background: #fffaf1;
+    border-color: #cfb77f;
+    box-shadow: 0 4px 10px rgba(90, 70, 35, 0.07);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.customer-empty {
+    padding: 70px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.customer-empty i {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #a17a38;
+    background: #faf5e9;
+    border: 1px solid #eadfc8;
+    border-radius: 50%;
+    font-size: 27px;
+}
+
+.customer-empty h5 {
+    color: #39342f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    margin: 15px 0 6px;
+}
+
+.customer-empty p {
+    color: #979088;
+    font-size: 11px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.customer-pagination {
+    min-height: 65px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #ffffff;
+    border-top: 1px solid #ece8e1;
+}
+
+.customer-pagination > span {
+    color: #99928a;
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.customer-pagination > div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.customer-pagination > div > span {
+    padding: 0 4px;
+    color: #aaa39b;
+    font-size: 10px;
+}
+
+.customer-pagination button {
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    color: #817a72;
+    background: #ffffff;
+    border: 1px solid #ded9d1;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.customer-pagination button:hover:not(:disabled) {
+    color: #916a2d;
+    background: #fffaf1;
+    border-color: #cfb77f;
+    transform: translateY(-1px);
+}
+
+.customer-pagination button.current {
+    color: #ffffff;
+    background: #a77a32;
+    border-color: #a77a32;
+    box-shadow: 0 4px 10px rgba(150, 108, 43, 0.16);
+}
+
+.customer-pagination button:disabled {
+    color: #c0bbb4;
+    background: #faf9f7;
+    border-color: #ebe7e1;
+    cursor: not-allowed;
+    opacity: .75;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.customer-add-btn:focus-visible,
+.customer-search input:focus-visible,
+.customer-select:focus-visible,
+.customer-reset-btn:focus-visible,
+.customer-export-btn:focus-visible,
+.customer-actions button:focus-visible,
+.customer-pagination button:focus-visible {
+    outline: 2px solid rgba(167, 122, 47, 0.5);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .customer-heading {
+        align-items: flex-start;
+    }
+
+    .customer-stat-card {
+        min-height: 118px;
+    }
+
+    .customer-filter-card {
+        flex-wrap: wrap;
+    }
+
+    .customer-search {
+        flex-basis: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .customer-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .customer-title {
+        font-size: 32px;
+    }
+
+    .customer-add-btn {
+        width: 100%;
+    }
+
+    .customer-filter-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+    }
+
+    .customer-search,
+    .customer-select,
+    .customer-reset-btn {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .customer-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px;
+    }
+
+    .customer-export-btn {
+        width: 100%;
+    }
+
+    .customer-pagination {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 17px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .customer-heading {
+        margin-bottom: 22px;
+    }
+
+    .customer-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .customer-title {
+        font-size: 28px;
+        letter-spacing: -.4px;
+    }
+
+    .customer-subtitle {
+        font-size: 12px;
+    }
+
+    .customer-stat-card {
+        min-height: 112px;
+        padding: 17px;
+        border-radius: 13px;
+    }
+
+    .customer-stat-number {
+        font-size: 25px;
+    }
+
+    .customer-stat-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+
+    .customer-table-card {
+        border-radius: 13px;
+    }
+
+    .customer-table-header h5 {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .customer-stat-card,
+    .customer-add-btn,
+    .customer-search,
+    .customer-select,
+    .customer-reset-btn,
+    .customer-export-btn,
+    .customer-actions button,
+    .customer-pagination button {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}

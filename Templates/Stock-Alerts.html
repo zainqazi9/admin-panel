@@ -1,0 +1,1814 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- PAGE HEADER -->
+        <div class="inventory-heading">
+
+            <div>
+                <span class="inventory-eyebrow">INVENTORY MANAGEMENT</span>
+
+                <h1 class="inventory-title">
+                    Stock Alerts
+                </h1>
+
+                <p class="inventory-subtitle">
+                    Monitor low-stock ingredients and keep your restaurant inventory ready.
+                </p>
+            </div>
+
+            <a href="/add-inventory" class="inventory-add-btn">
+                <i class="bi bi-plus-lg"></i>
+                Add Inventory Item
+            </a>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-xl-3 col-md-6">
+                <div class="inventory-stat-card">
+
+                    <div>
+                        <span class="inventory-stat-label">
+                            Total Items
+                        </span>
+
+                        <h3>
+                            32
+                        </h3>
+
+                        <small>
+                            Inventory products
+                        </small>
+                    </div>
+
+                    <div class="inventory-stat-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="inventory-stat-card warning">
+
+                    <div>
+                        <span class="inventory-stat-label">
+                            Low Stock
+                        </span>
+
+                        <h3>
+                            7
+                        </h3>
+
+                        <small>
+                            Need restocking
+                        </small>
+                    </div>
+
+                    <div class="inventory-stat-icon">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="inventory-stat-card danger">
+
+                    <div>
+                        <span class="inventory-stat-label">
+                            Out of Stock
+                        </span>
+
+                        <h3>
+                            2
+                        </h3>
+
+                        <small>
+                            Currently unavailable
+                        </small>
+                    </div>
+
+                    <div class="inventory-stat-icon">
+                        <i class="bi bi-x-circle"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="inventory-stat-card success">
+
+                    <div>
+                        <span class="inventory-stat-label">
+                            Stock Value
+                        </span>
+
+                        <h3>
+                            Rs. 186,450
+                        </h3>
+
+                        <small>
+                            Current inventory value
+                        </small>
+                    </div>
+
+                    <div class="inventory-stat-icon">
+                        <i class="bi bi-cash-stack"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+        <div class="inventory-filter-card">
+
+            <div class="inventory-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="inventorySearch"
+                    placeholder="Search item, category or supplier..."
+                    onkeyup="filterInventory()"
+                >
+
+            </div>
+
+
+            <select
+                id="inventoryCategory"
+                class="inventory-select"
+                onchange="filterInventory()"
+            >
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="meat">
+                    Meat
+                </option>
+
+                <option value="grocery">
+                    Grocery
+                </option>
+
+                <option value="vegetables">
+                    Vegetables
+                </option>
+
+                <option value="dairy">
+                    Dairy
+                </option>
+
+                <option value="beverages">
+                    Beverages
+                </option>
+
+            </select>
+
+
+            <select
+                id="inventoryStatus"
+                class="inventory-select"
+                onchange="filterInventory()"
+            >
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="low">
+                    Low Stock
+                </option>
+
+                <option value="out">
+                    Out of Stock
+                </option>
+
+                <option value="healthy">
+                    Healthy
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="inventory-reset-btn"
+                onclick="resetInventoryFilters()"
+            >
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Reset
+            </button>
+
+        </div>
+
+
+        <!-- ALERT BANNER -->
+        <div class="inventory-alert-banner">
+
+            <div class="inventory-alert-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    Stock attention required
+                </strong>
+
+                <p>
+                    7 items are below their minimum stock level and 2 items are completely out of stock.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+        <div class="inventory-table-card">
+
+            <div class="inventory-table-header">
+
+                <div>
+                    <h5>
+                        Inventory Stock
+                    </h5>
+
+                    <p>
+                        Current stock levels and restocking information.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="inventory-export-btn"
+                    onclick="exportInventory()"
+                >
+                    <i class="bi bi-download"></i>
+                    Export
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="inventory-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ITEM</th>
+                            <th>CATEGORY</th>
+                            <th>SUPPLIER</th>
+                            <th>CURRENT STOCK</th>
+                            <th>MIN. STOCK</th>
+                            <th>UNIT COST</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inventoryTableBody">
+
+
+                        <!-- ITEM 1 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="chicken"
+                            data-category="meat"
+                            data-supplier="fresh meat supplier"
+                            data-status="low"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon meat">
+                                        <i class="bi bi-egg-fried"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Chicken</strong>
+                                        <small>INV-001</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Meat
+                            </td>
+
+                            <td>
+                                Fresh Meat Supplier
+                            </td>
+
+                            <td>
+                                <strong class="stock-low">
+                                    8 kg
+                                </strong>
+                            </td>
+
+                            <td>
+                                20 kg
+                            </td>
+
+                            <td>
+                                Rs. 620/kg
+                            </td>
+
+                            <td>
+                                <span class="inventory-status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-001')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Chicken')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 2 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="basmati rice"
+                            data-category="grocery"
+                            data-supplier="pak rice traders"
+                            data-status="low"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon grocery">
+                                        <i class="bi bi-basket"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Basmati Rice</strong>
+                                        <small>INV-002</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Grocery
+                            </td>
+
+                            <td>
+                                Pak Rice Traders
+                            </td>
+
+                            <td>
+                                <strong class="stock-low">
+                                    12 kg
+                                </strong>
+                            </td>
+
+                            <td>
+                                30 kg
+                            </td>
+
+                            <td>
+                                Rs. 390/kg
+                            </td>
+
+                            <td>
+                                <span class="inventory-status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-002')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Basmati Rice')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 3 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="cooking oil"
+                            data-category="grocery"
+                            data-supplier="national foods supply"
+                            data-status="low"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon oil">
+                                        <i class="bi bi-droplet"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Cooking Oil</strong>
+                                        <small>INV-003</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Grocery
+                            </td>
+
+                            <td>
+                                National Foods Supply
+                            </td>
+
+                            <td>
+                                <strong class="stock-low">
+                                    6 L
+                                </strong>
+                            </td>
+
+                            <td>
+                                15 L
+                            </td>
+
+                            <td>
+                                Rs. 720/L
+                            </td>
+
+                            <td>
+                                <span class="inventory-status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-003')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Cooking Oil')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 4 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="tomatoes"
+                            data-category="vegetables"
+                            data-supplier="fresh farm foods"
+                            data-status="low"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon vegetable">
+                                        <i class="bi bi-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Tomatoes</strong>
+                                        <small>INV-004</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Vegetables
+                            </td>
+
+                            <td>
+                                Fresh Farm Foods
+                            </td>
+
+                            <td>
+                                <strong class="stock-low">
+                                    5 kg
+                                </strong>
+                            </td>
+
+                            <td>
+                                12 kg
+                            </td>
+
+                            <td>
+                                Rs. 180/kg
+                            </td>
+
+                            <td>
+                                <span class="inventory-status low">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-004')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Tomatoes')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 5 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="mozzarella cheese"
+                            data-category="dairy"
+                            data-supplier="dairy fresh"
+                            data-status="out"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon dairy">
+                                        <i class="bi bi-box"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Mozzarella Cheese</strong>
+                                        <small>INV-005</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Dairy
+                            </td>
+
+                            <td>
+                                Dairy Fresh
+                            </td>
+
+                            <td>
+                                <strong class="stock-out">
+                                    0 kg
+                                </strong>
+                            </td>
+
+                            <td>
+                                10 kg
+                            </td>
+
+                            <td>
+                                Rs. 1,450/kg
+                            </td>
+
+                            <td>
+                                <span class="inventory-status out">
+                                    Out of Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-005')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Mozzarella Cheese')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 6 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="cold drinks"
+                            data-category="beverages"
+                            data-supplier="beverage distributors"
+                            data-status="healthy"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon beverage">
+                                        <i class="bi bi-cup-straw"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Cold Drinks</strong>
+                                        <small>INV-006</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Beverages
+                            </td>
+
+                            <td>
+                                Beverage Distributors
+                            </td>
+
+                            <td>
+                                <strong class="stock-good">
+                                    96 pcs
+                                </strong>
+                            </td>
+
+                            <td>
+                                30 pcs
+                            </td>
+
+                            <td>
+                                Rs. 85/pc
+                            </td>
+
+                            <td>
+                                <span class="inventory-status healthy">
+                                    Healthy
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-006')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Cold Drinks')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- ITEM 7 -->
+
+                        <tr
+                            class="inventory-row"
+                            data-name="garlic"
+                            data-category="vegetables"
+                            data-supplier="fresh farm foods"
+                            data-status="out"
+                        >
+
+                            <td>
+
+                                <div class="inventory-item">
+
+                                    <div class="inventory-item-icon vegetable">
+                                        <i class="bi bi-flower1"></i>
+                                    </div>
+
+                                    <div>
+                                        <strong>Garlic</strong>
+                                        <small>INV-007</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                Vegetables
+                            </td>
+
+                            <td>
+                                Fresh Farm Foods
+                            </td>
+
+                            <td>
+                                <strong class="stock-out">
+                                    0 kg
+                                </strong>
+                            </td>
+
+                            <td>
+                                5 kg
+                            </td>
+
+                            <td>
+                                Rs. 520/kg
+                            </td>
+
+                            <td>
+                                <span class="inventory-status out">
+                                    Out of Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="inventory-actions">
+
+                                    <button onclick="editInventory('INV-007')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                    <button onclick="restockItem('Garlic')">
+                                        <i class="bi bi-box-arrow-in-down"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY -->
+
+            <div id="inventoryEmpty" class="inventory-empty d-none">
+
+                <i class="bi bi-box-seam"></i>
+
+                <h5>
+                    No inventory items found
+                </h5>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="inventory-pagination">
+
+                <span>
+                    Showing 1–7 of 32 inventory items
+                </span>
+
+                <div>
+
+                    <button disabled>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <button class="current">
+                        1
+                    </button>
+
+                    <button>2</button>
+                    <button>3</button>
+
+                    <button>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   STOCK ALERTS — PREMIUM LIGHT LUXURY
+   Page-specific styles only
+========================================================= */
+
+.inventory-heading,
+.inventory-stat-card,
+.inventory-filter-card,
+.inventory-alert-banner,
+.inventory-table-card,
+.inventory-empty,
+.inventory-pagination {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.inventory-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.inventory-eyebrow {
+    display: inline-block;
+    color: #a67c3a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1;
+}
+
+.inventory-title {
+    margin: 8px 0 0;
+    color: #292722;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+}
+
+.inventory-subtitle {
+    margin: 8px 0 0;
+    color: #7b756d;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.inventory-add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 17px;
+    color: #ffffff !important;
+    background: #a17a3e;
+    border: 1px solid #a17a3e;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(161, 122, 62, .16);
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.inventory-add-btn:hover {
+    color: #ffffff !important;
+    background: #b0884c;
+    border-color: #b0884c;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(161, 122, 62, .21);
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.inventory-stat-card {
+    position: relative;
+    min-height: 128px;
+    padding: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e7e1d8;
+    border-radius: 15px;
+    box-shadow: 0 7px 24px rgba(54, 45, 35, .055);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.inventory-stat-card::after {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    right: -48px;
+    bottom: -58px;
+    border-radius: 50%;
+    background: rgba(166, 124, 58, .035);
+    pointer-events: none;
+}
+
+.inventory-stat-card:hover {
+    transform: translateY(-2px);
+    border-color: #ded4c4;
+    box-shadow: 0 12px 30px rgba(54, 45, 35, .075);
+}
+
+.inventory-stat-label {
+    display: block;
+    color: #777067;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.inventory-stat-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 7px 0 4px;
+    color: #292722;
+    font-size: 25px;
+    font-weight: 750;
+    line-height: 1.1;
+}
+
+.inventory-stat-card small {
+    position: relative;
+    z-index: 1;
+    color: #969087;
+    font-size: 10px;
+}
+
+.inventory-stat-icon {
+    position: relative;
+    z-index: 1;
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a27a3c;
+    background: #faf5eb;
+    border: 1px solid #eee2ce;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.inventory-stat-card.warning .inventory-stat-icon {
+    color: #b27d31;
+    background: #fff7e9;
+    border-color: #f0dfbd;
+}
+
+.inventory-stat-card.danger .inventory-stat-icon {
+    color: #b45e52;
+    background: #fff2ef;
+    border-color: #efd8d3;
+}
+
+.inventory-stat-card.success .inventory-stat-icon {
+    color: #4e8a63;
+    background: #eff8f1;
+    border-color: #d8ebdc;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.inventory-filter-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    background: #ffffff;
+    border: 1px solid #e7e1d8;
+    border-radius: 14px;
+    box-shadow: 0 6px 22px rgba(54, 45, 35, .045);
+}
+
+.inventory-search {
+    height: 42px;
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 9px;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.inventory-search:focus-within {
+    background: #ffffff;
+    border-color: #b18a4e;
+    box-shadow: 0 0 0 3px rgba(177, 138, 78, .09);
+}
+
+.inventory-search i {
+    color: #a27a3c;
+    font-size: 13px;
+}
+
+.inventory-search input {
+    width: 100%;
+    height: 100%;
+    color: #302d28;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+}
+
+.inventory-search input::placeholder {
+    color: #a39d94;
+}
+
+.inventory-select {
+    width: 165px;
+    height: 42px;
+    padding: 0 11px;
+    color: #5f5951;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 9px;
+    outline: 0;
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.inventory-select:hover {
+    background: #ffffff;
+    border-color: #c9c1b6;
+}
+
+.inventory-select:focus {
+    background: #ffffff;
+    border-color: #b18a4e;
+    box-shadow: 0 0 0 3px rgba(177, 138, 78, .09);
+}
+
+.inventory-select option {
+    color: #302d28;
+    background: #ffffff;
+}
+
+.inventory-reset-btn,
+.inventory-export-btn {
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 14px;
+    color: #625c54;
+    background: #ffffff;
+    border: 1px solid #dcd6cd;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.inventory-reset-btn:hover,
+.inventory-export-btn:hover {
+    color: #9c753b;
+    background: #fffdf9;
+    border-color: #cdbb9c;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(54, 45, 35, .055);
+}
+
+
+/* =========================================================
+   STOCK ALERT BANNER
+========================================================= */
+
+.inventory-alert-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    margin-bottom: 18px;
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #fffdf9
+        );
+    border: 1px solid #eee0c6;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(120, 89, 38, .045);
+    overflow: hidden;
+}
+
+.inventory-alert-banner::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -35px;
+    top: -55px;
+    border-radius: 50%;
+    background: rgba(188, 145, 74, .055);
+    pointer-events: none;
+}
+
+.inventory-alert-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b07d32;
+    background: #fff3dc;
+    border: 1px solid #eedab5;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.inventory-alert-banner strong {
+    display: block;
+    color: #5c4a2d;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.inventory-alert-banner p {
+    margin: 3px 0 0;
+    color: #8b806e;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.inventory-table-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e7e1d8;
+    border-radius: 15px;
+    box-shadow: 0 8px 27px rgba(54, 45, 35, .055);
+}
+
+.inventory-table-header {
+    min-height: 82px;
+    padding: 18px 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #ffffff;
+    border-bottom: 1px solid #ebe5dc;
+}
+
+.inventory-table-header h5 {
+    margin: 0 0 4px;
+    color: #2c2924;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.inventory-table-header p {
+    margin: 0;
+    color: #8b857d;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.inventory-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.inventory-table th {
+    padding: 12px 11px;
+    color: #817a71;
+    background: #faf9f6;
+    border-bottom: 1px solid #e3ddd4;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.inventory-table td {
+    padding: 14px 11px;
+    color: #6e6860;
+    background: #ffffff;
+    border-bottom: 1px solid #eee9e2;
+    font-size: 11px;
+    white-space: nowrap;
+    transition: background .15s ease;
+}
+
+.inventory-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.inventory-table tbody tr:hover td {
+    background: #fffdf9;
+}
+
+
+/* =========================================================
+   INVENTORY ITEM
+========================================================= */
+
+.inventory-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inventory-item strong {
+    display: block;
+    color: #34312c;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.inventory-item small {
+    display: block;
+    margin-top: 3px;
+    color: #aaa39a;
+    font-size: 9px;
+}
+
+.inventory-item-icon {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.inventory-item-icon.meat {
+    color: #b86f5f;
+    background: #fbefec;
+    border: 1px solid #f0dbd5;
+}
+
+.inventory-item-icon.grocery {
+    color: #aa7b39;
+    background: #faf4e8;
+    border: 1px solid #ecdfc7;
+}
+
+.inventory-item-icon.oil {
+    color: #b28537;
+    background: #fff7e5;
+    border: 1px solid #efe0bd;
+}
+
+.inventory-item-icon.vegetable {
+    color: #4f9467;
+    background: #eef8f0;
+    border: 1px solid #d9ebdc;
+}
+
+.inventory-item-icon.dairy {
+    color: #788991;
+    background: #f1f4f5;
+    border: 1px solid #dce3e6;
+}
+
+.inventory-item-icon.beverage {
+    color: #568ca1;
+    background: #edf6f9;
+    border: 1px solid #d8e8ed;
+}
+
+
+/* =========================================================
+   STOCK VALUES
+========================================================= */
+
+.stock-low {
+    color: #b37b31;
+    font-weight: 750;
+}
+
+.stock-out {
+    color: #b45f52;
+    font-weight: 750;
+}
+
+.stock-good {
+    color: #4f8d63;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.inventory-status {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px 5px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.inventory-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    flex: 0 0 5px;
+    border-radius: 50%;
+}
+
+.inventory-status.low {
+    color: #a8732d;
+    background: #fff6e6;
+    border: 1px solid #f0dfbf;
+}
+
+.inventory-status.low::before {
+    background: #c18b3c;
+}
+
+.inventory-status.out {
+    color: #ad5d51;
+    background: #fff1ee;
+    border: 1px solid #efd8d3;
+}
+
+.inventory-status.out::before {
+    background: #c36c5e;
+}
+
+.inventory-status.healthy {
+    color: #438057;
+    background: #eef8f0;
+    border: 1px solid #d6eadb;
+}
+
+.inventory-status.healthy::before {
+    background: #55986b;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.inventory-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.inventory-actions button {
+    width: 31px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #746d64;
+    background: #ffffff;
+    border: 1px solid #ddd7ce;
+    border-radius: 7px;
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.inventory-actions button:hover {
+    color: #9d7438;
+    background: #fffaf2;
+    border-color: #cdbb9c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(54, 45, 35, .06);
+}
+
+.inventory-actions button:last-child:hover {
+    color: #4f8d63;
+    background: #f4faf5;
+    border-color: #cfe3d4;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.inventory-empty {
+    padding: 64px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.inventory-empty i {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #a47a3d;
+    background: #faf5eb;
+    border: 1px solid #eee1cc;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.inventory-empty h5 {
+    margin: 13px 0 5px;
+    color: #34312c;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.inventory-empty p {
+    margin: 0;
+    color: #918a81;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.inventory-pagination {
+    min-height: 64px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #ffffff;
+    border-top: 1px solid #ebe5dc;
+}
+
+.inventory-pagination > span {
+    color: #918a81;
+    font-size: 10px;
+}
+
+.inventory-pagination > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.inventory-pagination button {
+    min-width: 31px;
+    height: 31px;
+    padding: 0 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #706960;
+    background: #ffffff;
+    border: 1px solid #ddd7ce;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.inventory-pagination button:hover:not(:disabled) {
+    color: #9e763a;
+    background: #fffaf2;
+    border-color: #cdbb9c;
+    transform: translateY(-1px);
+}
+
+.inventory-pagination button.current {
+    color: #ffffff;
+    background: #a17a3e;
+    border-color: #a17a3e;
+    box-shadow: 0 4px 11px rgba(161, 122, 62, .16);
+}
+
+.inventory-pagination button:disabled {
+    color: #c1bbb3;
+    background: #faf9f7;
+    border-color: #ebe6df;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.inventory-add-btn:focus-visible,
+.inventory-reset-btn:focus-visible,
+.inventory-export-btn:focus-visible,
+.inventory-select:focus-visible,
+.inventory-actions button:focus-visible,
+.inventory-pagination button:focus-visible {
+    outline: 3px solid rgba(167, 125, 63, .14);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .inventory-heading {
+        align-items: flex-start;
+    }
+
+    .inventory-filter-card {
+        flex-wrap: wrap;
+    }
+
+    .inventory-search {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .inventory-select {
+        flex: 1 1 0;
+        width: auto;
+    }
+
+    .inventory-reset-btn {
+        flex: 0 0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .inventory-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .inventory-title {
+        font-size: 34px;
+    }
+
+    .inventory-add-btn {
+        width: 100%;
+    }
+
+    .inventory-stat-card {
+        min-height: 115px;
+        padding: 18px;
+    }
+
+    .inventory-filter-card {
+        padding: 14px;
+    }
+
+    .inventory-select {
+        flex: 1 1 calc(50% - 5px);
+    }
+
+    .inventory-reset-btn {
+        flex: 1 1 100%;
+    }
+
+    .inventory-alert-banner {
+        align-items: flex-start;
+    }
+
+    .inventory-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .inventory-export-btn {
+        width: 100%;
+    }
+
+    .inventory-pagination {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .inventory-pagination > div {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .inventory-title {
+        font-size: 30px;
+    }
+
+    .inventory-subtitle {
+        font-size: 12px;
+    }
+
+    .inventory-stat-card {
+        padding: 17px;
+        border-radius: 13px;
+    }
+
+    .inventory-stat-card h3 {
+        font-size: 22px;
+    }
+
+    .inventory-stat-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        font-size: 16px;
+    }
+
+    .inventory-filter-card {
+        gap: 8px;
+    }
+
+    .inventory-select {
+        flex: 1 1 100%;
+    }
+
+    .inventory-alert-banner {
+        padding: 13px;
+    }
+
+    .inventory-alert-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .inventory-table-header {
+        padding: 16px;
+    }
+
+    .inventory-pagination {
+        padding: 12px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .inventory-stat-card,
+    .inventory-add-btn,
+    .inventory-search,
+    .inventory-select,
+    .inventory-reset-btn,
+    .inventory-export-btn,
+    .inventory-actions button,
+    .inventory-pagination button {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}

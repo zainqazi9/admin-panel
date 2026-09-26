@@ -1,0 +1,1668 @@
+{% include "header.html" %}
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- PAGE HEADER -->
+        <div class="staff-heading">
+
+            <div>
+                <span class="staff-eyebrow">
+                    STAFF MANAGEMENT
+                </span>
+
+                <h1 class="staff-title">
+                    Staff
+                </h1>
+
+                <p class="staff-subtitle">
+                    Manage your restaurant team, roles and staff activity.
+                </p>
+            </div>
+
+            <a href="/add-staff" class="staff-add-btn">
+                <i class="bi bi-person-plus"></i>
+                Add Staff
+            </a>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-xl-3 col-md-6">
+                <div class="staff-stat-card">
+
+                    <div>
+                        <div class="staff-stat-label">
+                            Total Staff
+                        </div>
+
+                        <div class="staff-stat-number">
+                            18
+                        </div>
+
+                        <div class="staff-stat-note">
+                            Registered team members
+                        </div>
+                    </div>
+
+                    <div class="staff-stat-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="staff-stat-card">
+
+                    <div>
+                        <div class="staff-stat-label">
+                            Active Staff
+                        </div>
+
+                        <div class="staff-stat-number">
+                            15
+                        </div>
+
+                        <div class="staff-stat-note positive">
+                            Currently active
+                        </div>
+                    </div>
+
+                    <div class="staff-stat-icon green">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="staff-stat-card">
+
+                    <div>
+                        <div class="staff-stat-label">
+                            On Duty Today
+                        </div>
+
+                        <div class="staff-stat-number">
+                            11
+                        </div>
+
+                        <div class="staff-stat-note">
+                            Staff working today
+                        </div>
+                    </div>
+
+                    <div class="staff-stat-icon blue">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6">
+                <div class="staff-stat-card">
+
+                    <div>
+                        <div class="staff-stat-label">
+                            Departments
+                        </div>
+
+                        <div class="staff-stat-number">
+                            5
+                        </div>
+
+                        <div class="staff-stat-note">
+                            Restaurant departments
+                        </div>
+                    </div>
+
+                    <div class="staff-stat-icon gold">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+        <div class="staff-filter-card">
+
+            <div class="staff-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="staffSearch"
+                    placeholder="Search staff, phone or email..."
+                    onkeyup="filterStaff()"
+                >
+
+            </div>
+
+
+            <select
+                id="staffRole"
+                class="staff-select"
+                onchange="filterStaff()"
+            >
+                <option value="all">All Roles</option>
+                <option value="manager">Manager</option>
+                <option value="cashier">Cashier</option>
+                <option value="chef">Chef</option>
+                <option value="waiter">Waiter</option>
+                <option value="delivery">Delivery Rider</option>
+            </select>
+
+
+            <select
+                id="staffStatus"
+                class="staff-select"
+                onchange="filterStaff()"
+            >
+                <option value="all">All Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+
+            <button
+                type="button"
+                class="staff-reset-btn"
+                onclick="resetStaffFilters()"
+            >
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Reset
+            </button>
+
+        </div>
+
+
+        <!-- STAFF TABLE -->
+        <div class="staff-table-card">
+
+            <div class="staff-table-header">
+
+                <div>
+                    <h5>
+                        All Staff
+                    </h5>
+
+                    <p>
+                        View and manage your restaurant team members.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="staff-export-btn"
+                    onclick="exportStaff()"
+                >
+                    <i class="bi bi-download"></i>
+                    Export
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="staff-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>STAFF MEMBER</th>
+                            <th>ROLE</th>
+                            <th>PHONE</th>
+                            <th>EMAIL</th>
+                            <th>SHIFT</th>
+                            <th>JOINED</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="staffTableBody">
+
+
+                        <!-- STAFF 1 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="usman malik"
+                            data-phone="03001234567"
+                            data-email="usman@adminzq.com"
+                            data-role="manager"
+                            data-status="active"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar orange">
+                                        UM
+                                    </div>
+
+                                    <div>
+                                        <strong>Usman Malik</strong>
+                                        <small>EMP-001</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role manager">
+                                    Manager
+                                </span>
+                            </td>
+
+                            <td>
+                                0300-1234567
+                            </td>
+
+                            <td>
+                                usman@adminzq.com
+                            </td>
+
+                            <td>
+                                10:00 AM – 08:00 PM
+                            </td>
+
+                            <td>
+                                Jan 12, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-001')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-001')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STAFF 2 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="ahmed raza"
+                            data-phone="03111234567"
+                            data-email="ahmed@adminzq.com"
+                            data-role="chef"
+                            data-status="active"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar red">
+                                        AR
+                                    </div>
+
+                                    <div>
+                                        <strong>Ahmed Raza</strong>
+                                        <small>EMP-002</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role chef">
+                                    Chef
+                                </span>
+                            </td>
+
+                            <td>
+                                0311-1234567
+                            </td>
+
+                            <td>
+                                ahmed@adminzq.com
+                            </td>
+
+                            <td>
+                                02:00 PM – 12:00 AM
+                            </td>
+
+                            <td>
+                                Mar 05, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-002')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-002')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STAFF 3 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="hamza ali"
+                            data-phone="03221234567"
+                            data-email="hamza@adminzq.com"
+                            data-role="cashier"
+                            data-status="active"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar blue">
+                                        HA
+                                    </div>
+
+                                    <div>
+                                        <strong>Hamza Ali</strong>
+                                        <small>EMP-003</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role cashier">
+                                    Cashier
+                                </span>
+                            </td>
+
+                            <td>
+                                0322-1234567
+                            </td>
+
+                            <td>
+                                hamza@adminzq.com
+                            </td>
+
+                            <td>
+                                10:00 AM – 06:00 PM
+                            </td>
+
+                            <td>
+                                Apr 18, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-003')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-003')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STAFF 4 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="bilal ahmed"
+                            data-phone="03331234567"
+                            data-email="bilal@adminzq.com"
+                            data-role="waiter"
+                            data-status="active"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar green">
+                                        BA
+                                    </div>
+
+                                    <div>
+                                        <strong>Bilal Ahmed</strong>
+                                        <small>EMP-004</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role waiter">
+                                    Waiter
+                                </span>
+                            </td>
+
+                            <td>
+                                0333-1234567
+                            </td>
+
+                            <td>
+                                bilal@adminzq.com
+                            </td>
+
+                            <td>
+                                04:00 PM – 12:00 AM
+                            </td>
+
+                            <td>
+                                May 22, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-004')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-004')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STAFF 5 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="saad khan"
+                            data-phone="03451234567"
+                            data-email="saad@adminzq.com"
+                            data-role="delivery"
+                            data-status="active"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar purple">
+                                        SK
+                                    </div>
+
+                                    <div>
+                                        <strong>Saad Khan</strong>
+                                        <small>EMP-005</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role delivery">
+                                    Delivery Rider
+                                </span>
+                            </td>
+
+                            <td>
+                                0345-1234567
+                            </td>
+
+                            <td>
+                                saad@adminzq.com
+                            </td>
+
+                            <td>
+                                05:00 PM – 01:00 AM
+                            </td>
+
+                            <td>
+                                Jun 10, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status active">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-005')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-005')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STAFF 6 -->
+
+                        <tr
+                            class="staff-row"
+                            data-name="farhan iqbal"
+                            data-phone="03051234567"
+                            data-email="farhan@adminzq.com"
+                            data-role="waiter"
+                            data-status="inactive"
+                        >
+
+                            <td>
+
+                                <div class="staff-profile">
+
+                                    <div class="staff-avatar gray">
+                                        FI
+                                    </div>
+
+                                    <div>
+                                        <strong>Farhan Iqbal</strong>
+                                        <small>EMP-006</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                <span class="staff-role waiter">
+                                    Waiter
+                                </span>
+                            </td>
+
+                            <td>
+                                0305-1234567
+                            </td>
+
+                            <td>
+                                farhan@adminzq.com
+                            </td>
+
+                            <td>
+                                Weekend Shift
+                            </td>
+
+                            <td>
+                                Jul 03, 2025
+                            </td>
+
+                            <td>
+                                <span class="staff-status inactive">
+                                    Inactive
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="staff-actions">
+
+                                    <button onclick="viewStaff('EMP-006')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                    <button onclick="editStaff('EMP-006')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="staffEmpty"
+                class="staff-empty d-none"
+            >
+
+                <i class="bi bi-person-x"></i>
+
+                <h5>
+                    No staff found
+                </h5>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="staff-pagination">
+
+                <span>
+                    Showing 1–6 of 18 staff members
+                </span>
+
+                <div>
+
+                    <button disabled>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <button class="current">
+                        1
+                    </button>
+
+                    <button>
+                        2
+                    </button>
+
+                    <button>
+                        3
+                    </button>
+
+                    <button>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   STAFF PAGE — PREMIUM LIGHT LUXURY
+========================================================= */
+
+.staff-heading,
+.staff-stat-card,
+.staff-filter-card,
+.staff-table-card,
+.staff-empty {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.staff-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.staff-eyebrow {
+    display: inline-block;
+    color: #a9782b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.staff-title {
+    margin: 6px 0 0;
+    color: #24211d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.5px;
+}
+
+.staff-subtitle {
+    margin: 8px 0 0;
+    color: #817a71;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.staff-add-btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 17px;
+    color: #fffdf8 !important;
+    background: linear-gradient(135deg, #a9782b, #bb8b3e);
+    border: 1px solid #a9782b;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 750;
+    white-space: nowrap;
+    box-shadow: 0 7px 18px rgba(169, 120, 43, .16);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.staff-add-btn i {
+    font-size: 14px;
+}
+
+.staff-add-btn:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, #96691f, #ad7d30);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 23px rgba(169, 120, 43, .22);
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.staff-stat-card {
+    position: relative;
+    min-height: 128px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 15px;
+    box-shadow: 0 7px 25px rgba(42, 35, 26, .05);
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.staff-stat-card::before {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    right: -48px;
+    top: -48px;
+    border-radius: 50%;
+    background: rgba(180, 135, 58, .055);
+    pointer-events: none;
+}
+
+.staff-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #ddd3c5;
+    box-shadow: 0 13px 32px rgba(42, 35, 26, .075);
+}
+
+.staff-stat-label {
+    margin-bottom: 6px;
+    color: #8a8278;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .35px;
+    text-transform: uppercase;
+}
+
+.staff-stat-number {
+    color: #2c2823;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+}
+
+.staff-stat-note {
+    margin-top: 6px;
+    color: #9b948a;
+    font-size: 9.5px;
+    line-height: 1.4;
+}
+
+.staff-stat-note.positive {
+    color: #4f956d;
+}
+
+.staff-stat-icon {
+    position: relative;
+    z-index: 1;
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a9782b;
+    background: #faf4e9;
+    border: 1px solid #eee1ca;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.staff-stat-icon.green {
+    color: #4f956d;
+    background: #f0f8f3;
+    border-color: #dceee2;
+}
+
+.staff-stat-icon.blue {
+    color: #4c91a9;
+    background: #eef7fa;
+    border-color: #d9ebf0;
+}
+
+.staff-stat-icon.gold {
+    color: #ad7d2d;
+    background: #fbf5e9;
+    border-color: #eee2cb;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.staff-filter-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 19px;
+    margin-bottom: 22px;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 15px;
+    box-shadow: 0 6px 22px rgba(42, 35, 26, .045);
+}
+
+.staff-search {
+    height: 42px;
+    min-width: 220px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 10px;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.staff-search:hover {
+    background: #fff;
+    border-color: #cfc6ba;
+}
+
+.staff-search:focus-within {
+    background: #fff;
+    border-color: #bb8a3d;
+    box-shadow: 0 0 0 3px rgba(187, 138, 61, .10);
+}
+
+.staff-search i {
+    flex: 0 0 auto;
+    color: #a9782b;
+    font-size: 14px;
+}
+
+.staff-search input {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding: 0;
+    color: #332f29;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.staff-search input::placeholder {
+    color: #aaa39a;
+}
+
+.staff-select {
+    width: 155px;
+    height: 42px;
+    padding: 0 12px;
+    color: #575149;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.staff-select:hover {
+    background: #fff;
+    border-color: #cfc6ba;
+}
+
+.staff-select:focus {
+    background: #fff;
+    border-color: #bb8a3d;
+    box-shadow: 0 0 0 3px rgba(187, 138, 61, .10);
+}
+
+.staff-select option {
+    color: #332f29;
+    background: #fff;
+}
+
+.staff-reset-btn {
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 15px;
+    color: #655e55;
+    background: #fff;
+    border: 1px solid #ddd7ce;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.staff-reset-btn:hover {
+    color: #8e641f;
+    background: #fcf8f0;
+    border-color: #cfb27d;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   STAFF TABLE CARD
+========================================================= */
+
+.staff-table-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(42, 35, 26, .055);
+}
+
+.staff-table-header {
+    min-height: 82px;
+    padding: 17px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #fff;
+    border-bottom: 1px solid #eee8df;
+}
+
+.staff-table-header h5 {
+    margin: 0 0 5px;
+    color: #2e2a25;
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: -.15px;
+}
+
+.staff-table-header p {
+    margin: 0;
+    color: #999188;
+    font-size: 10.5px;
+    line-height: 1.5;
+}
+
+.staff-export-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 35px;
+    padding: 7px 12px;
+    color: #625c54;
+    background: #fff;
+    border: 1px solid #ddd7ce;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 10.5px;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.staff-export-btn:hover {
+    color: #986b25;
+    background: #fcf8f0;
+    border-color: #cfb27d;
+    transform: translateY(-1px);
+}
+
+.staff-export-btn i {
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.staff-table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.staff-table thead th {
+    padding: 12px 10px;
+    color: #827a70;
+    background: #faf8f4;
+    border-bottom: 1px solid #e6e0d7;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .65px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.staff-table tbody td {
+    padding: 14px 10px;
+    color: #716a61;
+    background: #fff;
+    border-bottom: 1px solid #eee9e2;
+    font-size: 10.5px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.staff-table tbody tr {
+    transition: background .18s ease;
+}
+
+.staff-table tbody tr:hover td {
+    background: #fdfbf7;
+}
+
+.staff-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   STAFF PROFILE
+========================================================= */
+
+.staff-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 165px;
+}
+
+.staff-profile strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #39342e;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.staff-profile small {
+    display: block;
+    color: #aaa197;
+    font-size: 8.5px;
+    line-height: 1.3;
+    letter-spacing: .2px;
+}
+
+.staff-avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 9.5px;
+    font-weight: 800;
+    border: 1px solid transparent;
+}
+
+.staff-avatar.orange {
+    color: #a9782b;
+    background: #faf3e6;
+    border-color: #eee0c5;
+}
+
+.staff-avatar.red {
+    color: #ae6d5d;
+    background: #fbf0ed;
+    border-color: #efdcd6;
+}
+
+.staff-avatar.blue {
+    color: #4d91aa;
+    background: #edf7fa;
+    border-color: #d8ebf0;
+}
+
+.staff-avatar.green {
+    color: #4e916b;
+    background: #eef8f2;
+    border-color: #d8ebdf;
+}
+
+.staff-avatar.purple {
+    color: #856f94;
+    background: #f5f0f8;
+    border-color: #e5ddec;
+}
+
+.staff-avatar.gray {
+    color: #777169;
+    background: #f2f0ed;
+    border-color: #e1ddd7;
+}
+
+
+/* =========================================================
+   ROLE BADGES
+========================================================= */
+
+.staff-role {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 8.5px;
+    font-weight: 750;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.staff-role.manager {
+    color: #a9782b;
+    background: #fbf4e8;
+    border-color: #eee0c7;
+}
+
+.staff-role.chef {
+    color: #a96857;
+    background: #fbf0ed;
+    border-color: #efddd7;
+}
+
+.staff-role.cashier {
+    color: #4d8da5;
+    background: #eef7fa;
+    border-color: #d9ebf0;
+}
+
+.staff-role.waiter {
+    color: #4d916b;
+    background: #eef8f2;
+    border-color: #d9ebdf;
+}
+
+.staff-role.delivery {
+    color: #96752e;
+    background: #faf5e8;
+    border-color: #eee3ca;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.staff-status {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 24px;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 8.5px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.staff-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    flex: 0 0 5px;
+    border-radius: 50%;
+}
+
+.staff-status.active {
+    color: #4d9069;
+    background: #eef8f2;
+    border: 1px solid #d9ecdf;
+}
+
+.staff-status.active::before {
+    background: #56a477;
+    box-shadow: 0 0 0 3px rgba(86, 164, 119, .09);
+}
+
+.staff-status.inactive {
+    color: #827a70;
+    background: #f5f3f0;
+    border: 1px solid #e5e0d9;
+}
+
+.staff-status.inactive::before {
+    background: #aaa197;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.staff-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.staff-actions button {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #777067;
+    background: #fff;
+    border: 1px solid #ded8cf;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.staff-actions button:hover {
+    color: #9d7029;
+    background: #fcf8f0;
+    border-color: #cfb27d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(42, 35, 26, .06);
+}
+
+.staff-actions button i {
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.staff-empty {
+    padding: 68px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.staff-empty i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    color: #ad8750;
+    background: #faf5eb;
+    border: 1px solid #eee2cf;
+    border-radius: 50%;
+    font-size: 27px;
+}
+
+.staff-empty h5 {
+    margin: 15px 0 5px;
+    color: #39342e;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.staff-empty p {
+    margin: 0;
+    color: #999188;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.staff-pagination {
+    min-height: 64px;
+    padding: 12px 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #fff;
+    border-top: 1px solid #eee8df;
+}
+
+.staff-pagination > span {
+    color: #999188;
+    font-size: 9.5px;
+}
+
+.staff-pagination > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.staff-pagination button {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #777067;
+    background: #fff;
+    border: 1px solid #ded8cf;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 9.5px;
+    cursor: pointer;
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.staff-pagination button:hover:not(:disabled),
+.staff-pagination button.current {
+    color: #fffdf8;
+    background: #ad7d30;
+    border-color: #ad7d30;
+}
+
+.staff-pagination button:disabled {
+    color: #b9b2aa;
+    background: #faf9f7;
+    border-color: #e8e3dc;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+.staff-add-btn:focus-visible,
+.staff-reset-btn:focus-visible,
+.staff-export-btn:focus-visible,
+.staff-actions button:focus-visible,
+.staff-pagination button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(169, 120, 43, .13);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .staff-filter-card {
+        flex-wrap: wrap;
+    }
+
+    .staff-search {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .staff-select {
+        flex: 1;
+        width: auto;
+    }
+
+    .staff-reset-btn {
+        flex: 0 0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .staff-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .staff-title {
+        font-size: 32px;
+    }
+
+    .staff-add-btn {
+        width: 100%;
+    }
+
+    .staff-filter-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    .staff-search,
+    .staff-select,
+    .staff-reset-btn {
+        width: 100%;
+        flex: none;
+    }
+
+    .staff-table-header {
+        align-items: flex-start;
+        padding: 17px;
+    }
+
+    .staff-export-btn {
+        flex-shrink: 0;
+    }
+
+    .staff-pagination {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 13px 16px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .staff-title {
+        font-size: 28px;
+    }
+
+    .staff-subtitle {
+        font-size: 12px;
+    }
+
+    .staff-stat-card {
+        min-height: 115px;
+        padding: 17px;
+    }
+
+    .staff-stat-number {
+        font-size: 25px;
+    }
+
+    .staff-stat-icon {
+        width: 43px;
+        height: 43px;
+        flex-basis: 43px;
+        font-size: 18px;
+    }
+
+    .staff-table-header {
+        flex-direction: column;
+    }
+
+    .staff-export-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .staff-stat-card,
+    .staff-add-btn,
+    .staff-reset-btn,
+    .staff-export-btn,
+    .staff-actions button,
+    .staff-pagination button,
+    .staff-search,
+    .staff-select {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+{% include "footer.html" %}
