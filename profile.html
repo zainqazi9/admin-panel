@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="adminZQ professional restaurant admin dashboard">
+
+    <title>adminZQ | Restaurant Management</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="static/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="static/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Header / Sidebar / Footer CSS ONLY -->
+    <link rel="stylesheet"
+          href="static/css/style.css">
+</head>
+
+<body>
+
+<div style="background:#0f4c75; color:#ffffff; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:999999; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+    <span><i class="bi bi-shield-check" style="margin-right:6px;"></i><strong>adminZQ</strong> &mdash; Restaurant Command Center &amp; Management Suite (Zain Qazi)</span>
+    <a href="https://zainqazi.netlify.app#projects" style="color:#ffffff; text-decoration:none; background:rgba(255,255,255,0.2); padding:6px 16px; border-radius:6px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">&larr; Back to Portfolio</a>
+</div>
+
+
+<div class="azq-layout">
+
+    <!-- Sidebar Overlay -->
+    <div class="azq-sidebar-overlay" data-sidebar-close></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="azq-sidebar" id="adminSidebar">
+
+        <!-- Brand -->
+        <div class="azq-sidebar-brand">
+
+            <a href="index.html" class="azq-brand">
+
+                <div class="azq-brand-logo">
+                    <img
+                        src="static/images/FOOD/zq-logo.svg.svg"
+                        alt="ZQ Logo">
+                </div>
+
+                <div class="azq-brand-text">
+                    <span class="azq-brand-name">adminZQ</span>
+                    <span class="azq-brand-subtitle">
+                        Restaurant Suite
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="azq-navigation">
+
+            <div class="azq-nav-label">
+                MAIN MENU
+            </div>
+
+            <a href="index.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                </span>
+                <span class="azq-nav-text">Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-receipt"></i>
+                </span>
+                <span class="azq-nav-text">Orders</span>
+            </a>
+
+
+            <a href="products.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </span>
+                <span class="azq-nav-text">Products</span>
+            </a>
+
+
+            <a href="categories.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </span>
+                <span class="azq-nav-text">Categories</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                MANAGEMENT
+            </div>
+
+
+            <a href="customers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="azq-nav-text">Customers</span>
+            </a>
+
+
+            <a href="staff.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="azq-nav-text">Staff</span>
+            </a>
+
+
+            <a href="stock-alerts.html" class="azq-nav-link azq-nav-alert-link">
+
+                <span class="azq-nav-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+
+                <span class="azq-nav-text">
+                    Stock Alerts
+                </span>
+
+                <span class="azq-alert-count">
+                    5
+                </span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-truck"></i>
+                </span>
+                <span class="azq-nav-text">Suppliers</span>
+            </a>
+
+
+            <a href="reports.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </span>
+                <span class="azq-nav-text">Reports</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                ACCOUNT
+            </div>
+
+
+            <a href="profile.html" class="azq-nav-link active">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="azq-nav-text">Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-gear"></i>
+                </span>
+                <span class="azq-nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar User -->
+        <div class="azq-sidebar-user">
+
+            <div class="azq-user-avatar">
+                <img
+                    src="static/images/FOOD/Admin.jpeg"
+                    alt="Admin ZQ">
+            </div>
+
+            <div class="azq-user-info">
+
+                <strong>Admin ZQ</strong>
+
+                <span>
+                    Restaurant Manager
+                </span>
+
+            </div>
+
+            <i class="bi bi-three-dots azq-user-menu"></i>
+
+        </div>
+
+
+        <!-- Sidebar Status -->
+        <div class="azq-sidebar-status">
+
+            <span class="azq-status-indicator"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <div class="azq-main">
+
+        <!-- Top Header -->
+        <header class="azq-header">
+
+            <div class="azq-header-left">
+
+                <!-- Sidebar Toggle -->
+                <button
+                    type="button"
+                    class="azq-sidebar-toggle"
+                    data-sidebar-toggle
+                    aria-controls="adminSidebar"
+                    aria-expanded="true"
+                    aria-label="Toggle sidebar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+                <!-- Search -->
+                <div class="azq-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search orders, products..."
+                        aria-label="Search">
+
+                    <span class="azq-search-shortcut">
+                        /
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="azq-header-right">
+
+                <!-- Theme -->
+                <button
+                    type="button"
+                    class="azq-header-button theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch color theme">
+
+                    <i
+                        class="bi bi-moon-stars"
+                        data-theme-icon>
+                    </i>
+
+                </button>
+
+
+                <!-- Notifications -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-header-button azq-notification-button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="azq-notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end azq-notification-menu">
+
+                        <div class="azq-dropdown-heading">
+                            <strong>Notifications</strong>
+                            <span>3 new</span>
+                        </div>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+
+                            <span>
+                                <strong>New order received</strong>
+                                <small>4 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Order #1024 ready</strong>
+                                <small>32 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="stock-alerts.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon azq-warning-icon">
+                                <i class="bi bi-exclamation-triangle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Low stock detected</strong>
+                                <small>1 hour ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <div class="azq-notification-footer">
+                            <a href="stock-alerts.html">
+                                View all notifications
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-profile-button dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            src="static/images/FOOD/Admin.jpeg"
+                            alt="Admin ZQ">
+
+                        <span class="azq-profile-details">
+
+                            <strong>Admin ZQ</strong>
+
+                            <small>Manager</small>
+
+                        </span>
+
+                    </button>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end azq-profile-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="bi bi-gear"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item azq-signout" href="login.html">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign Out
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <!-- PAGE CONTENT START -->
+
+
+<main class="dashboard-content">
+  <div class="container-fluid px-3 px-lg-4 py-4">
+
+    <!-- Page Heading -->
+    <div class="restaurant-heading">
+      <div>
+        <span class="restaurant-eyebrow">ACCOUNT MANAGEMENT</span>
+        <h1 class="restaurant-title">My Profile</h1>
+        <p class="restaurant-subtitle">
+          Manage your personal information and account settings.
+        </p>
+      </div>
+
+      <div class="restaurant-actions">
+        <button type="button" class="btn btn-outline-dark" onclick="window.print()">
+          <i class="bi bi-printer"></i>
+          Print
+        </button>
+        <button type="button" class="btn restaurant-btn" onclick="enableEditing()">
+          <i class="bi bi-pencil-square"></i>
+          Edit Profile
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Header -->
+    <div class="profile-cover-card mb-4">
+      <div class="profile-cover"></div>
+
+      <div class="profile-main">
+        <div class="profile-avatar-wrapper">
+          <img
+            src="static/images/FOOD/Admin.jpeg"
+            alt="Admin Profile"
+            class="profile-avatar"
+          >
+          <span class="profile-online"></span>
+        </div>
+
+        <div class="profile-main-info">
+          <h2>Admin User</h2>
+          <p>
+            <i class="bi bi-shield-check"></i>
+            Restaurant Administrator
+          </p>
+          <span class="profile-status">
+            <i class="bi bi-circle-fill"></i>
+            Active Account
+          </span>
+        </div>
+
+        <div class="profile-id-box">
+          <span>ADMIN ID</span>
+          <strong>ADM-001</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Left Column -->
+      <div class="col-xl-8">
+
+        <!-- Personal Information -->
+        <div class="profile-card mb-4">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">PERSONAL INFORMATION</span>
+              <h3>Basic Details</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-person"></i>
+            </div>
+          </div>
+
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="profile-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                id="fullName"
+                value="Admin User"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label class="profile-label">Username</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                id="username"
+                value="admin"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label class="profile-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control profile-input"
+                id="email"
+                value="admin@zqrestaurant.com"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label class="profile-label">Phone Number</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                id="phone"
+                value="0300-1234567"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label class="profile-label">Role</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="Administrator"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label class="profile-label">Department</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="Restaurant Management"
+                disabled
+              >
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="profile-card mb-4">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">CONTACT INFORMATION</span>
+              <h3>Address Details</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+          </div>
+
+          <div class="row g-3">
+
+            <div class="col-12">
+              <label class="profile-label">Street Address</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="ZQ Restaurant Main Branch"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label class="profile-label">City</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="Sukkur"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label class="profile-label">Area</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="Main Market"
+                disabled
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label class="profile-label">Postal Code</label>
+              <input
+                type="text"
+                class="form-control profile-input"
+                value="65200"
+                disabled
+              >
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="profile-card mb-4">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">SECURITY</span>
+              <h3>Change Password</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-shield-lock"></i>
+            </div>
+          </div>
+
+          <div class="security-note">
+            <i class="bi bi-info-circle"></i>
+            <div>
+              <strong>Keep your account secure</strong>
+              <p>
+                Use a strong password that you do not use on other accounts.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-1">
+
+            <div class="col-md-4">
+              <label class="profile-label">Current Password</label>
+              <div class="password-field">
+                <input
+                  type="password"
+                  class="form-control profile-input"
+                  id="currentPassword"
+                  placeholder="Enter current password"
+                >
+                <button type="button" onclick="togglePassword('currentPassword', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label class="profile-label">New Password</label>
+              <div class="password-field">
+                <input
+                  type="password"
+                  class="form-control profile-input"
+                  id="newPassword"
+                  placeholder="Enter new password"
+                >
+                <button type="button" onclick="togglePassword('newPassword', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label class="profile-label">Confirm Password</label>
+              <div class="password-field">
+                <input
+                  type="password"
+                  class="form-control profile-input"
+                  id="confirmPassword"
+                  placeholder="Confirm new password"
+                >
+                <button type="button" onclick="togglePassword('confirmPassword', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="password-action">
+            <button type="button" class="btn password-btn" onclick="changePassword()">
+              <i class="bi bi-key"></i>
+              Update Password
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="profile-actions">
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            id="cancelBtn"
+            onclick="cancelEditing()"
+            style="display:none;"
+          >
+            <i class="bi bi-x-lg"></i>
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            class="btn restaurant-btn"
+            id="saveBtn"
+            onclick="saveProfile()"
+            style="display:none;"
+          >
+            <i class="bi bi-check-lg"></i>
+            Save Changes
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-xl-4">
+
+        <!-- Account Overview -->
+        <div class="profile-card mb-4">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">ACCOUNT OVERVIEW</span>
+              <h3>Account Status</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-person-check"></i>
+            </div>
+          </div>
+
+          <div class="account-status-box">
+            <div class="status-icon">
+              <i class="bi bi-check-lg"></i>
+            </div>
+
+            <div>
+              <strong>Account Active</strong>
+              <span>Your account is active and verified.</span>
+            </div>
+          </div>
+
+          <div class="account-detail-list">
+
+            <div class="account-detail">
+              <span>Account Created</span>
+              <strong>01 January 2026</strong>
+            </div>
+
+            <div class="account-detail">
+              <span>Last Login</span>
+              <strong>17 September 2026</strong>
+            </div>
+
+            <div class="account-detail">
+              <span>Login Status</span>
+              <strong class="text-success">
+                <i class="bi bi-circle-fill small"></i>
+                Online
+              </strong>
+            </div>
+
+            <div class="account-detail">
+              <span>Two-Factor Authentication</span>
+              <strong class="text-warning">Not Enabled</strong>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Profile Stats -->
+        <div class="profile-card mb-4">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">MY ACTIVITY</span>
+              <h3>Dashboard Activity</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-bar-chart"></i>
+            </div>
+          </div>
+
+          <div class="activity-stat">
+            <div class="activity-stat-icon">
+              <i class="bi bi-receipt"></i>
+            </div>
+
+            <div>
+              <strong>1,284</strong>
+              <span>Orders Managed</span>
+            </div>
+          </div>
+
+          <div class="activity-stat">
+            <div class="activity-stat-icon">
+              <i class="bi bi-people"></i>
+            </div>
+
+            <div>
+              <strong>864</strong>
+              <span>Customers Managed</span>
+            </div>
+          </div>
+
+          <div class="activity-stat">
+            <div class="activity-stat-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+
+            <div>
+              <strong>32</strong>
+              <span>Inventory Items</span>
+            </div>
+          </div>
+
+          <div class="activity-stat">
+            <div class="activity-stat-icon">
+              <i class="bi bi-truck"></i>
+            </div>
+
+            <div>
+              <strong>12</strong>
+              <span>Active Suppliers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <div>
+              <span class="profile-section-label">QUICK ACCESS</span>
+              <h3>Account Links</h3>
+            </div>
+
+            <div class="profile-card-icon">
+              <i class="bi bi-grid"></i>
+            </div>
+          </div>
+
+          <div class="profile-links">
+
+            <a href="settings.html" class="profile-link">
+              <div>
+                <i class="bi bi-gear"></i>
+              </div>
+              <span>Account Settings</span>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+
+            <a href="/reports" class="profile-link">
+              <div>
+                <i class="bi bi-file-earmark-bar-graph"></i>
+              </div>
+              <span>View Reports</span>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+
+            <a href="stock-alerts.html" class="profile-link">
+              <div>
+                <i class="bi bi-exclamation-triangle"></i>
+              </div>
+              <span>Stock Alerts</span>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<style>
+/* =========================================================
+   ADMINZQ — PROFILE PAGE
+   PREMIUM EXECUTIVE / LUXURY DESIGN
+   PAGE CONTENT ONLY
+   Header / Sidebar / Footer untouched
+========================================================= */
+
+/* =========================================================
+   PAGE FOUNDATION
+========================================================= */
+
+.dashboard-content {
+    background:
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(188, 139, 67, 0.09),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 8% 82%,
+            rgba(188, 139, 67, 0.045),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f8f5ef 0%,
+            #f5f1e9 52%,
+            #fbfaf7 100%
+        );
+    min-height: calc(100vh - 70px);
+    color: #302c27;
+}
+
+.dashboard-content .container-fluid {
+    max-width: 1700px;
+}
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.restaurant-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 27px;
+}
+
+.restaurant-heading > div:first-child {
+    position: relative;
+}
+
+.restaurant-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+    color: #a8732d;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.restaurant-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #9d6828,
+        #d5aa63
+    );
+}
+
+.restaurant-title {
+    margin: 0;
+    color: #25221f;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.restaurant-subtitle {
+    margin: 7px 0 0;
+    color: #817a72;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.restaurant-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.restaurant-actions .btn {
+    min-height: 44px;
+    padding: 9px 17px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all .22s ease;
+}
+
+.restaurant-actions .btn-outline-dark {
+    color: #625950;
+    background: rgba(255,255,255,.85);
+    border: 1px solid #d9d1c8;
+    box-shadow: 0 5px 15px rgba(45, 36, 27, .04);
+}
+
+.restaurant-actions .btn-outline-dark:hover {
+    color: #3f3832;
+    background: #fff;
+    border-color: #bdb3a8;
+    transform: translateY(-1px);
+}
+
+.restaurant-actions .restaurant-btn {
+    color: #fff;
+    border: 1px solid #a16d2c;
+    background:
+        linear-gradient(
+            135deg,
+            #b9843d,
+            #9b672b
+        );
+    box-shadow:
+        0 8px 20px rgba(150, 98, 38, .20);
+}
+
+.restaurant-actions .restaurant-btn:hover {
+    color: #fff;
+    border-color: #8f5d25;
+    background:
+        linear-gradient(
+            135deg,
+            #c38d46,
+            #a86e2f
+        );
+    transform: translateY(-2px);
+    box-shadow:
+        0 11px 25px rgba(150, 98, 38, .27);
+}
+
+/* =========================================================
+   PROFILE HERO
+========================================================= */
+
+.profile-cover-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 26px;
+    border: 1px solid #e5dccc;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow:
+        0 18px 48px rgba(48, 39, 29, .075),
+        0 3px 12px rgba(48, 39, 29, .035);
+}
+
+/* Decorative border */
+
+.profile-cover-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a8732d 25%,
+            #d3a35d 50%,
+            #a8732d 75%,
+            transparent
+        );
+    opacity: .75;
+}
+
+/* Cover */
+
+.profile-cover {
+    position: relative;
+    height: 165px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            115deg,
+            #171614 0%,
+            #25201c 27%,
+            #463326 57%,
+            #795634 100%
+        );
+}
+
+.profile-cover::before {
+    content: "";
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    right: -100px;
+    top: -300px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(220, 174, 99, .30) 0%,
+            rgba(220, 174, 99, .10) 40%,
+            transparent 70%
+        );
+}
+
+.profile-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 40%,
+            rgba(255,255,255,.025) 40% 41%,
+            transparent 41% 60%,
+            rgba(255,255,255,.025) 60% 61%,
+            transparent 61%
+        );
+}
+
+/* Hero content */
+
+.profile-main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    min-height: 148px;
+    padding: 0 30px 21px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fffefd 100%
+        );
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    z-index: 3;
+    flex-shrink: 0;
+    margin-top: -64px;
+}
+
+.profile-avatar {
+    display: block;
+    width: 122px;
+    height: 122px;
+    object-fit: cover;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    background: #f1ebe3;
+    box-shadow:
+        0 13px 32px rgba(27, 23, 19, .18),
+        0 3px 8px rgba(27, 23, 19, .08);
+}
+
+.profile-online {
+    position: absolute;
+    right: 7px;
+    bottom: 9px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    background: #35a957;
+    box-shadow:
+        0 3px 8px rgba(53,169,87,.28);
+}
+
+/* Hero information */
+
+.profile-main-info {
+    min-width: 0;
+    padding-top: 15px;
+}
+
+.profile-main-info h2 {
+    margin: 0 0 6px;
+    color: #25211d;
+    font-size: 26px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.profile-main-info p {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 10px;
+    color: #817970;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.profile-main-info p i {
+    color: #ae7731;
+    font-size: 15px;
+}
+
+.profile-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 11px;
+    border: 1px solid #d5ecd9;
+    border-radius: 30px;
+    background: #eef9f1;
+    color: #2d8744;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.profile-status i {
+    font-size: 6px;
+}
+
+/* Admin ID */
+
+.profile-id-box {
+    min-width: 145px;
+    margin-left: auto;
+    padding: 13px 16px;
+    text-align: right;
+    border: 1px solid #e9e1d8;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            #fdfcf9,
+            #f8f4ee
+        );
+}
+
+.profile-id-box span {
+    display: block;
+    margin-bottom: 5px;
+    color: #a29a92;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.profile-id-box strong {
+    display: block;
+    color: #40362f;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+/* =========================================================
+   MAIN CARDS
+========================================================= */
+
+.profile-card {
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+    border: 1px solid #e6ded5;
+    border-radius: 17px;
+    background: rgba(255,255,255,.96);
+    box-shadow:
+        0 13px 36px rgba(45, 36, 27, .055),
+        0 2px 8px rgba(45, 36, 27, .025);
+    transition:
+        transform .24s ease,
+        box-shadow .24s ease,
+        border-color .24s ease;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -65px;
+    right: -55px;
+    border-radius: 50%;
+    background: rgba(190, 142, 70, .055);
+    pointer-events: none;
+}
+
+.profile-card:hover {
+    border-color: #e0cfb5;
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 43px rgba(45, 36, 27, .075),
+        0 3px 10px rgba(45, 36, 27, .035);
+}
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.profile-card-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 23px;
+}
+
+.profile-section-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ad7732;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.profile-card-header h3 {
+    margin: 0;
+    color: #29241f;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.25px;
+}
+
+.profile-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border: 1px solid #ebddc9;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf3,
+            #f6eadc
+        );
+    color: #a76d2d;
+    box-shadow:
+        0 5px 14px rgba(160, 108, 45, .07);
+    font-size: 18px;
+}
+
+/* =========================================================
+   FORM AREA
+========================================================= */
+
+.profile-card .row {
+    position: relative;
+    z-index: 1;
+}
+
+.profile-label {
+    display: block;
+    margin: 0 0 7px;
+    color: #5c5149;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .25px;
+}
+
+.profile-input {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 13px;
+    border: 1px solid #ded7cf;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #39332e;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow:
+        inset 0 1px 2px rgba(40, 30, 20, .02);
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.profile-input::placeholder {
+    color: #aaa19a;
+    font-weight: 500;
+}
+
+.profile-input:hover:not(:disabled) {
+    border-color: #cdbda9;
+    background: #fff;
+}
+
+.profile-input:focus {
+    border-color: #b68138;
+    background: #fff;
+    box-shadow:
+        0 0 0 3px rgba(182,129,56,.10),
+        0 5px 15px rgba(92, 64, 28, .045);
+}
+
+.profile-input:disabled {
+    opacity: 1;
+    border-color: #e8e2db;
+    background:
+        linear-gradient(
+            145deg,
+            #faf9f7,
+            #f5f2ee
+        );
+    color: #625950;
+    cursor: default;
+}
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.security-note {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 15px;
+    border: 1px solid #eadcc8;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf3,
+            #fcf5ea
+        );
+}
+
+.security-note > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: #f3e3ce;
+    color: #a66e2d;
+    font-size: 15px;
+}
+
+.security-note strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #4c3b2c;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.security-note p {
+    margin: 0;
+    color: #83766b;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-field {
+    position: relative;
+}
+
+.password-field .profile-input {
+    padding-right: 45px;
+}
+
+.password-field button {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #91867c;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.password-field button:hover {
+    background: #f5eee6;
+    color: #a66f2f;
+}
+
+.password-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.password-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px 16px;
+    border: 1px solid #bd8b46;
+    border-radius: 9px;
+    background: #fff;
+    color: #95632c;
+    font-size: 11px;
+    font-weight: 800;
+    transition: all .22s ease;
+}
+
+.password-btn:hover {
+    border-color: #a46d2d;
+    background:
+        linear-gradient(
+            135deg,
+            #b78039,
+            #9b662b
+        );
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow:
+        0 8px 19px rgba(157, 103, 42, .20);
+}
+
+/* =========================================================
+   ACCOUNT STATUS
+========================================================= */
+
+.account-status-box {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 18px;
+    padding: 15px;
+    border: 1px solid #d6ead9;
+    border-radius: 13px;
+    background:
+        linear-gradient(
+            135deg,
+            #f1faf3,
+            #eaf7ed
+        );
+}
+
+.status-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            #42ad5d,
+            #32954b
+        );
+    color: #fff;
+    box-shadow:
+        0 7px 16px rgba(50,149,75,.18);
+    font-size: 17px;
+}
+
+.account-status-box strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #286d38;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.account-status-box span {
+    display: block;
+    color: #66806d;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* =========================================================
+   ACCOUNT DETAILS
+========================================================= */
+
+.account-detail-list {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.account-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 48px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee9e3;
+}
+
+.account-detail:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.account-detail span {
+    color: #847a72;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.account-detail strong {
+    color: #463b33;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: right;
+}
+
+.account-detail .text-success {
+    color: #31954a !important;
+}
+
+.account-detail .text-warning {
+    color: #ad742b !important;
+}
+
+.account-detail .small {
+    font-size: 6px;
+    vertical-align: middle;
+}
+
+/* =========================================================
+   ACTIVITY STATS
+========================================================= */
+
+.activity-stat {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eee9e3;
+}
+
+.activity-stat:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.activity-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #ebdfd0;
+    border-radius: 11px;
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf4,
+            #f5ebdf
+        );
+    color: #a86f30;
+    font-size: 17px;
+    transition: all .2s ease;
+}
+
+.activity-stat:hover .activity-stat-icon {
+    border-color: #ddc7a6;
+    background: #f4e8d8;
+    transform: scale(1.04);
+}
+
+.activity-stat strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #302923;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.activity-stat span {
+    display: block;
+    color: #8a8179;
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.profile-links {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 58px;
+    padding: 9px 2px;
+    border-bottom: 1px solid #eee9e3;
+    color: #4f443b;
+    text-decoration: none;
+    transition:
+        color .2s ease,
+        padding .2s ease;
+}
+
+.profile-link:first-child {
+    padding-top: 0;
+}
+
+.profile-link:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.profile-link > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 39px;
+    height: 39px;
+    border: 1px solid #ebdfd1;
+    border-radius: 10px;
+    background: #f8f0e7;
+    color: #a66e30;
+    font-size: 16px;
+    transition: all .2s ease;
+}
+
+.profile-link span {
+    flex: 1;
+    color: #51463e;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.profile-link > i {
+    color: #aaa098;
+    font-size: 10px;
+    transition:
+        transform .2s ease,
+        color .2s ease;
+}
+
+.profile-link:hover {
+    padding-left: 6px;
+    color: #9d682d;
+}
+
+.profile-link:hover > div {
+    border-color: #dfc9a8;
+    background: #f3e5d5;
+    transform: translateX(1px);
+}
+
+.profile-link:hover span {
+    color: #97632b;
+}
+
+.profile-link:hover > i {
+    color: #ad7632;
+    transform: translateX(3px);
+}
+
+/* =========================================================
+   BOTTOM ACTIONS
+========================================================= */
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.profile-actions .btn {
+    min-width: 125px;
+    min-height: 42px;
+    padding: 9px 17px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 800;
+    transition: all .22s ease;
+}
+
+.profile-actions .btn-outline-secondary {
+    border-color: #d6cec5;
+    background: #fff;
+    color: #625951;
+}
+
+.profile-actions .btn-outline-secondary:hover {
+    border-color: #bbb0a6;
+    background: #f7f4f1;
+    color: #403830;
+    transform: translateY(-1px);
+}
+
+.profile-actions .restaurant-btn {
+    border: 1px solid #9d682b;
+    background:
+        linear-gradient(
+            135deg,
+            #b9833d,
+            #9d672b
+        );
+    color: #fff;
+    box-shadow:
+        0 8px 18px rgba(157,103,43,.18);
+}
+
+.profile-actions .restaurant-btn:hover {
+    border-color: #8f5b22;
+    background:
+        linear-gradient(
+            135deg,
+            #c18c47,
+            #a76c2d
+        );
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow:
+        0 10px 23px rgba(157,103,43,.25);
+}
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+.profile-input:focus-visible,
+.password-field button:focus-visible,
+.password-btn:focus-visible,
+.profile-actions .btn:focus-visible,
+.profile-link:focus-visible {
+    outline: 2px solid rgba(181, 129, 56, .55);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .restaurant-title {
+        font-size: 35px;
+    }
+
+    .profile-cover {
+        height: 175px;
+    }
+
+    .profile-main {
+        min-height: 153px;
+        padding-left: 34px;
+        padding-right: 34px;
+    }
+
+    .profile-avatar {
+        width: 128px;
+        height: 128px;
+    }
+
+    .profile-avatar-wrapper {
+        margin-top: -67px;
+    }
+
+    .profile-card {
+        padding: 27px;
+    }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .restaurant-heading {
+        align-items: flex-start;
+    }
+
+    .profile-main {
+        gap: 18px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .profile-card {
+        padding: 22px;
+    }
+
+    .profile-id-box {
+        min-width: 125px;
+    }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .restaurant-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .restaurant-actions {
+        justify-content: flex-start;
+    }
+
+    .profile-main {
+        flex-wrap: wrap;
+    }
+
+    .profile-id-box {
+        margin-left: auto;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .restaurant-title {
+        font-size: 27px;
+    }
+
+    .restaurant-subtitle {
+        font-size: 12px;
+    }
+
+    .restaurant-actions {
+        width: 100%;
+    }
+
+    .restaurant-actions .btn {
+        flex: 1;
+    }
+
+    .profile-cover-card {
+        border-radius: 16px;
+    }
+
+    .profile-cover {
+        height: 125px;
+    }
+
+    .profile-main {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 13px 17px;
+        min-height: auto;
+        padding: 0 18px 21px;
+    }
+
+    .profile-avatar-wrapper {
+        margin-top: -48px;
+    }
+
+    .profile-avatar {
+        width: 96px;
+        height: 96px;
+        border-width: 5px;
+    }
+
+    .profile-online {
+        right: 5px;
+        bottom: 6px;
+        width: 17px;
+        height: 17px;
+        border-width: 3px;
+    }
+
+    .profile-main-info {
+        padding-top: 9px;
+    }
+
+    .profile-main-info h2 {
+        font-size: 21px;
+    }
+
+    .profile-main-info p {
+        font-size: 10px;
+    }
+
+    .profile-id-box {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .profile-card {
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+    .profile-card-header {
+        margin-bottom: 18px;
+    }
+
+    .profile-card-header h3 {
+        font-size: 17px;
+    }
+
+    .profile-card-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 16px;
+    }
+
+    .profile-actions {
+        justify-content: stretch;
+        margin-top: 0;
+    }
+
+    .profile-actions .btn {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .restaurant-heading {
+        margin-bottom: 20px;
+    }
+
+    .restaurant-title {
+        font-size: 24px;
+    }
+
+    .restaurant-actions {
+        flex-direction: column;
+    }
+
+    .restaurant-actions .btn {
+        width: 100%;
+    }
+
+    .profile-cover {
+        height: 105px;
+    }
+
+    .profile-main {
+        padding: 0 14px 17px;
+    }
+
+    .profile-avatar-wrapper {
+        margin-top: -42px;
+    }
+
+    .profile-avatar {
+        width: 84px;
+        height: 84px;
+    }
+
+    .profile-main-info {
+        padding-top: 7px;
+    }
+
+    .profile-main-info h2 {
+        font-size: 19px;
+        margin-bottom: 4px;
+    }
+
+    .profile-main-info p {
+        margin-bottom: 7px;
+        font-size: 9px;
+    }
+
+    .profile-status {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+
+    .profile-id-box {
+        padding: 10px 11px;
+    }
+
+    .profile-card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .profile-section-label {
+        font-size: 8px;
+        letter-spacing: 1.4px;
+    }
+
+    .profile-card-header h3 {
+        font-size: 16px;
+    }
+
+    .profile-label {
+        font-size: 10px;
+    }
+
+    .profile-input {
+        min-height: 43px;
+        font-size: 11px;
+    }
+
+    .security-note {
+        padding: 11px;
+    }
+
+    .security-note > i {
+        width: 29px;
+        height: 29px;
+        font-size: 13px;
+    }
+
+    .account-status-box {
+        padding: 12px;
+    }
+
+    .status-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .account-detail {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .account-detail strong {
+        text-align: left;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions .btn {
+        width: 100%;
+    }
+
+    .password-action {
+        justify-content: stretch;
+    }
+
+    .password-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    .restaurant-actions,
+    .profile-actions,
+    .password-action,
+    .profile-links {
+        display: none !important;
+    }
+
+    .profile-cover-card,
+    .profile-card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+
+    .profile-cover {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .profile-card {
+        break-inside: avoid;
+    }
+
+    .profile-input:disabled {
+        background: #fff !important;
+        color: #333 !important;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-card,
+    .profile-input,
+    .password-btn,
+    .profile-link,
+    .profile-link > div,
+    .profile-link > i,
+    .activity-stat-icon,
+    .profile-actions .btn,
+    .restaurant-actions .btn {
+        transition: none !important;
+    }
+}
+</style>
+
+
+
+
+        <!-- PAGE CONTENT END -->
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="azq-footer">
+
+            <div class="azq-footer-inner">
+
+                <div class="azq-footer-brand">
+
+                    <div class="azq-footer-logo">
+                        ZQ
+                    </div>
+
+                    <div class="azq-footer-text">
+
+                        <strong>
+                            adminZQ Restaurant Suite
+                        </strong>
+
+                        <span>
+                            © 2026 adminZQ. All rights reserved.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="azq-footer-right">
+
+                    <span class="azq-footer-dot"></span>
+
+                    <span>
+                        All systems operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sidebar / Theme functionality -->
+<script src="static/js/main.js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="adminZQ professional restaurant admin dashboard">
+
+    <title>adminZQ | Restaurant Management</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="static/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="static/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Header / Sidebar / Footer CSS ONLY -->
+    <link rel="stylesheet"
+          href="static/css/style.css">
+</head>
+
+<body>
+
+<div style="background:#0f4c75; color:#ffffff; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:999999; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+    <span><i class="bi bi-shield-check" style="margin-right:6px;"></i><strong>adminZQ</strong> &mdash; Restaurant Command Center &amp; Management Suite (Zain Qazi)</span>
+    <a href="https://zainqazi.netlify.app#projects" style="color:#ffffff; text-decoration:none; background:rgba(255,255,255,0.2); padding:6px 16px; border-radius:6px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">&larr; Back to Portfolio</a>
+</div>
+
+
+<div class="azq-layout">
+
+    <!-- Sidebar Overlay -->
+    <div class="azq-sidebar-overlay" data-sidebar-close></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="azq-sidebar" id="adminSidebar">
+
+        <!-- Brand -->
+        <div class="azq-sidebar-brand">
+
+            <a href="index.html" class="azq-brand">
+
+                <div class="azq-brand-logo">
+                    <img
+                        src="static/images/FOOD/zq-logo.svg.svg"
+                        alt="ZQ Logo">
+                </div>
+
+                <div class="azq-brand-text">
+                    <span class="azq-brand-name">adminZQ</span>
+                    <span class="azq-brand-subtitle">
+                        Restaurant Suite
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="azq-navigation">
+
+            <div class="azq-nav-label">
+                MAIN MENU
+            </div>
+
+            <a href="index.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                </span>
+                <span class="azq-nav-text">Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-receipt"></i>
+                </span>
+                <span class="azq-nav-text">Orders</span>
+            </a>
+
+
+            <a href="products.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </span>
+                <span class="azq-nav-text">Products</span>
+            </a>
+
+
+            <a href="categories.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </span>
+                <span class="azq-nav-text">Categories</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                MANAGEMENT
+            </div>
+
+
+            <a href="customers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="azq-nav-text">Customers</span>
+            </a>
+
+
+            <a href="staff.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="azq-nav-text">Staff</span>
+            </a>
+
+
+            <a href="stock-alerts.html" class="azq-nav-link azq-nav-alert-link">
+
+                <span class="azq-nav-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+
+                <span class="azq-nav-text">
+                    Stock Alerts
+                </span>
+
+                <span class="azq-alert-count">
+                    5
+                </span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-truck"></i>
+                </span>
+                <span class="azq-nav-text">Suppliers</span>
+            </a>
+
+
+            <a href="reports.html" class="azq-nav-link active">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </span>
+                <span class="azq-nav-text">Reports</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                ACCOUNT
+            </div>
+
+
+            <a href="profile.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="azq-nav-text">Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-gear"></i>
+                </span>
+                <span class="azq-nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar User -->
+        <div class="azq-sidebar-user">
+
+            <div class="azq-user-avatar">
+                <img
+                    src="static/images/FOOD/Admin.jpeg"
+                    alt="Admin ZQ">
+            </div>
+
+            <div class="azq-user-info">
+
+                <strong>Admin ZQ</strong>
+
+                <span>
+                    Restaurant Manager
+                </span>
+
+            </div>
+
+            <i class="bi bi-three-dots azq-user-menu"></i>
+
+        </div>
+
+
+        <!-- Sidebar Status -->
+        <div class="azq-sidebar-status">
+
+            <span class="azq-status-indicator"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <div class="azq-main">
+
+        <!-- Top Header -->
+        <header class="azq-header">
+
+            <div class="azq-header-left">
+
+                <!-- Sidebar Toggle -->
+                <button
+                    type="button"
+                    class="azq-sidebar-toggle"
+                    data-sidebar-toggle
+                    aria-controls="adminSidebar"
+                    aria-expanded="true"
+                    aria-label="Toggle sidebar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+                <!-- Search -->
+                <div class="azq-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search orders, products..."
+                        aria-label="Search">
+
+                    <span class="azq-search-shortcut">
+                        /
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="azq-header-right">
+
+                <!-- Theme -->
+                <button
+                    type="button"
+                    class="azq-header-button theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch color theme">
+
+                    <i
+                        class="bi bi-moon-stars"
+                        data-theme-icon>
+                    </i>
+
+                </button>
+
+
+                <!-- Notifications -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-header-button azq-notification-button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="azq-notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end azq-notification-menu">
+
+                        <div class="azq-dropdown-heading">
+                            <strong>Notifications</strong>
+                            <span>3 new</span>
+                        </div>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+
+                            <span>
+                                <strong>New order received</strong>
+                                <small>4 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Order #1024 ready</strong>
+                                <small>32 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="stock-alerts.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon azq-warning-icon">
+                                <i class="bi bi-exclamation-triangle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Low stock detected</strong>
+                                <small>1 hour ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <div class="azq-notification-footer">
+                            <a href="stock-alerts.html">
+                                View all notifications
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-profile-button dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            src="static/images/FOOD/Admin.jpeg"
+                            alt="Admin ZQ">
+
+                        <span class="azq-profile-details">
+
+                            <strong>Admin ZQ</strong>
+
+                            <small>Manager</small>
+
+                        </span>
+
+                    </button>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end azq-profile-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="bi bi-gear"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item azq-signout" href="login.html">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign Out
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <!-- PAGE CONTENT START -->
+
+
+<main class="dashboard-content">
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- Page Header -->
+        <div class="restaurant-heading">
+            <div>
+                <span class="restaurant-eyebrow">BUSINESS ANALYTICS</span>
+                <h1 class="restaurant-title">Reports</h1>
+                <p class="restaurant-subtitle">
+                    Analyze your restaurant sales, orders, customers and product performance.
+                </p>
+            </div>
+
+            <div class="restaurant-actions">
+                <button class="btn btn-outline-dark" type="button" onclick="printReport()">
+                    <i class="bi bi-printer"></i>
+                    Print
+                </button>
+
+                <button class="btn restaurant-btn" type="button" onclick="exportReport()">
+                    <i class="bi bi-download"></i>
+                    Export Report
+                </button>
+            </div>
+        </div>
+
+        <!-- Report Controls -->
+        <div class="report-control-card mb-4">
+
+            <div class="report-control-left">
+                <div class="report-control-icon">
+                    <i class="bi bi-calendar3"></i>
+                </div>
+
+                <div>
+                    <span>REPORT PERIOD</span>
+                    <strong id="periodLabel">September 2026</strong>
+                </div>
+            </div>
+
+            <div class="report-control-right">
+
+                <select id="periodSelect" onchange="changePeriod()">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month" selected>This Month</option>
+                    <option value="lastmonth">Last Month</option>
+                    <option value="quarter">This Quarter</option>
+                    <option value="year">This Year</option>
+                </select>
+
+                <div class="date-input-wrap">
+                    <i class="bi bi-calendar-event"></i>
+                    <input type="date" value="2026-09-01">
+                </div>
+
+                <span class="date-separator">to</span>
+
+                <div class="date-input-wrap">
+                    <i class="bi bi-calendar-event"></i>
+                    <input type="date" value="2026-09-18">
+                </div>
+
+                <button class="generate-report-btn" onclick="generateReport()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Generate
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Main Stats -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="report-stat-card">
+
+                    <div class="report-stat-top">
+                        <div class="report-stat-icon">
+                            <i class="bi bi-currency-rupee"></i>
+                        </div>
+
+                        <span class="report-growth positive">
+                            <i class="bi bi-arrow-up"></i>
+                            12.8%
+                        </span>
+                    </div>
+
+                    <span class="report-stat-label">Total Revenue</span>
+                    <h2>Rs. 8,42,650</h2>
+                    <small>Compared with previous period</small>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="report-stat-card">
+
+                    <div class="report-stat-top">
+                        <div class="report-stat-icon">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+
+                        <span class="report-growth positive">
+                            <i class="bi bi-arrow-up"></i>
+                            8.4%
+                        </span>
+                    </div>
+
+                    <span class="report-stat-label">Total Orders</span>
+                    <h2>1,284</h2>
+                    <small>Orders completed this period</small>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="report-stat-card">
+
+                    <div class="report-stat-top">
+                        <div class="report-stat-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <span class="report-growth positive">
+                            <i class="bi bi-arrow-up"></i>
+                            6.2%
+                        </span>
+                    </div>
+
+                    <span class="report-stat-label">Customers</span>
+                    <h2>864</h2>
+                    <small>Customers served</small>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="report-stat-card">
+
+                    <div class="report-stat-top">
+                        <div class="report-stat-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+
+                        <span class="report-growth positive">
+                            <i class="bi bi-arrow-up"></i>
+                            4.7%
+                        </span>
+                    </div>
+
+                    <span class="report-stat-label">Average Order</span>
+                    <h2>Rs. 657</h2>
+                    <small>Average order value</small>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sales Overview + Order Types -->
+        <div class="row g-4 mb-4">
+
+            <!-- Sales Overview -->
+            <div class="col-12 col-xl-8">
+
+                <div class="report-card sales-overview-card">
+
+                    <div class="report-card-header">
+
+                        <div>
+                            <h4>Sales Overview</h4>
+                            <p>Revenue and order performance during the selected period.</p>
+                        </div>
+
+                        <div class="chart-legend">
+                            <span>
+                                <i class="legend-dot revenue-dot"></i>
+                                Revenue
+                            </span>
+
+                            <span>
+                                <i class="legend-dot order-dot"></i>
+                                Orders
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="sales-chart">
+
+                        <div class="chart-y-axis">
+                            <span>100K</span>
+                            <span>75K</span>
+                            <span>50K</span>
+                            <span>25K</span>
+                            <span>0</span>
+                        </div>
+
+                        <div class="chart-area">
+
+                            <div class="chart-grid">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="chart-bars">
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 58%;"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 72%;"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 45%;"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 80%;"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 68%;"></div>
+                                    </div>
+                                    <span>5</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 88%;"></div>
+                                    </div>
+                                    <span>6</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 62%;"></div>
+                                    </div>
+                                    <span>7</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 76%;"></div>
+                                    </div>
+                                    <span>8</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 55%;"></div>
+                                    </div>
+                                    <span>9</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 82%;"></div>
+                                    </div>
+                                    <span>10</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 69%;"></div>
+                                    </div>
+                                    <span>11</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 91%;"></div>
+                                    </div>
+                                    <span>12</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 74%;"></div>
+                                    </div>
+                                    <span>13</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 86%;"></div>
+                                    </div>
+                                    <span>14</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 64%;"></div>
+                                    </div>
+                                    <span>15</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 79%;"></div>
+                                    </div>
+                                    <span>16</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar" style="height: 94%;"></div>
+                                    </div>
+                                    <span>17</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="bar-group">
+                                        <div class="sales-bar today-bar" style="height: 72%;"></div>
+                                    </div>
+                                    <span>18</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Order Types -->
+            <div class="col-12 col-xl-4">
+
+                <div class="report-card order-type-card">
+
+                    <div class="report-card-header">
+                        <div>
+                            <h4>Orders by Type</h4>
+                            <p>How customers placed orders.</p>
+                        </div>
+                    </div>
+
+                    <div class="order-type-content">
+
+                        <div class="donut-chart">
+                            <div class="donut-center">
+                                <strong>1,284</strong>
+                                <span>Orders</span>
+                            </div>
+                        </div>
+
+                        <div class="order-type-list">
+
+                            <div class="order-type-item">
+                                <div>
+                                    <span class="type-indicator dine"></span>
+                                    <strong>Dine In</strong>
+                                </div>
+                                <div>
+                                    <b>542</b>
+                                    <small>42.2%</small>
+                                </div>
+                            </div>
+
+                            <div class="order-type-item">
+                                <div>
+                                    <span class="type-indicator takeaway"></span>
+                                    <strong>Takeaway</strong>
+                                </div>
+                                <div>
+                                    <b>421</b>
+                                    <small>32.8%</small>
+                                </div>
+                            </div>
+
+                            <div class="order-type-item">
+                                <div>
+                                    <span class="type-indicator delivery"></span>
+                                    <strong>Delivery</strong>
+                                </div>
+                                <div>
+                                    <b>321</b>
+                                    <small>25.0%</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Product + Payment -->
+        <div class="row g-4 mb-4">
+
+            <!-- Top Products -->
+            <div class="col-12 col-xl-7">
+
+                <div class="report-card">
+
+                    <div class="report-card-header">
+
+                        <div>
+                            <h4>Top Selling Products</h4>
+                            <p>Products generating the most orders and revenue.</p>
+                        </div>
+
+                        <a href="products.html" class="report-link">
+                            View Products
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="top-products">
+
+                        <div class="top-product-row">
+
+                            <div class="product-rank">01</div>
+
+                            <img
+                                src="static/images/FOOD/Biryani.jfif"
+                                alt="Chicken Biryani"
+                            >
+
+                            <div class="top-product-info">
+                                <strong>Chicken Biryani</strong>
+                                <span>Rice & Main Course</span>
+                            </div>
+
+                            <div class="top-product-orders">
+                                <strong>284</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div class="top-product-revenue">
+                                <strong>Rs. 1,27,800</strong>
+                                <span>Revenue</span>
+                            </div>
+
+                        </div>
+
+                        <div class="top-product-row">
+
+                            <div class="product-rank">02</div>
+
+                            <img
+                                src="static/images/FOOD/Burger.jfif"
+                                alt="Classic Burger"
+                            >
+
+                            <div class="top-product-info">
+                                <strong>Classic Burger</strong>
+                                <span>Burgers</span>
+                            </div>
+
+                            <div class="top-product-orders">
+                                <strong>231</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div class="top-product-revenue">
+                                <strong>Rs. 1,27,050</strong>
+                                <span>Revenue</span>
+                            </div>
+
+                        </div>
+
+                        <div class="top-product-row">
+
+                            <div class="product-rank">03</div>
+
+                            <img
+                                src="static/images/FOOD/Pasta.jfif"
+                                alt="Creamy Pasta"
+                            >
+
+                            <div class="top-product-info">
+                                <strong>Creamy Pasta</strong>
+                                <span>Pasta</span>
+                            </div>
+
+                            <div class="top-product-orders">
+                                <strong>198</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div class="top-product-revenue">
+                                <strong>Rs. 1,22,760</strong>
+                                <span>Revenue</span>
+                            </div>
+
+                        </div>
+
+                        <div class="top-product-row">
+
+                            <div class="product-rank">04</div>
+
+                            <div class="product-placeholder">
+                                <i class="bi bi-egg-fried"></i>
+                            </div>
+
+                            <div class="top-product-info">
+                                <strong>Chicken Karahi</strong>
+                                <span>Main Course</span>
+                            </div>
+
+                            <div class="top-product-orders">
+                                <strong>176</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div class="top-product-revenue">
+                                <strong>Rs. 2,11,200</strong>
+                                <span>Revenue</span>
+                            </div>
+
+                        </div>
+
+                        <div class="top-product-row">
+
+                            <div class="product-rank">05</div>
+
+                            <div class="product-placeholder">
+                                <i class="bi bi-fire"></i>
+                            </div>
+
+                            <div class="top-product-info">
+                                <strong>Chicken Tikka</strong>
+                                <span>BBQ</span>
+                            </div>
+
+                            <div class="top-product-orders">
+                                <strong>154</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div class="top-product-revenue">
+                                <strong>Rs. 1,00,100</strong>
+                                <span>Revenue</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="col-12 col-xl-5">
+
+                <div class="report-card payment-card">
+
+                    <div class="report-card-header">
+                        <div>
+                            <h4>Payment Methods</h4>
+                            <p>Revenue by payment method.</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-list">
+
+                        <div class="payment-row">
+
+                            <div class="payment-icon cash-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+
+                            <div class="payment-info">
+                                <strong>Cash</strong>
+                                <span>638 transactions</span>
+                            </div>
+
+                            <div class="payment-value">
+                                <strong>Rs. 4,21,325</strong>
+                                <small>50.0%</small>
+                            </div>
+
+                        </div>
+
+                        <div class="payment-progress">
+                            <span style="width: 50%;"></span>
+                        </div>
+
+                        <div class="payment-row">
+
+                            <div class="payment-icon card-icon">
+                                <i class="bi bi-credit-card"></i>
+                            </div>
+
+                            <div class="payment-info">
+                                <strong>Card</strong>
+                                <span>402 transactions</span>
+                            </div>
+
+                            <div class="payment-value">
+                                <strong>Rs. 2,52,795</strong>
+                                <small>30.0%</small>
+                            </div>
+
+                        </div>
+
+                        <div class="payment-progress">
+                            <span style="width: 30%;"></span>
+                        </div>
+
+                        <div class="payment-row">
+
+                            <div class="payment-icon online-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+
+                            <div class="payment-info">
+                                <strong>Online</strong>
+                                <span>244 transactions</span>
+                            </div>
+
+                            <div class="payment-value">
+                                <strong>Rs. 1,68,530</strong>
+                                <small>20.0%</small>
+                            </div>
+
+                        </div>
+
+                        <div class="payment-progress">
+                            <span style="width: 20%;"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="payment-total">
+                        <span>Total Collected</span>
+                        <strong>Rs. 8,42,650</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Customer + Order Summary -->
+        <div class="row g-4">
+
+            <!-- Customer Report -->
+            <div class="col-12 col-xl-6">
+
+                <div class="report-card">
+
+                    <div class="report-card-header">
+
+                        <div>
+                            <h4>Customer Overview</h4>
+                            <p>Customer activity during this period.</p>
+                        </div>
+
+                        <a href="customers.html" class="report-link">
+                            View Customers
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="customer-report-grid">
+
+                        <div class="customer-report-box">
+                            <div class="customer-report-icon">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                            <span>New Customers</span>
+                            <strong>186</strong>
+                            <small>+14.5%</small>
+                        </div>
+
+                        <div class="customer-report-box">
+                            <div class="customer-report-icon">
+                                <i class="bi bi-person-check"></i>
+                            </div>
+                            <span>Returning</span>
+                            <strong>678</strong>
+                            <small>78.5%</small>
+                        </div>
+
+                        <div class="customer-report-box">
+                            <div class="customer-report-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <span>VIP Customers</span>
+                            <strong>42</strong>
+                            <small>Active</small>
+                        </div>
+
+                        <div class="customer-report-box">
+                            <div class="customer-report-icon">
+                                <i class="bi bi-cart-check"></i>
+                            </div>
+                            <span>Avg. Orders</span>
+                            <strong>1.48</strong>
+                            <small>Per customer</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Order Status -->
+            <div class="col-12 col-xl-6">
+
+                <div class="report-card">
+
+                    <div class="report-card-header">
+
+                        <div>
+                            <h4>Order Status Summary</h4>
+                            <p>Current order completion status.</p>
+                        </div>
+
+                        <a href="orders.html" class="report-link">
+                            View Orders
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="order-status-list">
+
+                        <div class="status-report-row">
+
+                            <div class="status-report-label">
+                                <span class="status-circle completed"></span>
+                                <strong>Completed</strong>
+                            </div>
+
+                            <div class="status-report-bar">
+                                <span style="width: 84%;"></span>
+                            </div>
+
+                            <div class="status-report-number">
+                                1,078
+                            </div>
+
+                        </div>
+
+                        <div class="status-report-row">
+
+                            <div class="status-report-label">
+                                <span class="status-circle preparing"></span>
+                                <strong>Preparing</strong>
+                            </div>
+
+                            <div class="status-report-bar">
+                                <span style="width: 42%;"></span>
+                            </div>
+
+                            <div class="status-report-number">
+                                108
+                            </div>
+
+                        </div>
+
+                        <div class="status-report-row">
+
+                            <div class="status-report-label">
+                                <span class="status-circle pending"></span>
+                                <strong>Pending</strong>
+                            </div>
+
+                            <div class="status-report-bar">
+                                <span style="width: 28%;"></span>
+                            </div>
+
+                            <div class="status-report-number">
+                                62
+                            </div>
+
+                        </div>
+
+                        <div class="status-report-row">
+
+                            <div class="status-report-label">
+                                <span class="status-circle cancelled"></span>
+                                <strong>Cancelled</strong>
+                            </div>
+
+                            <div class="status-report-bar">
+                                <span style="width: 16%;"></span>
+                            </div>
+
+                            <div class="status-report-number">
+                                36
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<style>
+    /* =========================================================
+       REPORTS — PREMIUM LIGHT LUXURY
+       Page-specific styling only
+    ========================================================= */
+
+    .restaurant-heading,
+    .report-control-card,
+    .report-stat-card,
+    .report-card {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    /* =========================
+       PAGE HEADER
+    ========================= */
+
+    .restaurant-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 30px;
+    }
+
+    .restaurant-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #a47732;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .restaurant-eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: #b78a43;
+    }
+
+    .restaurant-title {
+        margin: 0;
+        color: #27231e;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(29px, 3vw, 39px);
+        font-weight: 600;
+        letter-spacing: -.7px;
+        line-height: 1.1;
+    }
+
+    .restaurant-subtitle {
+        margin: 9px 0 0;
+        color: #8b857d;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .restaurant-actions {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-shrink: 0;
+    }
+
+    .restaurant-actions .btn {
+        min-height: 43px;
+        padding: 0 16px;
+        border-radius: 11px;
+        font-size: 11.5px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        transition: all .2s ease;
+    }
+
+    .restaurant-actions .btn-outline-dark {
+        background: #fff;
+        border: 1px solid #ddd5ca;
+        color: #554e45;
+        box-shadow: 0 5px 18px rgba(52, 43, 31, .045);
+    }
+
+    .restaurant-actions .btn-outline-dark:hover {
+        background: #faf7f2;
+        border-color: #cfc2b1;
+        color: #29251f;
+        transform: translateY(-1px);
+    }
+
+    .restaurant-actions .restaurant-btn {
+        background: linear-gradient(135deg, #b88a42, #9f722f);
+        border: 1px solid #a47732;
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(164, 119, 50, .16);
+    }
+
+    .restaurant-actions .restaurant-btn:hover {
+        background: linear-gradient(135deg, #c19650, #a47732);
+        border-color: #9d702e;
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 11px 25px rgba(164, 119, 50, .22);
+    }
+
+    .restaurant-actions i {
+        font-size: 14px;
+    }
+
+    /* =========================
+       REPORT CONTROL BAR
+    ========================= */
+
+    .report-control-card {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #e6dfd5;
+        border-radius: 17px;
+        padding: 17px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        box-shadow: 0 7px 27px rgba(54, 45, 34, .05);
+    }
+
+    .report-control-card::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        right: -80px;
+        top: -95px;
+        border-radius: 50%;
+        background: rgba(183, 138, 67, .055);
+        pointer-events: none;
+    }
+
+    .report-control-left {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .report-control-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        border-radius: 12px;
+        background: #f8f1e6;
+        border: 1px solid #eee1ce;
+        color: #a47732;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .report-control-left span {
+        display: block;
+        color: #a0968a;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+    }
+
+    .report-control-left strong {
+        display: block;
+        color: #312c26;
+        font-size: 14px;
+        font-weight: 750;
+        margin-top: 3px;
+    }
+
+    .report-control-right {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .report-control-right select,
+    .date-input-wrap {
+        height: 40px;
+        border: 1px solid #ded7cd;
+        background: #fcfbf8;
+        color: #514b43;
+        border-radius: 10px;
+        font-size: 11px;
+        transition: all .2s ease;
+    }
+
+    .report-control-right select {
+        min-width: 132px;
+        padding: 0 12px;
+        outline: none;
+    }
+
+    .report-control-right select:hover,
+    .date-input-wrap:hover {
+        border-color: #cfc5b8;
+        background: #fff;
+    }
+
+    .report-control-right select:focus,
+    .date-input-wrap:focus-within {
+        border-color: #b78a43;
+        box-shadow: 0 0 0 3px rgba(183, 138, 67, .09);
+        outline: none;
+    }
+
+    .date-input-wrap {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0 10px;
+    }
+
+    .date-input-wrap i {
+        color: #a47732;
+        font-size: 12px;
+    }
+
+    .date-input-wrap input {
+        width: 112px;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        color: #514b43;
+        font-size: 10.5px;
+    }
+
+    .date-input-wrap input::-webkit-calendar-picker-indicator {
+        opacity: .55;
+        cursor: pointer;
+    }
+
+    .date-separator {
+        color: #aaa198;
+        font-size: 10px;
+        padding: 0 1px;
+    }
+
+    .generate-report-btn {
+        height: 40px;
+        padding: 0 15px;
+        border: 1px solid #a47732;
+        background: #ad813c;
+        color: #fff;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 750;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all .2s ease;
+        box-shadow: 0 6px 16px rgba(164, 119, 50, .14);
+    }
+
+    .generate-report-btn:hover {
+        background: #9e722f;
+        border-color: #93682a;
+        transform: translateY(-1px);
+        box-shadow: 0 9px 20px rgba(164, 119, 50, .19);
+    }
+
+    /* =========================
+       MAIN STAT CARDS
+    ========================= */
+
+    .report-stat-card {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        background: #fff;
+        border: 1px solid #e7e0d6;
+        border-radius: 17px;
+        padding: 21px;
+        box-shadow: 0 7px 27px rgba(54, 45, 34, .05);
+        transition: transform .2s ease,
+                    box-shadow .2s ease,
+                    border-color .2s ease;
+    }
+
+    .report-stat-card::after {
+        content: "";
+        position: absolute;
+        width: 105px;
+        height: 105px;
+        right: -55px;
+        bottom: -55px;
+        border-radius: 50%;
+        background: rgba(183, 138, 67, .045);
+        pointer-events: none;
+    }
+
+    .report-stat-card:hover {
+        transform: translateY(-2px);
+        border-color: #ddd1c1;
+        box-shadow: 0 12px 32px rgba(54, 45, 34, .075);
+    }
+
+    .report-stat-top {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 17px;
+    }
+
+    .report-stat-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: #f8f1e6;
+        border: 1px solid #eee1ce;
+        color: #a47732;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+    }
+
+    .report-growth {
+        font-size: 9.5px;
+        font-weight: 750;
+        border-radius: 7px;
+        padding: 5px 7px;
+    }
+
+    .report-growth.positive {
+        background: #edf7ef;
+        color: #438955;
+        border: 1px solid #dceede;
+    }
+
+    .report-stat-label {
+        position: relative;
+        z-index: 1;
+        display: block;
+        color: #898178;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .report-stat-card h2 {
+        position: relative;
+        z-index: 1;
+        color: #29251f;
+        font-size: 23px;
+        line-height: 1.2;
+        margin: 0 0 6px;
+        font-weight: 750;
+        letter-spacing: -.3px;
+    }
+
+    .report-stat-card small {
+        position: relative;
+        z-index: 1;
+        color: #a0988e;
+        font-size: 9.5px;
+    }
+
+    /* =========================
+       GENERIC REPORT CARDS
+    ========================= */
+
+    .report-card {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        background: #fff;
+        border: 1px solid #e7e0d6;
+        border-radius: 18px;
+        padding: 23px;
+        box-shadow: 0 8px 29px rgba(54, 45, 34, .05);
+        transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .report-card:hover {
+        border-color: #ded3c4;
+        box-shadow: 0 11px 34px rgba(54, 45, 34, .065);
+    }
+
+    .report-card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 24px;
+    }
+
+    .report-card-header h4 {
+        color: #302b25;
+        font-size: 15px;
+        margin: 0 0 5px;
+        font-weight: 750;
+        letter-spacing: -.15px;
+    }
+
+    .report-card-header p {
+        color: #999188;
+        font-size: 10.5px;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .report-link {
+        color: #a47732;
+        font-size: 10.5px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color .2s ease;
+    }
+
+    .report-link:hover {
+        color: #835c25;
+    }
+
+    .report-link i {
+        margin-left: 3px;
+    }
+
+    /* =========================
+       SALES CHART
+    ========================= */
+
+    .chart-legend {
+        display: flex;
+        gap: 15px;
+        color: #928a81;
+        font-size: 9.5px;
+    }
+
+    .chart-legend span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .legend-dot {
+        width: 7px;
+        height: 7px;
+        display: inline-block;
+        border-radius: 50%;
+    }
+
+    .revenue-dot {
+        background: #b78a43;
+    }
+
+    .order-dot {
+        background: #b8b0a6;
+    }
+
+    .sales-chart {
+        display: flex;
+        height: 280px;
+        padding-top: 3px;
+    }
+
+    .chart-y-axis {
+        width: 42px;
+        padding: 0 8px 29px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #aaa198;
+        font-size: 8.5px;
+        text-align: right;
+    }
+
+    .chart-area {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .chart-grid {
+        position: absolute;
+        inset: 0 0 29px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .chart-grid span {
+        width: 100%;
+        border-top: 1px dashed #e9e3da;
+    }
+
+    .chart-bars {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 4px;
+    }
+
+    .chart-column {
+        flex: 1;
+        min-width: 7px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .bar-group {
+        width: 100%;
+        height: calc(100% - 29px);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .sales-bar {
+        width: min(21px, 68%);
+        min-height: 12px;
+        border-radius: 6px 6px 2px 2px;
+        background: linear-gradient(180deg, #c9ab78, #aa7d39);
+        opacity: .72;
+        transition: all .2s ease;
+    }
+
+    .sales-bar:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+
+    .sales-bar.today-bar {
+        background: linear-gradient(180deg, #b88a42, #956a2d);
+        opacity: 1;
+        box-shadow: 0 5px 13px rgba(164, 119, 50, .16);
+    }
+
+    .chart-column > span {
+        color: #a39b91;
+        font-size: 8.5px;
+    }
+
+    /* =========================
+       ORDER TYPES / DONUT
+    ========================= */
+
+    .order-type-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donut-chart {
+        width: 172px;
+        height: 172px;
+        border-radius: 50%;
+        background: conic-gradient(
+            #b78a43 0deg 152deg,
+            #c7a979 152deg 270deg,
+            #e1dbd2 270deg 360deg
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 3px auto 23px;
+        box-shadow: 0 8px 25px rgba(75, 58, 35, .06);
+    }
+
+    .donut-chart::after {
+        content: "";
+        position: absolute;
+        width: 113px;
+        height: 113px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: inset 0 0 0 1px #eee7de;
+    }
+
+    .donut-center {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .donut-center strong {
+        display: block;
+        color: #2c2822;
+        font-size: 22px;
+        font-weight: 750;
+    }
+
+    .donut-center span {
+        color: #999188;
+        font-size: 9.5px;
+    }
+
+    .order-type-list {
+        width: 100%;
+    }
+
+    .order-type-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 0;
+        border-bottom: 1px solid #eee8df;
+    }
+
+    .order-type-item:last-child {
+        border-bottom: none;
+    }
+
+    .order-type-item > div:first-child {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .order-type-item strong {
+        color: #514b43;
+        font-size: 10.5px;
+        font-weight: 650;
+    }
+
+    .type-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .dine {
+        background: #b78a43;
+    }
+
+    .takeaway {
+        background: #c7a979;
+    }
+
+    .delivery {
+        background: #d8d1c7;
+    }
+
+    .order-type-item > div:last-child {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .order-type-item b {
+        color: #332e28;
+        font-size: 11.5px;
+    }
+
+    .order-type-item small {
+        color: #9b9389;
+        font-size: 9px;
+    }
+
+    /* =========================
+       TOP PRODUCTS
+    ========================= */
+
+    .top-products {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-product-row {
+        display: grid;
+        grid-template-columns: 30px 48px minmax(130px, 1fr) 75px 120px;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee8df;
+        transition: background .2s ease;
+    }
+
+    .top-product-row:last-child {
+        border-bottom: none;
+    }
+
+    .top-product-row:hover {
+        background: #fcfaf7;
+    }
+
+    .product-rank {
+        color: #a59c91;
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+    .top-product-row img,
+    .product-placeholder {
+        width: 48px;
+        height: 48px;
+        border-radius: 11px;
+        object-fit: cover;
+    }
+
+    .top-product-row img {
+        border: 1px solid #ebe3d8;
+    }
+
+    .product-placeholder {
+        background:
+            radial-gradient(circle at 30% 25%, rgba(255,255,255,.9), transparent 35%),
+            #f5eee3;
+        border: 1px solid #e8dccb;
+        color: #a47732;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+    }
+
+    .top-product-info {
+        min-width: 0;
+    }
+
+    .top-product-info strong {
+        display: block;
+        color: #3a342d;
+        font-size: 11.5px;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .top-product-info span,
+    .top-product-orders span,
+    .top-product-revenue span {
+        display: block;
+        color: #9c948a;
+        font-size: 8.5px;
+    }
+
+    .top-product-orders strong,
+    .top-product-revenue strong {
+        display: block;
+        color: #514a41;
+        font-size: 10.5px;
+        margin-bottom: 4px;
+    }
+
+    .top-product-revenue {
+        text-align: right;
+    }
+
+    /* =========================
+       PAYMENT METHODS
+    ========================= */
+
+    .payment-list {
+        margin-top: 5px;
+    }
+
+    .payment-row {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin-bottom: 9px;
+    }
+
+    .payment-icon {
+        width: 39px;
+        height: 39px;
+        flex: 0 0 39px;
+        border-radius: 10px;
+        background: #f8f1e6;
+        border: 1px solid #eee1ce;
+        color: #a47732;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .payment-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .payment-info strong {
+        display: block;
+        color: #514b43;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .payment-info span {
+        color: #a09990;
+        font-size: 8.5px;
+    }
+
+    .payment-value {
+        text-align: right;
+    }
+
+    .payment-value strong {
+        display: block;
+        color: #37312a;
+        font-size: 10.5px;
+        font-weight: 750;
+    }
+
+    .payment-value small {
+        color: #9d958b;
+        font-size: 8.5px;
+    }
+
+    .payment-progress {
+        height: 5px;
+        background: #eee9e1;
+        border-radius: 10px;
+        margin: 0 0 17px 50px;
+        overflow: hidden;
+    }
+
+    .payment-progress span {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, #c29a5a, #a47732);
+        border-radius: 10px;
+    }
+
+    .payment-total {
+        border-top: 1px solid #e9e2d8;
+        margin-top: 6px;
+        padding-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .payment-total span {
+        color: #8f877d;
+        font-size: 10.5px;
+        font-weight: 600;
+    }
+
+    .payment-total strong {
+        color: #a47732;
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    /* =========================
+       CUSTOMER OVERVIEW
+    ========================= */
+
+    .customer-report-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 11px;
+    }
+
+    .customer-report-box {
+        position: relative;
+        background: #fcfaf7;
+        border: 1px solid #ebe4da;
+        border-radius: 12px;
+        padding: 15px;
+        transition: all .2s ease;
+    }
+
+    .customer-report-box:hover {
+        background: #fff;
+        border-color: #ddd1c1;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(54, 45, 34, .05);
+    }
+
+    .customer-report-icon {
+        width: 33px;
+        height: 33px;
+        border-radius: 9px;
+        background: #f8f1e6;
+        border: 1px solid #eee1ce;
+        color: #a47732;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .customer-report-box > span {
+        display: block;
+        color: #8f877d;
+        font-size: 9.5px;
+        margin-bottom: 4px;
+    }
+
+    .customer-report-box > strong {
+        color: #342f28;
+        font-size: 19px;
+        font-weight: 750;
+        margin-right: 5px;
+    }
+
+    .customer-report-box > small {
+        color: #4d9660;
+        font-size: 8.5px;
+        font-weight: 650;
+    }
+
+    /* =========================
+       ORDER STATUS
+    ========================= */
+
+    .order-status-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .status-report-row {
+        display: grid;
+        grid-template-columns: 105px minmax(0, 1fr) 42px;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .status-report-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .status-report-label strong {
+        color: #575047;
+        font-size: 10px;
+        font-weight: 650;
+    }
+
+    .status-circle {
+        width: 8px;
+        height: 8px;
+        flex: 0 0 8px;
+        border-radius: 50%;
+    }
+
+    .status-circle.completed {
+        background: #67a976;
+    }
+
+    .status-circle.preparing {
+        background: #b78a43;
+    }
+
+    .status-circle.pending {
+        background: #c5a55f;
+    }
+
+    .status-circle.cancelled {
+        background: #b77a70;
+    }
+
+    .status-report-bar {
+        height: 7px;
+        border-radius: 10px;
+        background: #eee9e1;
+        overflow: hidden;
+    }
+
+    .status-report-bar span {
+        height: 100%;
+        display: block;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #c09a60, #a47732);
+    }
+
+    .status-report-number {
+        text-align: right;
+        color: #403a33;
+        font-size: 10.5px;
+        font-weight: 750;
+    }
+
+    /* =========================
+       FOCUS STATES
+    ========================= */
+
+    .restaurant-actions .btn:focus-visible,
+    .generate-report-btn:focus-visible,
+    .report-link:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(183, 138, 67, .16) !important;
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1199px) {
+        .report-card,
+        .report-stat-card {
+            padding: 20px;
+        }
+
+        .top-product-row {
+            grid-template-columns: 28px 48px minmax(120px, 1fr) 70px 110px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .restaurant-heading {
+            align-items: flex-start;
+        }
+
+        .report-control-right {
+            width: 100%;
+        }
+
+        .report-control-right select,
+        .date-input-wrap {
+            flex: 1;
+        }
+
+        .date-input-wrap input {
+            width: 100%;
+        }
+
+        .generate-report-btn {
+            flex: 1;
+        }
+
+        .sales-chart {
+            height: 260px;
+        }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 767px) {
+        .restaurant-heading {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 17px;
+        }
+
+        .restaurant-actions {
+            width: 100%;
+        }
+
+        .restaurant-actions .btn {
+            flex: 1;
+        }
+
+        .restaurant-title {
+            font-size: 29px;
+        }
+
+        .report-control-card {
+            padding: 17px;
+        }
+
+        .report-control-left {
+            width: 100%;
+        }
+
+        .report-control-right {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .report-control-right select,
+        .date-input-wrap,
+        .generate-report-btn {
+            width: 100%;
+            flex: none;
+        }
+
+        .date-input-wrap {
+            justify-content: flex-start;
+        }
+
+        .date-separator {
+            text-align: center;
+            padding: 1px 0;
+        }
+
+        .chart-legend {
+            display: none;
+        }
+
+        .report-card {
+            padding: 19px;
+            border-radius: 15px;
+        }
+
+        .sales-chart {
+            height: 235px;
+        }
+
+        .top-product-row {
+            grid-template-columns: 25px 45px minmax(0, 1fr);
+            gap: 10px;
+        }
+
+        .top-product-orders,
+        .top-product-revenue {
+            display: none;
+        }
+
+        .customer-report-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .status-report-row {
+            grid-template-columns: 88px minmax(0, 1fr) 35px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .restaurant-eyebrow {
+            font-size: 9px;
+            letter-spacing: 1.35px;
+        }
+
+        .restaurant-title {
+            font-size: 26px;
+        }
+
+        .restaurant-subtitle {
+            font-size: 12px;
+        }
+
+        .restaurant-actions {
+            flex-direction: column;
+        }
+
+        .restaurant-actions .btn {
+            width: 100%;
+            flex: none;
+        }
+
+        .report-stat-card {
+            padding: 18px;
+        }
+
+        .report-stat-card h2 {
+            font-size: 21px;
+        }
+
+        .report-card-header {
+            margin-bottom: 20px;
+        }
+
+        .report-card-header h4 {
+            font-size: 14px;
+        }
+
+        .report-card-header p {
+            font-size: 10px;
+        }
+
+        .customer-report-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .status-report-row {
+            grid-template-columns: 78px minmax(0, 1fr) 32px;
+            gap: 7px;
+        }
+
+        .status-report-label strong {
+            font-size: 9px;
+        }
+
+        .status-report-number {
+            font-size: 9.5px;
+        }
+
+        .chart-y-axis {
+            width: 35px;
+            font-size: 8px;
+        }
+
+        .chart-column > span {
+            font-size: 7.5px;
+        }
+
+        .sales-bar {
+            width: 60%;
+        }
+    }
+
+    /* =========================
+       PRINT
+    ========================= */
+
+    @media print {
+        .restaurant-actions,
+        .report-control-card,
+        .report-link {
+            display: none !important;
+        }
+
+        .report-card,
+        .report-stat-card {
+            break-inside: avoid;
+            box-shadow: none !important;
+        }
+
+        .report-card {
+            border-color: #ddd !important;
+        }
+    }
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+        .report-stat-card,
+        .report-card,
+        .customer-report-box,
+        .restaurant-actions .btn,
+        .generate-report-btn,
+        .sales-bar {
+            transition: none !important;
+        }
+    }
+</style>
+
+
+
+        <!-- PAGE CONTENT END -->
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="azq-footer">
+
+            <div class="azq-footer-inner">
+
+                <div class="azq-footer-brand">
+
+                    <div class="azq-footer-logo">
+                        ZQ
+                    </div>
+
+                    <div class="azq-footer-text">
+
+                        <strong>
+                            adminZQ Restaurant Suite
+                        </strong>
+
+                        <span>
+                            © 2026 adminZQ. All rights reserved.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="azq-footer-right">
+
+                    <span class="azq-footer-dot"></span>
+
+                    <span>
+                        All systems operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sidebar / Theme functionality -->
+<script src="static/js/main.js.js"></script>
+
+</body>
+</html>

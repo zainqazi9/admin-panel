@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="adminZQ professional restaurant admin dashboard">
+
+    <title>adminZQ | Restaurant Management</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="static/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="static/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Header / Sidebar / Footer CSS ONLY -->
+    <link rel="stylesheet"
+          href="static/css/style.css">
+</head>
+
+<body>
+
+<div style="background:#0f4c75; color:#ffffff; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:999999; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+    <span><i class="bi bi-shield-check" style="margin-right:6px;"></i><strong>adminZQ</strong> &mdash; Restaurant Command Center &amp; Management Suite (Zain Qazi)</span>
+    <a href="https://zainqazi.netlify.app#projects" style="color:#ffffff; text-decoration:none; background:rgba(255,255,255,0.2); padding:6px 16px; border-radius:6px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">&larr; Back to Portfolio</a>
+</div>
+
+
+<div class="azq-layout">
+
+    <!-- Sidebar Overlay -->
+    <div class="azq-sidebar-overlay" data-sidebar-close></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="azq-sidebar" id="adminSidebar">
+
+        <!-- Brand -->
+        <div class="azq-sidebar-brand">
+
+            <a href="index.html" class="azq-brand">
+
+                <div class="azq-brand-logo">
+                    <img
+                        src="static/images/FOOD/zq-logo.svg.svg"
+                        alt="ZQ Logo">
+                </div>
+
+                <div class="azq-brand-text">
+                    <span class="azq-brand-name">adminZQ</span>
+                    <span class="azq-brand-subtitle">
+                        Restaurant Suite
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="azq-navigation">
+
+            <div class="azq-nav-label">
+                MAIN MENU
+            </div>
+
+            <a href="index.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                </span>
+                <span class="azq-nav-text">Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="azq-nav-link active">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-receipt"></i>
+                </span>
+                <span class="azq-nav-text">Orders</span>
+            </a>
+
+
+            <a href="products.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </span>
+                <span class="azq-nav-text">Products</span>
+            </a>
+
+
+            <a href="categories.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </span>
+                <span class="azq-nav-text">Categories</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                MANAGEMENT
+            </div>
+
+
+            <a href="customers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="azq-nav-text">Customers</span>
+            </a>
+
+
+            <a href="staff.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="azq-nav-text">Staff</span>
+            </a>
+
+
+            <a href="stock-alerts.html" class="azq-nav-link azq-nav-alert-link">
+
+                <span class="azq-nav-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+
+                <span class="azq-nav-text">
+                    Stock Alerts
+                </span>
+
+                <span class="azq-alert-count">
+                    5
+                </span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-truck"></i>
+                </span>
+                <span class="azq-nav-text">Suppliers</span>
+            </a>
+
+
+            <a href="reports.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </span>
+                <span class="azq-nav-text">Reports</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                ACCOUNT
+            </div>
+
+
+            <a href="profile.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="azq-nav-text">Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-gear"></i>
+                </span>
+                <span class="azq-nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar User -->
+        <div class="azq-sidebar-user">
+
+            <div class="azq-user-avatar">
+                <img
+                    src="static/images/FOOD/Admin.jpeg"
+                    alt="Admin ZQ">
+            </div>
+
+            <div class="azq-user-info">
+
+                <strong>Admin ZQ</strong>
+
+                <span>
+                    Restaurant Manager
+                </span>
+
+            </div>
+
+            <i class="bi bi-three-dots azq-user-menu"></i>
+
+        </div>
+
+
+        <!-- Sidebar Status -->
+        <div class="azq-sidebar-status">
+
+            <span class="azq-status-indicator"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <div class="azq-main">
+
+        <!-- Top Header -->
+        <header class="azq-header">
+
+            <div class="azq-header-left">
+
+                <!-- Sidebar Toggle -->
+                <button
+                    type="button"
+                    class="azq-sidebar-toggle"
+                    data-sidebar-toggle
+                    aria-controls="adminSidebar"
+                    aria-expanded="true"
+                    aria-label="Toggle sidebar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+                <!-- Search -->
+                <div class="azq-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search orders, products..."
+                        aria-label="Search">
+
+                    <span class="azq-search-shortcut">
+                        /
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="azq-header-right">
+
+                <!-- Theme -->
+                <button
+                    type="button"
+                    class="azq-header-button theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch color theme">
+
+                    <i
+                        class="bi bi-moon-stars"
+                        data-theme-icon>
+                    </i>
+
+                </button>
+
+
+                <!-- Notifications -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-header-button azq-notification-button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="azq-notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end azq-notification-menu">
+
+                        <div class="azq-dropdown-heading">
+                            <strong>Notifications</strong>
+                            <span>3 new</span>
+                        </div>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+
+                            <span>
+                                <strong>New order received</strong>
+                                <small>4 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Order #1024 ready</strong>
+                                <small>32 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="stock-alerts.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon azq-warning-icon">
+                                <i class="bi bi-exclamation-triangle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Low stock detected</strong>
+                                <small>1 hour ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <div class="azq-notification-footer">
+                            <a href="stock-alerts.html">
+                                View all notifications
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-profile-button dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            src="static/images/FOOD/Admin.jpeg"
+                            alt="Admin ZQ">
+
+                        <span class="azq-profile-details">
+
+                            <strong>Admin ZQ</strong>
+
+                            <small>Manager</small>
+
+                        </span>
+
+                    </button>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end azq-profile-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="bi bi-gear"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item azq-signout" href="login.html">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign Out
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <!-- PAGE CONTENT START -->
+
+
+<main class="dashboard-content">
+  <div class="container-fluid px-3 px-lg-4 py-4">
+
+    <!-- Page Heading -->
+    <div class="restaurant-heading mb-4">
+      <div>
+        <span class="restaurant-eyebrow">ORDER MANAGEMENT</span>
+        <h1 class="restaurant-title">Orders</h1>
+        <p class="restaurant-subtitle">
+          Manage and track all restaurant orders from here.
+        </p>
+      </div>
+
+      <div class="restaurant-actions">
+        <a href="new-order.html" class="btn restaurant-btn">
+          <i class="bi bi-plus-lg"></i>
+          New Order
+        </a>
+      </div>
+    </div>
+
+
+    <!-- Order Statistics -->
+    <div class="row g-3 mb-4">
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">Total Orders</small>
+              <h3 class="fw-bold mb-0">128</h3>
+            </div>
+            <div class="fs-2 text-primary">
+              <i class="bi bi-receipt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">Pending</small>
+              <h3 class="fw-bold mb-0">12</h3>
+            </div>
+            <div class="fs-2 text-warning">
+              <i class="bi bi-hourglass-split"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">Preparing</small>
+              <h3 class="fw-bold mb-0">8</h3>
+            </div>
+            <div class="fs-2 text-info">
+              <i class="bi bi-fire"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">Completed</small>
+              <h3 class="fw-bold mb-0">108</h3>
+            </div>
+            <div class="fs-2 text-success">
+              <i class="bi bi-check-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Filters -->
+    <div class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+
+        <div class="row g-3 align-items-end">
+
+          <div class="col-lg-4">
+            <label class="form-label fw-semibold">Search Orders</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white">
+                <i class="bi bi-search"></i>
+              </span>
+              <input
+                type="text"
+                id="orderSearch"
+                class="form-control"
+                placeholder="Search order, customer or phone..."
+                onkeyup="filterOrders()"
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <label class="form-label fw-semibold">Status</label>
+            <select id="statusFilter" class="form-select" onchange="filterOrders()">
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="preparing">Preparing</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+
+          <div class="col-lg-2">
+            <label class="form-label fw-semibold">Order Type</label>
+            <select id="typeFilter" class="form-select" onchange="filterOrders()">
+              <option value="all">All Types</option>
+              <option value="dine in">Dine In</option>
+              <option value="takeaway">Takeaway</option>
+              <option value="delivery">Delivery</option>
+            </select>
+          </div>
+
+          <div class="col-lg-2">
+            <label class="form-label fw-semibold">Date</label>
+            <input
+              type="date"
+              id="dateFilter"
+              class="form-control"
+              onchange="filterOrders()"
+            >
+          </div>
+
+          <div class="col-lg-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary w-100"
+              onclick="resetFilters()"
+            >
+              <i class="bi bi-arrow-counterclockwise"></i>
+              Reset
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Orders Table -->
+    <div class="card border-0 shadow-sm">
+
+      <div class="card-header bg-white border-0 py-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="mb-1 fw-bold">All Orders</h5>
+            <small class="text-muted">
+              View and manage recent restaurant orders.
+            </small>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-sm"
+            onclick="exportOrders()"
+          >
+            <i class="bi bi-download"></i>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+
+        <table class="table align-middle mb-0" id="ordersTable">
+
+          <thead class="table-light">
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Items</th>
+              <th>Type</th>
+              <th>Date & Time</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th class="text-end">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <!-- Order 1 -->
+            <tr
+              data-status="completed"
+              data-type="dine in"
+              data-date="2026-09-17"
+            >
+              <td>
+                <strong>#ORD-1024</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Ali Khan</div>
+                <small class="text-muted">0300-1234567</small>
+              </td>
+
+              <td>
+                <span>3 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Dine In
+                </span>
+              </td>
+
+              <td>
+                <div>17 Sep 2026</div>
+                <small class="text-muted">08:15 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 1,850</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-success">
+                  Completed
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1024',
+                    'Ali Khan',
+                    '0300-1234567',
+                    'Dine In',
+                    '3 Items',
+                    'Rs. 1,850',
+                    'Completed'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1024')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+
+            <!-- Order 2 -->
+            <tr
+              data-status="preparing"
+              data-type="takeaway"
+              data-date="2026-09-17"
+            >
+              <td>
+                <strong>#ORD-1023</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Ahmed Raza</div>
+                <small class="text-muted">0311-7654321</small>
+              </td>
+
+              <td>
+                <span>2 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Takeaway
+                </span>
+              </td>
+
+              <td>
+                <div>17 Sep 2026</div>
+                <small class="text-muted">08:05 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 1,200</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-info text-dark">
+                  Preparing
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1023',
+                    'Ahmed Raza',
+                    '0311-7654321',
+                    'Takeaway',
+                    '2 Items',
+                    'Rs. 1,200',
+                    'Preparing'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1023')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+
+            <!-- Order 3 -->
+            <tr
+              data-status="pending"
+              data-type="delivery"
+              data-date="2026-09-17"
+            >
+              <td>
+                <strong>#ORD-1022</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Sara Ahmed</div>
+                <small class="text-muted">0322-9876543</small>
+              </td>
+
+              <td>
+                <span>4 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Delivery
+                </span>
+              </td>
+
+              <td>
+                <div>17 Sep 2026</div>
+                <small class="text-muted">07:50 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 2,450</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-warning text-dark">
+                  Pending
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1022',
+                    'Sara Ahmed',
+                    '0322-9876543',
+                    'Delivery',
+                    '4 Items',
+                    'Rs. 2,450',
+                    'Pending'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1022')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+
+            <!-- Order 4 -->
+            <tr
+              data-status="completed"
+              data-type="dine in"
+              data-date="2026-09-17"
+            >
+              <td>
+                <strong>#ORD-1021</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Hamza Ali</div>
+                <small class="text-muted">0333-4567890</small>
+              </td>
+
+              <td>
+                <span>2 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Dine In
+                </span>
+              </td>
+
+              <td>
+                <div>17 Sep 2026</div>
+                <small class="text-muted">07:35 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 950</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-success">
+                  Completed
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1021',
+                    'Hamza Ali',
+                    '0333-4567890',
+                    'Dine In',
+                    '2 Items',
+                    'Rs. 950',
+                    'Completed'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1021')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+
+            <!-- Order 5 -->
+            <tr
+              data-status="preparing"
+              data-type="delivery"
+              data-date="2026-09-17"
+            >
+              <td>
+                <strong>#ORD-1020</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Usman Malik</div>
+                <small class="text-muted">0345-1122334</small>
+              </td>
+
+              <td>
+                <span>5 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Delivery
+                </span>
+              </td>
+
+              <td>
+                <div>17 Sep 2026</div>
+                <small class="text-muted">07:20 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 3,150</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-info text-dark">
+                  Preparing
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1020',
+                    'Usman Malik',
+                    '0345-1122334',
+                    'Delivery',
+                    '5 Items',
+                    'Rs. 3,150',
+                    'Preparing'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1020')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+
+            <!-- Order 6 -->
+            <tr
+              data-status="cancelled"
+              data-type="takeaway"
+              data-date="2026-09-16"
+            >
+              <td>
+                <strong>#ORD-1019</strong>
+              </td>
+
+              <td>
+                <div class="fw-semibold">Bilal Ahmed</div>
+                <small class="text-muted">0301-9988776</small>
+              </td>
+
+              <td>
+                <span>3 Items</span>
+              </td>
+
+              <td>
+                <span class="badge bg-light text-dark">
+                  Takeaway
+                </span>
+              </td>
+
+              <td>
+                <div>16 Sep 2026</div>
+                <small class="text-muted">09:10 PM</small>
+              </td>
+
+              <td>
+                <strong>Rs. 1,650</strong>
+              </td>
+
+              <td>
+                <span class="badge rounded-pill bg-danger">
+                  Cancelled
+                </span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  onclick="viewOrder(
+                    'ORD-1019',
+                    'Bilal Ahmed',
+                    '0301-9988776',
+                    'Takeaway',
+                    '3 Items',
+                    'Rs. 1,650',
+                    'Cancelled'
+                  )"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  onclick="editOrder('ORD-1019')"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- Empty State -->
+      <div
+        id="noOrders"
+        class="text-center py-5 d-none"
+      >
+        <i class="bi bi-receipt-cutoff fs-1 text-muted"></i>
+        <h5 class="mt-3">No Orders Found</h5>
+        <p class="text-muted mb-0">
+          Try changing your search or filters.
+        </p>
+      </div>
+
+
+      <!-- Pagination -->
+      <div class="card-footer bg-white border-0 py-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+          <small class="text-muted">
+            Showing 1 to 6 of 128 orders
+          </small>
+
+          <nav>
+            <ul class="pagination pagination-sm mb-0">
+
+              <li class="page-item disabled">
+                <a class="page-link" href="#">
+                  Previous
+                </a>
+              </li>
+
+              <li class="page-item active">
+                <a class="page-link" href="#">
+                  1
+                </a>
+              </li>
+
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  2
+                </a>
+              </li>
+
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  3
+                </a>
+              </li>
+
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  Next
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+
+<!-- Order Details Modal -->
+<div
+  class="modal fade"
+  id="orderDetailsModal"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content border-0 shadow">
+
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title fw-bold">
+            Order Details
+          </h5>
+          <small class="text-muted" id="modalOrderId"></small>
+        </div>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row g-3">
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Customer
+            </small>
+            <strong id="modalCustomer"></strong>
+          </div>
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Phone
+            </small>
+            <strong id="modalPhone"></strong>
+          </div>
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Order Type
+            </small>
+            <strong id="modalType"></strong>
+          </div>
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Items
+            </small>
+            <strong id="modalItems"></strong>
+          </div>
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Total Amount
+            </small>
+            <strong id="modalTotal"></strong>
+          </div>
+
+          <div class="col-6">
+            <small class="text-muted d-block">
+              Status
+            </small>
+            <span id="modalStatus" class="badge rounded-pill"></span>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <h6 class="fw-bold mb-3">
+          Order Items
+        </h6>
+
+        <div class="d-flex justify-content-between mb-2">
+          <span>Chicken Biryani × 2</span>
+          <strong>Rs. 900</strong>
+        </div>
+
+        <div class="d-flex justify-content-between mb-2">
+          <span>Cold Drink × 1</span>
+          <strong>Rs. 150</strong>
+        </div>
+
+        <div class="d-flex justify-content-between pt-2 border-top mt-3">
+          <strong>Total</strong>
+          <strong id="modalItemsTotal">Rs. 1,050</strong>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="btn restaurant-btn"
+          onclick="updateOrderStatus()"
+        >
+          <i class="bi bi-check2-circle"></i>
+          Update Status
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+/* =========================================================
+   ADMIN ZQ — PREMIUM ORDERS PAGE
+   Page-specific CSS only
+   Header / Sidebar / Footer ko touch nahi karta
+========================================================= */
+
+.dashboard-content {
+    --orders-bg: #f4f2ee;
+    --orders-card: #ffffff;
+    --orders-card-soft: #faf9f6;
+    --orders-border: #e8e3db;
+    --orders-text: #24211d;
+    --orders-muted: #8b857c;
+    --orders-accent: #e8903b;
+    --orders-accent-dark: #c96f20;
+    --orders-accent-soft: rgba(232, 144, 59, .10);
+    --orders-green: #26945d;
+    --orders-green-soft: rgba(38, 148, 93, .10);
+    --orders-blue: #3c7fc4;
+    --orders-blue-soft: rgba(60, 127, 196, .10);
+    --orders-yellow: #b77a18;
+    --orders-yellow-soft: rgba(183, 122, 24, .11);
+    --orders-red: #c94d4d;
+    --orders-red-soft: rgba(201, 77, 77, .10);
+    --orders-shadow: 0 10px 35px rgba(35, 30, 24, .06);
+    --orders-shadow-hover: 0 18px 45px rgba(35, 30, 24, .11);
+
+    background:
+        radial-gradient(circle at 85% 0%, rgba(232,144,59,.055), transparent 28%),
+        linear-gradient(180deg, #f8f7f4 0%, var(--orders-bg) 100%);
+    color: var(--orders-text);
+    min-height: 100vh;
+}
+
+.dashboard-content,
+.dashboard-content * {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.dashboard-content .restaurant-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 6px 2px 8px;
+}
+
+.dashboard-content .restaurant-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--orders-accent) !important;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.dashboard-content .restaurant-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        var(--orders-accent),
+        rgba(232,144,59,.25)
+    );
+}
+
+.dashboard-content .restaurant-title {
+    color: var(--orders-text) !important;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin: 0 0 7px;
+}
+
+.dashboard-content .restaurant-subtitle {
+    color: var(--orders-muted) !important;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================================
+   NEW ORDER BUTTON
+========================================================= */
+
+.dashboard-content .restaurant-actions {
+    flex-shrink: 0;
+}
+
+.dashboard-content .restaurant-actions .restaurant-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 45px;
+    padding: 0 18px;
+
+    background: linear-gradient(
+        135deg,
+        #f0a052 0%,
+        var(--orders-accent) 100%
+    ) !important;
+
+    border: 1px solid var(--orders-accent) !important;
+    border-radius: 11px;
+
+    color: #201a14 !important;
+    font-size: 13px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 18px rgba(232,144,59,.20),
+        inset 0 1px 0 rgba(255,255,255,.25);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+.dashboard-content .restaurant-actions .restaurant-btn:hover {
+    color: #201a14 !important;
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow:
+        0 13px 25px rgba(232,144,59,.27),
+        inset 0 1px 0 rgba(255,255,255,.28);
+}
+
+.dashboard-content .restaurant-actions .restaurant-btn i {
+    font-size: 15px;
+}
+
+/* =========================================================
+   STATISTICS CARDS
+========================================================= */
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"] > .card {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255,255,255,.92) !important;
+    border: 1px solid var(--orders-border) !important;
+    border-radius: 17px;
+
+    box-shadow: var(--orders-shadow) !important;
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"] > .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232,144,59,.55),
+        transparent
+    );
+    opacity: .7;
+}
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"] > .card:hover {
+    transform: translateY(-4px);
+    border-color: #ddd5ca !important;
+    box-shadow: var(--orders-shadow-hover) !important;
+}
+
+.dashboard-content .row.g-3.mb-4 .card-body {
+    min-height: 116px;
+    padding: 22px;
+}
+
+.dashboard-content .row.g-3.mb-4 .text-muted {
+    color: var(--orders-muted) !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.dashboard-content .row.g-3.mb-4 h3 {
+    color: var(--orders-text) !important;
+    font-size: 28px;
+    font-weight: 800 !important;
+    letter-spacing: -.6px;
+    margin-top: 6px !important;
+}
+
+.dashboard-content .row.g-3.mb-4 .fs-2 {
+    width: 49px;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 21px !important;
+
+    background: var(--orders-accent-soft);
+    color: var(--orders-accent) !important;
+}
+
+/* Different stat icon treatments */
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(2) .fs-2 {
+    color: var(--orders-yellow) !important;
+    background: var(--orders-yellow-soft);
+}
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(3) .fs-2 {
+    color: var(--orders-blue) !important;
+    background: var(--orders-blue-soft);
+}
+
+.dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(4) .fs-2 {
+    color: var(--orders-green) !important;
+    background: var(--orders-green-soft);
+}
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.dashboard-content .card.border-0.shadow-sm.mb-4 {
+    background: rgba(255,255,255,.94) !important;
+    border: 1px solid var(--orders-border) !important;
+    border-radius: 17px;
+    box-shadow: var(--orders-shadow) !important;
+    overflow: hidden;
+}
+
+.dashboard-content .card.border-0.shadow-sm.mb-4 .card-body {
+    padding: 23px;
+}
+
+.dashboard-content .card.border-0.shadow-sm.mb-4 .form-label {
+    color: #4f4942;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .45px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Search */
+
+.dashboard-content .input-group {
+    height: 44px;
+}
+
+.dashboard-content .input-group-text {
+    min-width: 43px;
+    justify-content: center;
+
+    background: #faf9f6 !important;
+    border: 1px solid var(--orders-border) !important;
+    border-right: 0 !important;
+
+    color: var(--orders-accent) !important;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.dashboard-content .input-group .form-control {
+    border-left: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* Inputs */
+
+.dashboard-content .form-control,
+.dashboard-content .form-select {
+    height: 44px;
+
+    background-color: #faf9f6 !important;
+    border: 1px solid var(--orders-border) !important;
+    border-radius: 10px;
+
+    color: var(--orders-text) !important;
+    font-size: 13px;
+
+    box-shadow: none !important;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.dashboard-content .form-control {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.dashboard-content .form-control::placeholder {
+    color: #aaa39a;
+}
+
+.dashboard-content .form-control:hover,
+.dashboard-content .form-select:hover {
+    background-color: #fff !important;
+    border-color: #d9d1c7 !important;
+}
+
+.dashboard-content .form-control:focus,
+.dashboard-content .form-select:focus {
+    background: #fff !important;
+    border-color: var(--orders-accent) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(232,144,59,.10) !important;
+}
+
+/* Search focus keeps border connection */
+
+.dashboard-content .input-group:focus-within .input-group-text {
+    border-color: var(--orders-accent) !important;
+    background: #fff !important;
+}
+
+/* Reset */
+
+.dashboard-content .card.border-0.shadow-sm.mb-4 .btn-outline-secondary {
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: #fff !important;
+    border: 1px solid #dcd6cd !important;
+    border-radius: 10px;
+
+    color: #5e5851 !important;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: all .2s ease;
+}
+
+.dashboard-content .card.border-0.shadow-sm.mb-4 .btn-outline-secondary:hover {
+    background: #fff8f0 !important;
+    border-color: var(--orders-accent) !important;
+    color: var(--orders-accent-dark) !important;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   ORDERS TABLE CONTAINER
+========================================================= */
+
+.dashboard-content .card.border-0.shadow-sm:not(.mb-4) {
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid var(--orders-border) !important;
+    border-radius: 18px;
+    box-shadow: var(--orders-shadow) !important;
+    overflow: hidden;
+}
+
+/* Header */
+
+.dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-header {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #faf9f6 100%
+        ) !important;
+
+    border-bottom: 1px solid var(--orders-border) !important;
+    padding: 20px 22px !important;
+}
+
+.dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-header h5 {
+    color: var(--orders-text) !important;
+    font-size: 17px;
+    font-weight: 800 !important;
+    letter-spacing: -.25px;
+}
+
+.dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-header small {
+    color: var(--orders-muted) !important;
+    font-size: 12px;
+}
+
+/* Export */
+
+.dashboard-content .card-header .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 35px;
+    padding: 0 12px;
+
+    background: #fff !important;
+    border: 1px solid #dcd6cd !important;
+    border-radius: 9px;
+
+    color: #4e4943 !important;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: all .2s ease;
+}
+
+.dashboard-content .card-header .btn-outline-dark:hover {
+    background: #fff8f0 !important;
+    border-color: var(--orders-accent) !important;
+    color: var(--orders-accent-dark) !important;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+#ordersTable {
+    width: 100%;
+    margin: 0 !important;
+
+    color: var(--orders-text);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#ordersTable thead {
+    background: #f8f7f4 !important;
+}
+
+#ordersTable thead th {
+    background: #f8f7f4 !important;
+
+    color: #8a837a !important;
+
+    border-top: 0 !important;
+    border-bottom: 1px solid var(--orders-border) !important;
+
+    padding: 13px 15px !important;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .75px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+#ordersTable tbody tr {
+    background: #fff !important;
+
+    border-bottom: 1px solid #eeeae4 !important;
+
+    transition:
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+#ordersTable tbody tr:last-child {
+    border-bottom: 0 !important;
+}
+
+#ordersTable tbody tr:hover {
+    background: #fffaf4 !important;
+}
+
+#ordersTable tbody td {
+    background: transparent !important;
+
+    color: #5d5750 !important;
+
+    border: 0 !important;
+
+    padding: 16px 15px !important;
+
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+#ordersTable tbody td strong {
+    color: var(--orders-text) !important;
+    font-weight: 750;
+}
+
+#ordersTable tbody td:first-child strong {
+    color: var(--orders-accent-dark) !important;
+    font-size: 12px;
+    letter-spacing: .2px;
+}
+
+#ordersTable small {
+    display: inline-block;
+    margin-top: 3px;
+
+    color: #a19a91 !important;
+    font-size: 11px;
+}
+
+/* =========================================================
+   CUSTOMER CELL
+========================================================= */
+
+#ordersTable tbody td:nth-child(2) {
+    min-width: 165px;
+}
+
+#ordersTable tbody td:nth-child(2) .fw-semibold {
+    color: #302c27 !important;
+    font-size: 13px;
+    font-weight: 750 !important;
+}
+
+#ordersTable tbody td:nth-child(3) {
+    color: #69635b !important;
+    font-weight: 600;
+}
+
+#ordersTable tbody td:nth-child(6) strong {
+    color: #302c27 !important;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   ORDER TYPE BADGES
+   Existing Bootstrap .badge.bg-light remains compatible
+========================================================= */
+
+#ordersTable .badge.bg-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 76px;
+    padding: 6px 9px;
+
+    background: #f7f5f1 !important;
+    border: 1px solid #e5dfd7;
+
+    color: #625b53 !important;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .15px;
+}
+
+/* =========================================================
+   STATUS BADGES
+   Works directly with existing Bootstrap classes
+========================================================= */
+
+#ordersTable .badge.rounded-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    min-width: 82px;
+    padding: 6px 10px;
+
+    border: 1px solid transparent;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .1px;
+}
+
+/* Completed */
+
+#ordersTable .badge.bg-success {
+    background: var(--orders-green-soft) !important;
+    color: var(--orders-green) !important;
+    border-color: rgba(38,148,93,.13) !important;
+}
+
+#ordersTable .badge.bg-success::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orders-green);
+}
+
+/* Preparing */
+
+#ordersTable .badge.bg-info {
+    background: var(--orders-blue-soft) !important;
+    color: var(--orders-blue) !important;
+    border-color: rgba(60,127,196,.13) !important;
+}
+
+#ordersTable .badge.bg-info::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orders-blue);
+}
+
+/* Pending */
+
+#ordersTable .badge.bg-warning {
+    background: var(--orders-yellow-soft) !important;
+    color: var(--orders-yellow) !important;
+    border-color: rgba(183,122,24,.14) !important;
+}
+
+#ordersTable .badge.bg-warning::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orders-yellow);
+}
+
+/* Cancelled */
+
+#ordersTable .badge.bg-danger {
+    background: var(--orders-red-soft) !important;
+    color: var(--orders-red) !important;
+    border-color: rgba(201,77,77,.13) !important;
+}
+
+#ordersTable .badge.bg-danger::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orders-red);
+}
+
+/* =========================================================
+   TABLE ACTION BUTTONS
+========================================================= */
+
+#ordersTable tbody td:last-child {
+    white-space: nowrap;
+}
+
+#ordersTable tbody td:last-child .btn {
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    margin-left: 4px;
+
+    border-radius: 9px !important;
+
+    background: #fff !important;
+
+    font-size: 13px;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+/* View */
+
+#ordersTable tbody td:last-child .btn-outline-dark {
+    color: #625c54 !important;
+    border: 1px solid #ded8cf !important;
+}
+
+#ordersTable tbody td:last-child .btn-outline-dark:hover {
+    color: #3c3731 !important;
+    border-color: #aaa299 !important;
+    background: #f8f6f2 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(35,30,24,.08);
+}
+
+/* Edit */
+
+#ordersTable tbody td:last-child .btn-outline-primary {
+    color: var(--orders-accent-dark) !important;
+    border: 1px solid rgba(232,144,59,.28) !important;
+}
+
+#ordersTable tbody td:last-child .btn-outline-primary:hover {
+    color: #fff !important;
+    background: var(--orders-accent) !important;
+    border-color: var(--orders-accent) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(232,144,59,.18);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+#noOrders {
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff !important;
+    color: var(--orders-text);
+
+    border-top: 1px solid var(--orders-border);
+}
+
+#noOrders i {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--orders-accent-soft);
+    color: var(--orders-accent) !important;
+
+    font-size: 27px !important;
+}
+
+#noOrders h5 {
+    color: var(--orders-text) !important;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+#noOrders p {
+    color: var(--orders-muted) !important;
+    font-size: 12px;
+}
+
+/* =========================================================
+   PAGINATION / CARD FOOTER
+========================================================= */
+
+.dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-footer {
+    background: #faf9f6 !important;
+    border-top: 1px solid var(--orders-border) !important;
+    padding: 15px 20px !important;
+}
+
+.dashboard-content .card-footer small {
+    color: var(--orders-muted) !important;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.dashboard-content .pagination {
+    gap: 4px;
+}
+
+.dashboard-content .pagination .page-link {
+    min-width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 9px;
+
+    background: #fff !important;
+    border: 1px solid #ded8cf !important;
+    border-radius: 8px !important;
+
+    color: #6b645c !important;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: all .2s ease;
+}
+
+.dashboard-content .pagination .page-link:hover {
+    background: #fff8f0 !important;
+    border-color: var(--orders-accent) !important;
+    color: var(--orders-accent-dark) !important;
+}
+
+.dashboard-content .pagination .active .page-link {
+    background: var(--orders-accent) !important;
+    border-color: var(--orders-accent) !important;
+    color: #201a14 !important;
+
+    box-shadow: 0 5px 12px rgba(232,144,59,.18);
+}
+
+.dashboard-content .pagination .disabled .page-link {
+    background: #f5f3ef !important;
+    color: #b4aea6 !important;
+    border-color: #e7e2db !important;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+#orderDetailsModal .modal-dialog {
+    max-width: 570px;
+}
+
+#orderDetailsModal .modal-content {
+    overflow: hidden;
+
+    background: #fff !important;
+    color: var(--orders-text) !important;
+
+    border: 1px solid var(--orders-border) !important;
+    border-radius: 20px !important;
+
+    box-shadow:
+        0 30px 80px rgba(25,22,18,.20) !important;
+}
+
+#orderDetailsModal .modal-header {
+    padding: 20px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #faf8f4
+        ) !important;
+
+    border-bottom: 1px solid var(--orders-border) !important;
+}
+
+#orderDetailsModal .modal-title {
+    color: var(--orders-text) !important;
+    font-size: 18px;
+    font-weight: 800 !important;
+}
+
+#orderDetailsModal #modalOrderId {
+    display: inline-block;
+    margin-top: 3px;
+
+    color: var(--orders-accent-dark) !important;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#orderDetailsModal .btn-close {
+    opacity: .55;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+#orderDetailsModal .btn-close:hover {
+    opacity: 1;
+    transform: rotate(4deg);
+}
+
+#orderDetailsModal .modal-body {
+    padding: 23px;
+    background: #fff !important;
+}
+
+#orderDetailsModal .modal-body .text-muted {
+    color: #9a938a !important;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+#orderDetailsModal .modal-body strong {
+    color: var(--orders-text);
+    font-size: 13px;
+}
+
+#orderDetailsModal .modal-body hr {
+    margin: 22px 0;
+    border-color: var(--orders-border);
+    opacity: 1;
+}
+
+#orderDetailsModal .modal-body h6 {
+    color: var(--orders-text);
+    font-size: 14px;
+    font-weight: 800 !important;
+}
+
+/* Item rows */
+
+#orderDetailsModal .modal-body .d-flex.justify-content-between {
+    color: #5f5952;
+    font-size: 13px;
+}
+
+#orderDetailsModal .modal-body .border-top {
+    border-color: var(--orders-border) !important;
+}
+
+#orderDetailsModal #modalItemsTotal {
+    color: var(--orders-accent-dark) !important;
+    font-size: 15px;
+}
+
+/* Modal footer */
+
+#orderDetailsModal .modal-footer {
+    padding: 15px 22px;
+
+    background: #faf9f6 !important;
+    border-top: 1px solid var(--orders-border) !important;
+}
+
+#orderDetailsModal .modal-footer .btn-outline-secondary {
+    min-height: 39px;
+
+    background: #fff !important;
+    border: 1px solid #dcd6cd !important;
+    border-radius: 9px;
+
+    color: #625c54 !important;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#orderDetailsModal .modal-footer .btn-outline-secondary:hover {
+    background: #f5f3ef !important;
+    border-color: #c8c0b6 !important;
+}
+
+#orderDetailsModal .modal-footer .restaurant-btn {
+    min-height: 39px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    background: var(--orders-accent) !important;
+    border: 1px solid var(--orders-accent) !important;
+    border-radius: 9px;
+
+    color: #211a14 !important;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: all .2s ease;
+}
+
+#orderDetailsModal .modal-footer .restaurant-btn:hover {
+    background: #f0a052 !important;
+    border-color: #f0a052 !important;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   MODAL STATUS
+========================================================= */
+
+#modalStatus {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 11px;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.dashboard-content .table-responsive::-webkit-scrollbar {
+    height: 7px;
+}
+
+.dashboard-content .table-responsive::-webkit-scrollbar-track {
+    background: #f3f0eb;
+}
+
+.dashboard-content .table-responsive::-webkit-scrollbar-thumb {
+    background: #cfc7bd;
+    border-radius: 20px;
+}
+
+.dashboard-content .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #b9afa4;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .dashboard-content .restaurant-heading {
+        align-items: flex-start;
+    }
+
+    .dashboard-content .restaurant-title {
+        font-size: 31px;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm.mb-4 .card-body {
+        padding: 18px;
+    }
+
+    #ordersTable {
+        min-width: 950px;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm:not(.mb-4) {
+        border-radius: 15px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .dashboard-content .restaurant-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 17px;
+        margin-bottom: 22px !important;
+    }
+
+    .dashboard-content .restaurant-actions {
+        width: 100%;
+    }
+
+    .dashboard-content .restaurant-actions .restaurant-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .dashboard-content .restaurant-title {
+        font-size: 28px;
+    }
+
+    .dashboard-content .restaurant-subtitle {
+        font-size: 13px;
+    }
+
+    .dashboard-content .row.g-3.mb-4 .card-body {
+        min-height: 100px;
+        padding: 18px;
+    }
+
+    .dashboard-content .row.g-3.mb-4 h3 {
+        font-size: 25px;
+    }
+
+    .dashboard-content .row.g-3.mb-4 .fs-2 {
+        width: 44px;
+        height: 44px;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm.mb-4 .card-body {
+        padding: 16px;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-header {
+        padding: 17px !important;
+    }
+
+    .dashboard-content .card-header .d-flex {
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .dashboard-content .card-header .btn-outline-dark {
+        flex-shrink: 0;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm:not(.mb-4) .card-footer {
+        padding: 14px 16px !important;
+    }
+
+    .dashboard-content .card-footer > .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    #orderDetailsModal .modal-dialog {
+        margin: 12px;
+    }
+
+    #orderDetailsModal .modal-content {
+        border-radius: 16px !important;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .dashboard-content .restaurant-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .dashboard-content .restaurant-title {
+        font-size: 26px;
+    }
+
+    .dashboard-content .restaurant-subtitle {
+        font-size: 12px;
+    }
+
+    .dashboard-content .row.g-3.mb-4 {
+        --bs-gutter-y: .7rem;
+    }
+
+    .dashboard-content .row.g-3.mb-4 .card-body {
+        padding: 16px;
+    }
+
+    .dashboard-content .row.g-3.mb-4 h3 {
+        font-size: 23px;
+    }
+
+    .dashboard-content .card.border-0.shadow-sm.mb-4 .row {
+        --bs-gutter-y: 14px;
+    }
+
+    .dashboard-content .card-header .d-flex {
+        flex-direction: column;
+    }
+
+    .dashboard-content .card-header .btn-outline-dark {
+        width: 100%;
+    }
+
+    #ordersTable {
+        min-width: 900px;
+    }
+
+    #orderDetailsModal .modal-body {
+        padding: 18px;
+    }
+
+    #orderDetailsModal .modal-footer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #orderDetailsModal .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   SUBTLE ANIMATION
+========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"] > .card,
+    .dashboard-content .card.border-0.shadow-sm.mb-4,
+    .dashboard-content .card.border-0.shadow-sm:not(.mb-4) {
+        animation: ordersFadeUp .45s ease both;
+    }
+
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(1) > .card {
+        animation-delay: .03s;
+    }
+
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(2) > .card {
+        animation-delay: .07s;
+    }
+
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(3) > .card {
+        animation-delay: .11s;
+    }
+
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"]:nth-child(4) > .card {
+        animation-delay: .15s;
+    }
+
+    @keyframes ordersFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    .dashboard-content {
+        background: #fff !important;
+    }
+
+    .dashboard-content .restaurant-actions,
+    .dashboard-content .card-header .btn,
+    #ordersTable tbody td:last-child,
+    .dashboard-content .pagination {
+        display: none !important;
+    }
+
+    .dashboard-content .card,
+    .dashboard-content .row.g-3.mb-4 > [class*="col-"] > .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
+</style>
+
+
+
+        <!-- PAGE CONTENT END -->
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="azq-footer">
+
+            <div class="azq-footer-inner">
+
+                <div class="azq-footer-brand">
+
+                    <div class="azq-footer-logo">
+                        ZQ
+                    </div>
+
+                    <div class="azq-footer-text">
+
+                        <strong>
+                            adminZQ Restaurant Suite
+                        </strong>
+
+                        <span>
+                            © 2026 adminZQ. All rights reserved.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="azq-footer-right">
+
+                    <span class="azq-footer-dot"></span>
+
+                    <span>
+                        All systems operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sidebar / Theme functionality -->
+<script src="static/js/main.js.js"></script>
+
+</body>
+</html>

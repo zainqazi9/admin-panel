@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="adminZQ professional restaurant admin dashboard">
+
+    <title>adminZQ | Restaurant Management</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="static/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="static/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Header / Sidebar / Footer CSS ONLY -->
+    <link rel="stylesheet"
+          href="static/css/style.css">
+</head>
+
+<body>
+
+<div style="background:#0f4c75; color:#ffffff; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:999999; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+    <span><i class="bi bi-shield-check" style="margin-right:6px;"></i><strong>adminZQ</strong> &mdash; Restaurant Command Center &amp; Management Suite (Zain Qazi)</span>
+    <a href="https://zainqazi.netlify.app#projects" style="color:#ffffff; text-decoration:none; background:rgba(255,255,255,0.2); padding:6px 16px; border-radius:6px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">&larr; Back to Portfolio</a>
+</div>
+
+
+<div class="azq-layout">
+
+    <!-- Sidebar Overlay -->
+    <div class="azq-sidebar-overlay" data-sidebar-close></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="azq-sidebar" id="adminSidebar">
+
+        <!-- Brand -->
+        <div class="azq-sidebar-brand">
+
+            <a href="index.html" class="azq-brand">
+
+                <div class="azq-brand-logo">
+                    <img
+                        src="static/images/FOOD/zq-logo.svg.svg"
+                        alt="ZQ Logo">
+                </div>
+
+                <div class="azq-brand-text">
+                    <span class="azq-brand-name">adminZQ</span>
+                    <span class="azq-brand-subtitle">
+                        Restaurant Suite
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="azq-navigation">
+
+            <div class="azq-nav-label">
+                MAIN MENU
+            </div>
+
+            <a href="index.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                </span>
+                <span class="azq-nav-text">Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-receipt"></i>
+                </span>
+                <span class="azq-nav-text">Orders</span>
+            </a>
+
+
+            <a href="products.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </span>
+                <span class="azq-nav-text">Products</span>
+            </a>
+
+
+            <a href="categories.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </span>
+                <span class="azq-nav-text">Categories</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                MANAGEMENT
+            </div>
+
+
+            <a href="customers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="azq-nav-text">Customers</span>
+            </a>
+
+
+            <a href="staff.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="azq-nav-text">Staff</span>
+            </a>
+
+
+            <a href="stock-alerts.html" class="azq-nav-link azq-nav-alert-link">
+
+                <span class="azq-nav-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+
+                <span class="azq-nav-text">
+                    Stock Alerts
+                </span>
+
+                <span class="azq-alert-count">
+                    5
+                </span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-truck"></i>
+                </span>
+                <span class="azq-nav-text">Suppliers</span>
+            </a>
+
+
+            <a href="reports.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </span>
+                <span class="azq-nav-text">Reports</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                ACCOUNT
+            </div>
+
+
+            <a href="profile.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="azq-nav-text">Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-gear"></i>
+                </span>
+                <span class="azq-nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar User -->
+        <div class="azq-sidebar-user">
+
+            <div class="azq-user-avatar">
+                <img
+                    src="static/images/FOOD/Admin.jpeg"
+                    alt="Admin ZQ">
+            </div>
+
+            <div class="azq-user-info">
+
+                <strong>Admin ZQ</strong>
+
+                <span>
+                    Restaurant Manager
+                </span>
+
+            </div>
+
+            <i class="bi bi-three-dots azq-user-menu"></i>
+
+        </div>
+
+
+        <!-- Sidebar Status -->
+        <div class="azq-sidebar-status">
+
+            <span class="azq-status-indicator"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <div class="azq-main">
+
+        <!-- Top Header -->
+        <header class="azq-header">
+
+            <div class="azq-header-left">
+
+                <!-- Sidebar Toggle -->
+                <button
+                    type="button"
+                    class="azq-sidebar-toggle"
+                    data-sidebar-toggle
+                    aria-controls="adminSidebar"
+                    aria-expanded="true"
+                    aria-label="Toggle sidebar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+                <!-- Search -->
+                <div class="azq-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search orders, products..."
+                        aria-label="Search">
+
+                    <span class="azq-search-shortcut">
+                        /
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="azq-header-right">
+
+                <!-- Theme -->
+                <button
+                    type="button"
+                    class="azq-header-button theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch color theme">
+
+                    <i
+                        class="bi bi-moon-stars"
+                        data-theme-icon>
+                    </i>
+
+                </button>
+
+
+                <!-- Notifications -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-header-button azq-notification-button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="azq-notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end azq-notification-menu">
+
+                        <div class="azq-dropdown-heading">
+                            <strong>Notifications</strong>
+                            <span>3 new</span>
+                        </div>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+
+                            <span>
+                                <strong>New order received</strong>
+                                <small>4 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Order #1024 ready</strong>
+                                <small>32 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="stock-alerts.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon azq-warning-icon">
+                                <i class="bi bi-exclamation-triangle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Low stock detected</strong>
+                                <small>1 hour ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <div class="azq-notification-footer">
+                            <a href="stock-alerts.html">
+                                View all notifications
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-profile-button dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            src="static/images/FOOD/Admin.jpeg"
+                            alt="Admin ZQ">
+
+                        <span class="azq-profile-details">
+
+                            <strong>Admin ZQ</strong>
+
+                            <small>Manager</small>
+
+                        </span>
+
+                    </button>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end azq-profile-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="bi bi-gear"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item azq-signout" href="login.html">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign Out
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <!-- PAGE CONTENT START -->
+
+
+<main class="dashboard-content">
+
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- PAGE HEADER -->
+
+        <div class="add-customer-heading">
+
+            <div>
+
+                <span class="add-customer-eyebrow">
+                    CUSTOMER MANAGEMENT
+                </span>
+
+                <h1 class="add-customer-title">
+                    Add Customer
+                </h1>
+
+                <p class="add-customer-subtitle">
+                    Create a customer profile for orders and restaurant records.
+                </p>
+
+            </div>
+
+            <a
+                href="customers.html"
+                class="back-customer-btn"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Back to Customers
+            </a>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="/add-customer"
+            id="customerForm"
+        >
+
+            <div class="row g-4">
+
+
+                <!-- LEFT SIDE -->
+
+                <div class="col-xl-8">
+
+
+                    <!-- BASIC INFORMATION -->
+
+                    <div class="add-customer-card">
+
+                        <div class="add-customer-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Customer Information
+                                </h5>
+
+                                <p>
+                                    Enter the customer's basic contact details.
+                                </p>
+
+                            </div>
+
+                            <div class="customer-section-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <!-- First Name -->
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    First Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="first_name"
+                                    id="firstName"
+                                    class="customer-input"
+                                    placeholder="e.g. Ali"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Last Name -->
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Last Name
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="last_name"
+                                    id="lastName"
+                                    class="customer-input"
+                                    placeholder="e.g. Khan"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Phone -->
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Phone Number
+                                    <span>*</span>
+                                </label>
+
+                                <div class="customer-input-group">
+
+                                    <span>
+                                        +92
+                                    </span>
+
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        id="customerPhone"
+                                        placeholder="3001234567"
+                                        required
+                                    >
+
+                                </div>
+
+                                <small class="customer-help">
+                                    Used for order updates and delivery contact.
+                                </small>
+
+                            </div>
+
+
+                            <!-- Email -->
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="customer-input"
+                                    placeholder="customer@example.com"
+                                >
+
+                            </div>
+
+
+                            <!-- Address -->
+
+                            <div class="col-12">
+
+                                <label class="customer-label">
+                                    Address
+                                </label>
+
+                                <textarea
+                                    name="address"
+                                    class="customer-textarea"
+                                    rows="3"
+                                    placeholder="House, street, area..."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DELIVERY INFORMATION -->
+
+                    <div class="add-customer-card">
+
+                        <div class="add-customer-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Delivery Information
+                                </h5>
+
+                                <p>
+                                    Save a default delivery location for this customer.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Area / Town
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="area"
+                                    class="customer-input"
+                                    placeholder="e.g. Gulshan-e-Iqbal"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="city"
+                                    class="customer-input"
+                                    value="Karachi"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Postal Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="postal_code"
+                                    class="customer-input"
+                                    placeholder="75300"
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="customer-label">
+                                    Preferred Order Type
+                                </label>
+
+                                <select
+                                    name="order_type"
+                                    class="customer-input"
+                                >
+                                    <option value="dine_in">
+                                        Dine In
+                                    </option>
+
+                                    <option value="takeaway">
+                                        Takeaway
+                                    </option>
+
+                                    <option value="delivery" selected>
+                                        Delivery
+                                    </option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOTES -->
+
+                    <div class="add-customer-card">
+
+                        <div class="add-customer-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Customer Notes
+                                </h5>
+
+                                <p>
+                                    Add useful information for restaurant staff.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <textarea
+                            name="notes"
+                            class="customer-textarea"
+                            rows="4"
+                            placeholder="e.g. Customer prefers less spicy food..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="col-xl-4">
+
+
+                    <!-- CUSTOMER PREVIEW -->
+
+                    <div class="customer-preview-card">
+
+                        <div class="customer-preview-label">
+                            CUSTOMER PREVIEW
+                        </div>
+
+
+                        <div class="customer-preview-avatar">
+
+                            <span id="previewInitials">
+                                AC
+                            </span>
+
+                        </div>
+
+
+                        <div class="customer-preview-content">
+
+                            <h4 id="previewName">
+                                New Customer
+                            </h4>
+
+                            <p id="previewPhone">
+                                +92 300 0000000
+                            </p>
+
+                            <div class="preview-status">
+                                <span></span>
+                                Active Customer
+                            </div>
+
+                        </div>
+
+
+                        <div class="preview-stats">
+
+                            <div>
+                                <strong>0</strong>
+                                <span>Orders</span>
+                            </div>
+
+                            <div>
+                                <strong>Rs. 0</strong>
+                                <span>Total Spent</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT SETTINGS -->
+
+                    <div class="add-customer-card">
+
+                        <div class="add-customer-card-header">
+
+                            <div>
+
+                                <h5>
+                                    Customer Settings
+                                </h5>
+
+                                <p>
+                                    Manage customer account status.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Active Customer
+                                </strong>
+
+                                <small>
+                                    Allow customer to place new orders.
+                                </small>
+
+                            </div>
+
+                            <label class="zq-customer-switch">
+
+                                <input
+                                    type="checkbox"
+                                    name="active"
+                                    checked
+                                >
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="customer-setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Order Notifications
+                                </strong>
+
+                                <small>
+                                    Allow order updates by phone.
+                                </small>
+
+                            </div>
+
+                            <label class="zq-customer-switch">
+
+                                <input
+                                    type="checkbox"
+                                    name="notifications"
+                                    checked
+                                >
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="customer-form-actions">
+
+                        <a
+                            href="customers.html"
+                            class="cancel-customer-btn"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="save-customer-btn"
+                        >
+                            <i class="bi bi-check2"></i>
+                            Save Customer
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<style>
+
+/* =========================================================
+   ADD CUSTOMER — PREMIUM LIGHT LUXURY
+========================================================= */
+
+.add-customer-heading,
+.add-customer-card,
+.customer-preview-card {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.add-customer-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.add-customer-eyebrow {
+    display: inline-block;
+    color: #a9782b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.add-customer-title {
+    margin: 6px 0 0;
+    color: #24211d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.5px;
+}
+
+.add-customer-subtitle {
+    margin: 8px 0 0;
+    color: #817a71;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.back-customer-btn {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 15px;
+    color: #5e5952 !important;
+    background: #fff;
+    border: 1px solid #e3ddd4;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(45, 38, 28, .04);
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.back-customer-btn i {
+    font-size: 14px;
+}
+
+.back-customer-btn:hover {
+    color: #9b6d26 !important;
+    background: #fffdf9;
+    border-color: #cda761;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 18px rgba(45, 38, 28, .07);
+}
+
+
+/* =========================================================
+   MAIN CARDS
+========================================================= */
+
+.add-customer-card {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 16px;
+    padding: 23px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 28px rgba(42, 35, 26, .055);
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.add-customer-card:hover {
+    border-color: #ddd3c5;
+    box-shadow: 0 12px 34px rgba(42, 35, 26, .075);
+}
+
+.add-customer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 3px;
+    background: #b4873a;
+    border-radius: 0 0 4px 0;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.add-customer-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.add-customer-card-header h5 {
+    margin: 0 0 5px;
+    color: #29251f;
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: -.15px;
+}
+
+.add-customer-card-header p {
+    margin: 0;
+    color: #918a81;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.customer-section-icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a9782b;
+    background: #faf5eb;
+    border: 1px solid #eee2cf;
+    border-radius: 11px;
+}
+
+.customer-section-icon i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FORM LABELS
+========================================================= */
+
+.customer-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #504a43;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1px;
+}
+
+.customer-label span {
+    margin-left: 2px;
+    color: #b06f20;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.customer-input,
+.customer-textarea {
+    width: 100%;
+    color: #302c27 !important;
+    background: #fcfbf8 !important;
+    border: 1px solid #ded8cf !important;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12.5px;
+    line-height: 1.5;
+    box-shadow: none !important;
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-input {
+    height: 43px;
+    padding: 0 12px;
+}
+
+.customer-textarea {
+    min-height: 96px;
+    padding: 11px 12px;
+    resize: vertical;
+}
+
+.customer-input:hover,
+.customer-textarea:hover {
+    background: #fff !important;
+    border-color: #cfc6ba !important;
+}
+
+.customer-input:focus,
+.customer-textarea:focus {
+    background: #fff !important;
+    border-color: #bb8a3d !important;
+    box-shadow: 0 0 0 3px rgba(187, 138, 61, .10) !important;
+}
+
+.customer-input::placeholder,
+.customer-textarea::placeholder {
+    color: #aaa39a;
+}
+
+.customer-input option {
+    color: #302c27;
+    background: #fff;
+}
+
+
+/* =========================================================
+   PHONE INPUT
+========================================================= */
+
+.customer-input-group {
+    height: 43px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #fcfbf8;
+    border: 1px solid #ded8cf;
+    border-radius: 10px;
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.customer-input-group:hover {
+    background: #fff;
+    border-color: #cfc6ba;
+}
+
+.customer-input-group:focus-within {
+    background: #fff;
+    border-color: #bb8a3d;
+    box-shadow: 0 0 0 3px rgba(187, 138, 61, .10);
+}
+
+.customer-input-group > span {
+    height: 100%;
+    min-width: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: #776f66;
+    background: #f7f3ec;
+    border-right: 1px solid #e1dbd2;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.customer-input-group input {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding: 0 12px;
+    color: #302c27;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 12.5px;
+}
+
+.customer-input-group input::placeholder {
+    color: #aaa39a;
+}
+
+.customer-help {
+    display: block;
+    margin-top: 6px;
+    color: #999188;
+    font-size: 9.5px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CUSTOMER SETTINGS
+========================================================= */
+
+.customer-setting-row {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 1px solid #eee9e1;
+}
+
+.customer-setting-row:first-of-type {
+    border-top: none;
+}
+
+.customer-setting-row strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #3a352f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.customer-setting-row small {
+    display: block;
+    color: #999188;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   PREMIUM SWITCH
+========================================================= */
+
+.zq-customer-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex: 0 0 44px;
+}
+
+.zq-customer-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.zq-customer-switch span {
+    position: absolute;
+    inset: 0;
+    display: block;
+    cursor: pointer;
+    background: #d8d2c9;
+    border: 1px solid #cfc8be;
+    border-radius: 30px;
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.zq-customer-switch span::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 1px solid #d4cec5;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    transition:
+        transform .22s ease,
+        background .2s ease;
+}
+
+.zq-customer-switch input:checked + span {
+    background: #b4873a;
+    border-color: #b4873a;
+}
+
+.zq-customer-switch input:checked + span::before {
+    transform: translateX(20px);
+    background: #fffdf8;
+}
+
+.zq-customer-switch input:focus-visible + span {
+    box-shadow: 0 0 0 3px rgba(180, 135, 58, .14);
+}
+
+
+/* =========================================================
+   CUSTOMER PREVIEW
+========================================================= */
+
+.customer-preview-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(42, 35, 26, .055);
+}
+
+.customer-preview-card::before {
+    content: "";
+    position: absolute;
+    top: -85px;
+    right: -70px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(188, 148, 82, .12) 0%,
+        rgba(188, 148, 82, .04) 48%,
+        transparent 72%
+    );
+    pointer-events: none;
+}
+
+.customer-preview-label {
+    position: relative;
+    padding: 19px 19px 0;
+    color: #a9782b;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.customer-preview-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    margin: 23px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        #fbf4e7,
+        #f4ead9
+    );
+    border: 1px solid #e5d6bc;
+    box-shadow:
+        0 8px 20px rgba(105, 78, 35, .08),
+        inset 0 0 0 5px rgba(255, 255, 255, .65);
+}
+
+.customer-preview-avatar::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgba(169, 120, 43, .18);
+    border-radius: 50%;
+}
+
+.customer-preview-avatar span {
+    position: relative;
+    z-index: 1;
+    color: #a9782b;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.customer-preview-content {
+    position: relative;
+    padding: 0 18px 21px;
+    text-align: center;
+}
+
+.customer-preview-content h4 {
+    margin: 0 0 5px;
+    color: #2d2924;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.customer-preview-content p {
+    margin: 0 0 11px;
+    color: #8d867d;
+    font-size: 11px;
+}
+
+.preview-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    color: #4d8767;
+    background: #f0f8f3;
+    border: 1px solid #d8ecdf;
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.preview-status span {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: #56a477;
+    box-shadow: 0 0 0 3px rgba(86, 164, 119, .10);
+}
+
+
+/* =========================================================
+   PREVIEW STATS
+========================================================= */
+
+.preview-stats {
+    display: flex;
+    background: #fcfaf7;
+    border-top: 1px solid #eee8df;
+}
+
+.preview-stats > div {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 7px;
+    text-align: center;
+}
+
+.preview-stats > div + div {
+    border-left: 1px solid #eee8df;
+}
+
+.preview-stats strong {
+    display: block;
+    color: #332f29;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.preview-stats span {
+    display: block;
+    margin-top: 4px;
+    color: #999188;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.customer-form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cancel-customer-btn,
+.save-customer-btn {
+    min-height: 43px;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 13px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease;
+}
+
+.cancel-customer-btn {
+    color: #625c54 !important;
+    background: #fff;
+    border: 1px solid #ddd7ce;
+}
+
+.cancel-customer-btn:hover {
+    color: #342f29 !important;
+    background: #faf8f4;
+    border-color: #cfc7bc;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 18px rgba(42, 35, 26, .06);
+}
+
+.save-customer-btn {
+    color: #fffdf8;
+    background: linear-gradient(
+        135deg,
+        #a9782b,
+        #bb8b3e
+    );
+    border: 1px solid #a9782b;
+    box-shadow: 0 7px 18px rgba(169, 120, 43, .17);
+}
+
+.save-customer-btn i {
+    font-size: 14px;
+}
+
+.save-customer-btn:hover {
+    color: #fff;
+    background: linear-gradient(
+        135deg,
+        #96691f,
+        #ad7d30
+    );
+    border-color: #96691f;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 23px rgba(169, 120, 43, .22);
+}
+
+.cancel-customer-btn:focus-visible,
+.save-customer-btn:focus-visible,
+.back-customer-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(169, 120, 43, .14);
+}
+
+
+/* =========================================================
+   FORM VALIDATION FRIENDLY
+========================================================= */
+
+.customer-input:invalid:not(:placeholder-shown),
+.customer-textarea:invalid:not(:placeholder-shown) {
+    border-color: #d7b7a4 !important;
+}
+
+.customer-input:valid:not(:placeholder-shown) {
+    border-color: #d6ddd7 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LARGE TABLET
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .add-customer-card {
+        padding: 21px;
+    }
+
+    .customer-preview-card {
+        margin-top: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .add-customer-heading {
+        align-items: flex-start;
+    }
+
+    .customer-preview-card {
+        margin-top: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .add-customer-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        margin-bottom: 23px;
+    }
+
+    .add-customer-title {
+        font-size: 32px;
+    }
+
+    .back-customer-btn {
+        width: 100%;
+    }
+
+    .add-customer-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .add-customer-card-header {
+        margin-bottom: 18px;
+    }
+
+    .customer-setting-row {
+        min-height: 66px;
+    }
+
+    .customer-form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-customer-btn,
+    .save-customer-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .add-customer-title {
+        font-size: 28px;
+    }
+
+    .add-customer-subtitle {
+        font-size: 12px;
+    }
+
+    .add-customer-card {
+        padding: 16px;
+        margin-bottom: 14px;
+    }
+
+    .add-customer-card-header h5 {
+        font-size: 15px;
+    }
+
+    .add-customer-card-header p {
+        font-size: 10px;
+    }
+
+    .customer-section-icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .customer-preview-avatar {
+        width: 74px;
+        height: 74px;
+    }
+
+    .customer-preview-content h4 {
+        font-size: 18px;
+    }
+
+    .customer-setting-row {
+        gap: 12px;
+    }
+
+    .customer-setting-row small {
+        max-width: 210px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .add-customer-card,
+    .back-customer-btn,
+    .cancel-customer-btn,
+    .save-customer-btn,
+    .customer-input,
+    .customer-textarea,
+    .customer-input-group,
+    .zq-customer-switch span,
+    .zq-customer-switch span::before {
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+        <!-- PAGE CONTENT END -->
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="azq-footer">
+
+            <div class="azq-footer-inner">
+
+                <div class="azq-footer-brand">
+
+                    <div class="azq-footer-logo">
+                        ZQ
+                    </div>
+
+                    <div class="azq-footer-text">
+
+                        <strong>
+                            adminZQ Restaurant Suite
+                        </strong>
+
+                        <span>
+                            © 2026 adminZQ. All rights reserved.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="azq-footer-right">
+
+                    <span class="azq-footer-dot"></span>
+
+                    <span>
+                        All systems operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sidebar / Theme functionality -->
+<script src="static/js/main.js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="adminZQ professional restaurant admin dashboard">
+
+    <title>adminZQ | Restaurant Management</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="static/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="static/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Header / Sidebar / Footer CSS ONLY -->
+    <link rel="stylesheet"
+          href="static/css/style.css">
+</head>
+
+<body>
+
+<div style="background:#0f4c75; color:#ffffff; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:999999; box-shadow:0 2px 10px rgba(0,0,0,0.3);">
+    <span><i class="bi bi-shield-check" style="margin-right:6px;"></i><strong>adminZQ</strong> &mdash; Restaurant Command Center &amp; Management Suite (Zain Qazi)</span>
+    <a href="https://zainqazi.netlify.app#projects" style="color:#ffffff; text-decoration:none; background:rgba(255,255,255,0.2); padding:6px 16px; border-radius:6px; font-weight:600; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">&larr; Back to Portfolio</a>
+</div>
+
+
+<div class="azq-layout">
+
+    <!-- Sidebar Overlay -->
+    <div class="azq-sidebar-overlay" data-sidebar-close></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="azq-sidebar" id="adminSidebar">
+
+        <!-- Brand -->
+        <div class="azq-sidebar-brand">
+
+            <a href="index.html" class="azq-brand">
+
+                <div class="azq-brand-logo">
+                    <img
+                        src="static/images/FOOD/zq-logo.svg.svg"
+                        alt="ZQ Logo">
+                </div>
+
+                <div class="azq-brand-text">
+                    <span class="azq-brand-name">adminZQ</span>
+                    <span class="azq-brand-subtitle">
+                        Restaurant Suite
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="azq-navigation">
+
+            <div class="azq-nav-label">
+                MAIN MENU
+            </div>
+
+            <a href="index.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                </span>
+                <span class="azq-nav-text">Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-receipt"></i>
+                </span>
+                <span class="azq-nav-text">Orders</span>
+            </a>
+
+
+            <a href="products.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </span>
+                <span class="azq-nav-text">Products</span>
+            </a>
+
+
+            <a href="categories.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </span>
+                <span class="azq-nav-text">Categories</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                MANAGEMENT
+            </div>
+
+
+            <a href="customers.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="azq-nav-text">Customers</span>
+            </a>
+
+
+            <a href="staff.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <span class="azq-nav-text">Staff</span>
+            </a>
+
+
+            <a href="stock-alerts.html" class="azq-nav-link azq-nav-alert-link">
+
+                <span class="azq-nav-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+
+                <span class="azq-nav-text">
+                    Stock Alerts
+                </span>
+
+                <span class="azq-alert-count">
+                    5
+                </span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="azq-nav-link active">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-truck"></i>
+                </span>
+                <span class="azq-nav-text">Suppliers</span>
+            </a>
+
+
+            <a href="reports.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </span>
+                <span class="azq-nav-text">Reports</span>
+            </a>
+
+
+            <div class="azq-nav-label azq-nav-label-space">
+                ACCOUNT
+            </div>
+
+
+            <a href="profile.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="azq-nav-text">Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="azq-nav-link">
+                <span class="azq-nav-icon">
+                    <i class="bi bi-gear"></i>
+                </span>
+                <span class="azq-nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar User -->
+        <div class="azq-sidebar-user">
+
+            <div class="azq-user-avatar">
+                <img
+                    src="static/images/FOOD/Admin.jpeg"
+                    alt="Admin ZQ">
+            </div>
+
+            <div class="azq-user-info">
+
+                <strong>Admin ZQ</strong>
+
+                <span>
+                    Restaurant Manager
+                </span>
+
+            </div>
+
+            <i class="bi bi-three-dots azq-user-menu"></i>
+
+        </div>
+
+
+        <!-- Sidebar Status -->
+        <div class="azq-sidebar-status">
+
+            <span class="azq-status-indicator"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <div class="azq-main">
+
+        <!-- Top Header -->
+        <header class="azq-header">
+
+            <div class="azq-header-left">
+
+                <!-- Sidebar Toggle -->
+                <button
+                    type="button"
+                    class="azq-sidebar-toggle"
+                    data-sidebar-toggle
+                    aria-controls="adminSidebar"
+                    aria-expanded="true"
+                    aria-label="Toggle sidebar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+                <!-- Search -->
+                <div class="azq-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search orders, products..."
+                        aria-label="Search">
+
+                    <span class="azq-search-shortcut">
+                        /
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="azq-header-right">
+
+                <!-- Theme -->
+                <button
+                    type="button"
+                    class="azq-header-button theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch color theme">
+
+                    <i
+                        class="bi bi-moon-stars"
+                        data-theme-icon>
+                    </i>
+
+                </button>
+
+
+                <!-- Notifications -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-header-button azq-notification-button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span class="azq-notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end azq-notification-menu">
+
+                        <div class="azq-dropdown-heading">
+                            <strong>Notifications</strong>
+                            <span>3 new</span>
+                        </div>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+
+                            <span>
+                                <strong>New order received</strong>
+                                <small>4 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="orders.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Order #1024 ready</strong>
+                                <small>32 minutes ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <a href="stock-alerts.html" class="azq-notification-item">
+
+                            <span class="azq-notification-icon azq-warning-icon">
+                                <i class="bi bi-exclamation-triangle"></i>
+                            </span>
+
+                            <span>
+                                <strong>Low stock detected</strong>
+                                <small>1 hour ago</small>
+                            </span>
+
+                        </a>
+
+
+                        <div class="azq-notification-footer">
+                            <a href="stock-alerts.html">
+                                View all notifications
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+
+                    <button
+                        type="button"
+                        class="azq-profile-button dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            src="static/images/FOOD/Admin.jpeg"
+                            alt="Admin ZQ">
+
+                        <span class="azq-profile-details">
+
+                            <strong>Admin ZQ</strong>
+
+                            <small>Manager</small>
+
+                        </span>
+
+                    </button>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end azq-profile-menu">
+
+                        <li>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="settings.html">
+                                <i class="bi bi-gear"></i>
+                                Account Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item azq-signout" href="login.html">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign Out
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+
+        <!-- PAGE CONTENT START -->
+
+
+<main class="dashboard-content">
+    <div class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- Page Header -->
+        <div class="restaurant-heading">
+            <div>
+                <span class="restaurant-eyebrow">SUPPLIER MANAGEMENT</span>
+                <h1 class="restaurant-title">Suppliers</h1>
+                <p class="restaurant-subtitle">
+                    Manage your restaurant suppliers, contacts and supply information.
+                </p>
+            </div>
+
+            <div class="restaurant-actions">
+                <button class="btn btn-outline-dark" type="button" onclick="exportSuppliers()">
+                    <i class="bi bi-download"></i>
+                    Export
+                </button>
+
+                <a href="add-supplier.html" class="btn restaurant-btn">
+                    <i class="bi bi-plus-lg"></i>
+                    Add Supplier
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <div>
+                        <span>Total Suppliers</span>
+                        <h3>12</h3>
+                        <small>Active suppliers</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                    <div>
+                        <span>Active Suppliers</span>
+                        <h3>10</h3>
+                        <small>Currently supplying</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <div>
+                        <span>Orders This Month</span>
+                        <h3>38</h3>
+                        <small>Purchase orders</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-icon">
+                        <i class="bi bi-currency-rupee"></i>
+                    </div>
+                    <div>
+                        <span>Monthly Purchases</span>
+                        <h3>Rs. 284K</h3>
+                        <small>Supplier purchases</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Main Card -->
+        <div class="supplier-card">
+
+            <!-- Toolbar -->
+            <div class="supplier-toolbar">
+
+                <div class="supplier-search">
+                    <i class="bi bi-search"></i>
+                    <input
+                        type="text"
+                        id="supplierSearch"
+                        placeholder="Search supplier, contact or category..."
+                        onkeyup="filterSuppliers()"
+                    >
+                </div>
+
+                <div class="supplier-filters">
+
+                    <select id="categoryFilter" onchange="filterSuppliers()">
+                        <option value="">All Categories</option>
+                        <option value="Meat">Meat</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Dairy">Dairy</option>
+                        <option value="Beverages">Beverages</option>
+                        <option value="Packaging">Packaging</option>
+                    </select>
+
+                    <select id="statusFilter" onchange="filterSuppliers()">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+
+                    <button class="supplier-reset-btn" onclick="resetFilters()">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table supplier-table" id="supplierTable">
+
+                    <thead>
+                        <tr>
+                            <th>Supplier</th>
+                            <th>Category</th>
+                            <th>Contact Person</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Last Order</th>
+                            <th>Status</th>
+                            <th class="text-end">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">FM</div>
+                                    <div>
+                                        <strong>Fresh Meat Supplier</strong>
+                                        <small>SUP-001</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Meat</span></td>
+                            <td>Usman Ahmed</td>
+                            <td>0300-1234567</td>
+                            <td>freshmeat@gmail.com</td>
+                            <td>16 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Fresh Meat Supplier')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-001')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Fresh Meat Supplier')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">PR</div>
+                                    <div>
+                                        <strong>Pak Rice Traders</strong>
+                                        <small>SUP-002</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Grocery</span></td>
+                            <td>Bilal Khan</td>
+                            <td>0311-2345678</td>
+                            <td>pakrice@gmail.com</td>
+                            <td>15 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Pak Rice Traders')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-002')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Pak Rice Traders')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">FF</div>
+                                    <div>
+                                        <strong>Fresh Farm Foods</strong>
+                                        <small>SUP-003</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Vegetables</span></td>
+                            <td>Ahmed Raza</td>
+                            <td>0322-3456789</td>
+                            <td>freshfarm@gmail.com</td>
+                            <td>17 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Fresh Farm Foods')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-003')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Fresh Farm Foods')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">DF</div>
+                                    <div>
+                                        <strong>Dairy Fresh</strong>
+                                        <small>SUP-004</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Dairy</span></td>
+                            <td>Hassan Ali</td>
+                            <td>0333-4567890</td>
+                            <td>dairyfresh@gmail.com</td>
+                            <td>14 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Dairy Fresh')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-004')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Dairy Fresh')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">NF</div>
+                                    <div>
+                                        <strong>National Foods Supply</strong>
+                                        <small>SUP-005</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Grocery</span></td>
+                            <td>Farhan Malik</td>
+                            <td>0344-5678901</td>
+                            <td>nationalfoods@gmail.com</td>
+                            <td>12 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('National Foods Supply')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-005')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('National Foods Supply')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">BD</div>
+                                    <div>
+                                        <strong>Beverage Distributors</strong>
+                                        <small>SUP-006</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Beverages</span></td>
+                            <td>Kamran Shah</td>
+                            <td>0305-6789012</td>
+                            <td>beverages@gmail.com</td>
+                            <td>10 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Beverage Distributors')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-006')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Beverage Distributors')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">PS</div>
+                                    <div>
+                                        <strong>Premium Spice House</strong>
+                                        <small>SUP-007</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Grocery</span></td>
+                            <td>Imran Siddiqui</td>
+                            <td>0315-7890123</td>
+                            <td>premiumspice@gmail.com</td>
+                            <td>08 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-active">
+                                    <span></span> Active
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Premium Spice House')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-007')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Premium Spice House')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="supplier-name-wrap">
+                                    <div class="supplier-avatar">PK</div>
+                                    <div>
+                                        <strong>Pak Packaging Store</strong>
+                                        <small>SUP-008</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="category-badge">Packaging</span></td>
+                            <td>Waqas Ahmed</td>
+                            <td>0321-8901234</td>
+                            <td>pakpackaging@gmail.com</td>
+                            <td>05 Sep 2026</td>
+                            <td>
+                                <span class="status-badge status-inactive">
+                                    <span></span> Inactive
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <div class="supplier-actions">
+                                    <button onclick="viewSupplier('Pak Packaging Store')" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button onclick="editSupplier('SUP-008')" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button onclick="deleteSupplier('Pak Packaging Store')" title="Delete">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptySupplier" class="supplier-empty" style="display:none;">
+                <i class="bi bi-search"></i>
+                <h4>No suppliers found</h4>
+                <p>Try changing your search or filter.</p>
+            </div>
+
+            <!-- Pagination -->
+            <div class="supplier-pagination">
+                <div>
+                    Showing <strong>1–8</strong> of <strong>12</strong> suppliers
+                </div>
+
+                <div class="pagination-buttons">
+                    <button disabled>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<style>
+
+/* =========================================================
+   SUPPLIERS — PREMIUM LIGHT LUXURY
+========================================================= */
+
+.restaurant-heading,
+.supplier-stat-card,
+.supplier-card,
+.supplier-empty,
+.supplier-pagination {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.restaurant-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.restaurant-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a17a35;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.restaurant-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: #c29a50;
+}
+
+.restaurant-title {
+    color: #27231e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(31px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+    margin: 7px 0 0;
+}
+
+.restaurant-subtitle {
+    color: #827b72;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 8px 0 0;
+}
+
+.restaurant-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.restaurant-actions .btn {
+    min-height: 41px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 10px;
+    padding: 9px 15px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(43, 35, 25, .045);
+    transition: all .2s ease;
+}
+
+.restaurant-actions .btn-outline-dark {
+    color: #5d574f;
+    background: #ffffff;
+    border-color: #ddd7cf;
+}
+
+.restaurant-actions .btn-outline-dark:hover {
+    color: #8e6828;
+    background: #fffdf9;
+    border-color: #c7a158;
+    transform: translateY(-1px);
+}
+
+.restaurant-btn {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #9e772f, #b88c3e);
+    border: 1px solid #9e772f;
+    box-shadow: 0 7px 18px rgba(153, 113, 43, .17) !important;
+}
+
+.restaurant-btn:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #8f6928, #a97e34);
+    border-color: #8f6928;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(153, 113, 43, .23) !important;
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.supplier-stat-card {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 112px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e7e1d9;
+    border-radius: 16px;
+    box-shadow: 0 7px 23px rgba(42, 34, 25, .055);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.supplier-stat-card::after {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    right: -58px;
+    top: -62px;
+    border-radius: 50%;
+    background: rgba(194, 154, 80, .055);
+    pointer-events: none;
+}
+
+.supplier-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 11px 28px rgba(42, 34, 25, .08);
+}
+
+.supplier-stat-icon {
+    position: relative;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9b742f;
+    background: #faf5e9;
+    border: 1px solid #eee2ca;
+    border-radius: 13px;
+    font-size: 20px;
+}
+
+.supplier-stat-card > div:last-child {
+    position: relative;
+    z-index: 1;
+}
+
+.supplier-stat-card span {
+    display: block;
+    color: #837c73;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+    margin-bottom: 4px;
+}
+
+.supplier-stat-card h3 {
+    color: #2e2923;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 750;
+    margin: 0 0 4px;
+}
+
+.supplier-stat-card small {
+    color: #9b948b;
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MAIN SUPPLIER CARD
+========================================================= */
+
+.supplier-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e5dfd7;
+    border-radius: 17px;
+    box-shadow: 0 9px 28px rgba(40, 32, 23, .06);
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.supplier-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 19px;
+    background: #ffffff;
+    border-bottom: 1px solid #ece7e0;
+}
+
+.supplier-search {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+}
+
+.supplier-search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    color: #aaa198;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.supplier-search input {
+    width: 100%;
+    height: 43px;
+    padding: 0 14px 0 40px;
+    color: #37322c;
+    background: #fcfbf9;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+    transition: all .2s ease;
+}
+
+.supplier-search input:hover {
+    background: #ffffff;
+    border-color: #cec7be;
+}
+
+.supplier-search input:focus {
+    background: #ffffff;
+    border-color: #c19a51;
+    box-shadow: 0 0 0 3px rgba(193, 154, 81, .10);
+}
+
+.supplier-search input::placeholder {
+    color: #aaa39a;
+}
+
+.supplier-filters {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.supplier-filters select {
+    height: 43px;
+    min-width: 145px;
+    padding: 0 12px;
+    color: #514b44;
+    background-color: #fcfbf9;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.supplier-filters select:hover {
+    border-color: #cec7be;
+    background-color: #ffffff;
+}
+
+.supplier-filters select:focus {
+    border-color: #c19a51;
+    box-shadow: 0 0 0 3px rgba(193, 154, 81, .10);
+}
+
+.supplier-filters select option {
+    color: #38332d;
+    background: #ffffff;
+}
+
+.supplier-reset-btn {
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777067;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.supplier-reset-btn:hover {
+    color: #96702c;
+    background: #fbf7ee;
+    border-color: #c5a05a;
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.supplier-table {
+    width: 100%;
+    margin: 0;
+    color: #514b44;
+    vertical-align: middle;
+}
+
+.supplier-table thead th {
+    padding: 14px 18px;
+    color: #817a71;
+    background: #faf8f5;
+    border-bottom: 1px solid #e8e2da;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    white-space: nowrap;
+}
+
+.supplier-table tbody td {
+    padding: 15px 18px;
+    color: #686159;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeae5;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: background .15s ease;
+}
+
+.supplier-table tbody tr:hover td {
+    background: #fcfaf6;
+}
+
+.supplier-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   SUPPLIER PROFILE
+========================================================= */
+
+.supplier-name-wrap {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.supplier-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #966f2c;
+    background: linear-gradient(145deg, #fbf6e9, #f3e8d0);
+    border: 1px solid #eadabd;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(128, 94, 35, .06);
+}
+
+.supplier-name-wrap strong {
+    display: block;
+    color: #36312b;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.supplier-name-wrap small {
+    display: block;
+    color: #aaa198;
+    font-size: 9px;
+    font-weight: 600;
+    margin-top: 3px;
+    letter-spacing: .25px;
+}
+
+
+/* =========================================================
+   CATEGORY BADGE
+========================================================= */
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 5px 9px;
+    color: #76654a;
+    background: #f7f2e8;
+    border: 1px solid #e9dfcd;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 25px;
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.status-badge > span {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.status-active {
+    color: #3f8056;
+    background: #edf7f0;
+    border: 1px solid #d7ebdc;
+}
+
+.status-active > span {
+    background: #56a16c;
+}
+
+.status-inactive {
+    color: #a2584e;
+    background: #fff0ed;
+    border: 1px solid #f0d5d0;
+}
+
+.status-inactive > span {
+    background: #ca7063;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.supplier-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.supplier-actions button {
+    width: 33px;
+    height: 33px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #777067;
+    background: #ffffff;
+    border: 1px solid #ded8d0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.supplier-actions button:hover {
+    color: #936d2c;
+    background: #faf6ed;
+    border-color: #c8a45e;
+    transform: translateY(-1px);
+}
+
+.supplier-actions button[title="Delete"]:hover {
+    color: #b45e52;
+    background: #fff3f0;
+    border-color: #e2b8b1;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.supplier-empty {
+    padding: 58px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.supplier-empty i {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #b18a45;
+    background: #faf5e9;
+    border: 1px solid #eadfc9;
+    border-radius: 18px;
+    font-size: 25px;
+}
+
+.supplier-empty h4 {
+    color: #37312b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 14px 0 5px;
+}
+
+.supplier-empty p {
+    color: #958e85;
+    font-size: 11px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.supplier-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 19px;
+    color: #8d857c;
+    background: #ffffff;
+    border-top: 1px solid #ece7e0;
+    font-size: 10px;
+}
+
+.supplier-pagination strong {
+    color: #5d564e;
+    font-weight: 700;
+}
+
+.pagination-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pagination-buttons button {
+    min-width: 33px;
+    height: 33px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #766f67;
+    background: #ffffff;
+    border: 1px solid #ddd8d0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.pagination-buttons button:hover:not(:disabled),
+.pagination-buttons button.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #9d762f, #b58a3c);
+    border-color: #9d762f;
+    box-shadow: 0 5px 12px rgba(151, 111, 43, .15);
+}
+
+.pagination-buttons button:disabled {
+    color: #b9b2aa;
+    background: #faf9f7;
+    cursor: not-allowed;
+    opacity: .7;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.restaurant-actions .btn:focus-visible,
+.supplier-search input:focus-visible,
+.supplier-filters select:focus-visible,
+.supplier-reset-btn:focus-visible,
+.supplier-actions button:focus-visible,
+.pagination-buttons button:focus-visible {
+    outline: 3px solid rgba(181, 138, 60, .18);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .supplier-table thead th,
+    .supplier-table tbody td {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .restaurant-heading {
+        align-items: flex-start;
+    }
+
+    .restaurant-actions {
+        flex-shrink: 0;
+    }
+
+    .supplier-toolbar {
+        align-items: stretch;
+    }
+
+    .supplier-search {
+        min-width: 100%;
+    }
+
+    .supplier-filters {
+        width: 100%;
+    }
+
+    .supplier-filters select {
+        flex: 1;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .restaurant-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .restaurant-title {
+        font-size: 31px;
+    }
+
+    .restaurant-actions {
+        width: 100%;
+    }
+
+    .restaurant-actions .btn {
+        flex: 1;
+    }
+
+    .supplier-card {
+        border-radius: 14px;
+    }
+
+    .supplier-toolbar {
+        padding: 15px;
+    }
+
+    .supplier-filters {
+        flex-wrap: wrap;
+    }
+
+    .supplier-filters select {
+        min-width: 0;
+    }
+
+    .supplier-reset-btn {
+        flex: 0 0 43px;
+    }
+
+    .supplier-table {
+        min-width: 1050px;
+    }
+
+    .supplier-pagination {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .restaurant-title {
+        font-size: 28px;
+    }
+
+    .restaurant-subtitle {
+        font-size: 12px;
+    }
+
+    .restaurant-actions {
+        flex-direction: column;
+    }
+
+    .restaurant-actions .btn {
+        width: 100%;
+    }
+
+    .supplier-stat-card {
+        min-height: 100px;
+        padding: 17px;
+    }
+
+    .supplier-stat-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+
+    .supplier-toolbar {
+        padding: 13px;
+    }
+
+    .supplier-filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr 43px;
+        width: 100%;
+    }
+
+    .supplier-filters select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .supplier-search input {
+        height: 42px;
+    }
+
+    .supplier-pagination {
+        gap: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .restaurant-actions .btn,
+    .supplier-stat-card,
+    .supplier-search input,
+    .supplier-filters select,
+    .supplier-reset-btn,
+    .supplier-actions button,
+    .pagination-buttons button {
+        transition: none;
+    }
+
+}
+
+</style>
+
+
+
+
+        <!-- PAGE CONTENT END -->
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="azq-footer">
+
+            <div class="azq-footer-inner">
+
+                <div class="azq-footer-brand">
+
+                    <div class="azq-footer-logo">
+                        ZQ
+                    </div>
+
+                    <div class="azq-footer-text">
+
+                        <strong>
+                            adminZQ Restaurant Suite
+                        </strong>
+
+                        <span>
+                            © 2026 adminZQ. All rights reserved.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="azq-footer-right">
+
+                    <span class="azq-footer-dot"></span>
+
+                    <span>
+                        All systems operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sidebar / Theme functionality -->
+<script src="static/js/main.js.js"></script>
+
+</body>
+</html>
